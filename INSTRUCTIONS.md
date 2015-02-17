@@ -26,9 +26,9 @@ webdevtest/src/index.html
 
 The links from the promotion list view should take us to the individual promotion view. The page should render one of the three promotions from the feed data when accessed by the URLs below.
 
-webdevtest/src/index.html?promo=promo01
-webdevtest/src/index.html?promo=promo02
-webdevtest/src/index.html?promo=promo03
+- webdevtest/src/index.html?promo=promo01
+- webdevtest/src/index.html?promo=promo02
+- webdevtest/src/index.html?promo=promo03
 
 Design Attributes
 -----------------
