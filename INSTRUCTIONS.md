@@ -13,9 +13,9 @@ Place your HTML in webdevtest/src/index.html. All other resources should be save
 Feed Data
 ---------
 
-Your page should load data from the provided datafile. No content should be hard-coded into your document.
+Your page should load data from the provided datafile. Almost no content will be hard-coded into your document.
 
-webdevtest/src/js/webdevtest-data.js
+- webdevtest/src/js/webdevtest-data.js
 
 URLs and page rendering
 -----------------------
