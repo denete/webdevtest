@@ -1,0 +1,77 @@
+/* GLOBAL STYLES */
+
+body {
+	font-family: 'Arial', sans-serif;
+	background: #cccccc; /* Old browsers */
+	background: -moz-linear-gradient(top,  #cccccc 0%, #ffffff 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #cccccc 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #cccccc 0%,#ffffff 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #cccccc 0%,#ffffff 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #cccccc 0%,#ffffff 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+	
+
+/* PROMOTION LIST VIEW */
+.container { max-width: 677px; margin: 0px auto; height: 100%; padding-top: 20px; }
+
+.promotion-link { font-size: 24px; font-weight: bold; color: #036dbe; text-decoration: none; padding: 10px 0px 10px 0px; display: block;}
+
+.promotion-summary { font-size: 14px; color: #444444; display: block; padding-bottom: 10px } 
+
+img {   
+	-webkit-box-shadow: 3px 5px 3px 0px #888;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	-moz-box-shadow:    3px 5px 3px 0px #888;  /* Firefox 3.5 - 3.6 */
+	box-shadow:         3px 5px 3px 0px #888;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */ 
+	max-width: 677px;
+	width: 100%;	
+	margin: 15px 0px;
+}
+.spacer { height: 30px; width: 100%; display: block }
+
+
+/* PROMOTION DETAIL VIEW */
+
+.promotion-name { font-size: 24px; font-weight: bold; color: #000000; text-decoration: none; padding: 15px 0px 10px 0px; display: block;}
+
+.promotion-summary, .promotion-locked  { font-size: 14px; line-height: 24px; color: #444444; display: block; padding-bottom: 10px } 
+
+.promotion-header { font-weight: bold; font-size: 18px; text-align: center; margin: 15px 0px 10px 0px; color: #000; }
+
+.promotion-locked { padding-bottom: 15px; text-align: center; color: #b20000 }
+
+.next-entry { font-size: 24px; font-weight: bold; color: #b20000; padding-bottom: 10px; text-align: center; padding-top: 10px; }
+
+table { width: 100%; text-align: center; font-size: 14px; margin-bottom: 30px; }
+table th, table td { padding: 7px 0px; border: 3px solid #FFF;  }
+table th { background-color: #666; color: #FFF; text-transform: uppercase; text-align: center; font-weight: bold }
+table td { background-color: #CCC; color: #222; }
+
+.last-row { height: 3px; border: none; background-color: #888; padding: 0px }
+
+
+
+/* MEDIA QUERIES FOR PROMOTION DETAIL VIEWS */
+
+@media (min-width: 480px) {
+	.next-entry, .tickets-entered-mini, .drawing-schedule-mini { display: none }
+	.promotion-locked { color: #444444 }
+	.mobile-padding { padding-left: 0px; padding-right: 0px };
+}
+
+@media (max-width: 480px) {
+	body { background: none }
+	.promotion-name {  display: none };
+	.promotion-locked { color: #b20000 }
+	.next-entry { display: block }
+	.tickets-entered-mini, .drawing-schedule-mini { display: table; max-width: 95%; margin: 0px auto 15px auto }
+	.tickets-entered, .drawing-schedule { display: none }
+	table tr { border: 0px; border-bottom: 1px solid #FFF; }
+	table th, table td { border: none; padding: 5px; text-align: left ; padding-bottom: 20px;}
+	.th-head { font-weight: bold; }
+	.mobile-padding { padding-left: 15px; padding-right: 15px };
+}
+
+
+

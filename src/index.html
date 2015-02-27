@@ -1,0 +1,135 @@
+<!---
+
+I would not typically create my code like this, I would probably use AngularJS or some other one-page MVC with views for each type of page.  
+That being said, I went old school with the javascript to keep it all within one html page as requested almost spoofing a more fully-featured MVC to a degree.
+
+--->
+
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+	<link rel="stylesheet" href="css/webdevtest.css" type="text/css">
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="details"></div>
+	</div>
+</body>
+
+	
+<script>
+	$( document ).ready(function() {
+		$.getJSON("js/webdevtest-data.js", function(json) { // load the .js (json) data
+    		var promotions = json.promotion_objects; // Add promotion array to variable
+			var promotion_id = getUrlParameter('promo');
+
+			///  If an ID is given, show just that ID
+			
+			if(promotion_id > ""){
+				
+				var promotion_id = parseInt(promotion_id.replace('promo','') - 1);
+				$.each(promotions, function( index, value ) { // cycle through each promotion
+					if( index === promotion_id ) {   // Display just the information for the chosen ID
+						var promo_num = index + 1;
+						var promo_image_url = value.promo_image_url;
+						var promotion_name = value.promotion_name;
+						var summary = value.summary;
+						var entry_info = value.entry_info;
+						var drawings = value.drawings;
+						var entries = value.entries;
+						
+						$( ".details" ).append( "<div class='next-entry'>The Next Entry Deadline is<br />" + $.format.date(value.drawings[0].drawing_date, 'ddd, MMMM dd, yyyy') + "!</div>" );
+						$( ".details" ).append( "<img src='" + promo_image_url +"'>" );
+						$( ".details" ).append( "<div class='promotion-name mobile-padding'>" + promotion_name + "</div>" );
+						$( ".details" ).append( "<div class='promotion-summary mobile-padding'>" + summary + "</div>" );
+						$( ".details" ).append( "<div class='promotion-header mobile-padding'>Drawing Schedule</div>" );
+						
+						///  Drawing Schedule Tables [ Desktop  / Mobile versions ]
+						
+						var drawing_schedule = "<table border='0' class='drawing-schedule mobile-padding'><thead><tr><th>Prize</th><th>Entry Deadline</th><th>Drawing Date</th></tr></thead><tbody>";
+						$.each(drawings, function( index, value ) { // cycle through each drawing
+							drawing_schedule = drawing_schedule + "<tr><td>" + value.prize  + "</td><td>" + $.format.date(value.entry_deadline, 'ddd, MMMM dd, yyyy') + "</td><td>" + $.format.date(value.drawing_date, 'ddd, MMMM dd, yyyy') + "</td></tr>";
+						});	
+						drawing_schedule = drawing_schedule + "</tbody></table>";
+						
+						var drawing_schedule_mini = "<table border='0' class='drawing-schedule-mini mobile-padding'><tbody>";
+						$.each(drawings, function( index, value ) { // cycle through each drawing
+							drawing_schedule_mini = drawing_schedule_mini + "<tr><td class='th-head'>PRIZE</td><td>" + value.prize  + "</td></tr><tr><td class='th-head'>ENTRY DEADLINE</td><td>" + $.format.date(value.entry_deadline, 'ddd, MMMM dd, yyyy') + "</td></tr><tr class='last-row'><td class='th-head'>DRAWING DATE</td><td>" + $.format.date(value.drawing_date, 'ddd, MMMM dd, yyyy') + "</td></tr><tr><td colspan='2' class='last-row'></td></tr>";
+						});	
+						drawing_schedule_mini = drawing_schedule_mini + "</tbody></table>";
+						
+
+						$( ".details" ).append(drawing_schedule);  // Desktop Drawing Schedule Table
+						$( ".details" ).append(drawing_schedule_mini); // Mobile Drawing Schedule Table
+							
+						
+						
+						$( ".details" ).append( "<div class='promotion-summary mobile-padding'>" + entry_info + "</div>" );
+
+						
+						$( ".details" ).append( "<div class='promotion-header mobile-padding'>Your Total Tickets Entered: " + entries.length + "</div>" );
+						$( ".details" ).append( "<div class='promotion-locked mobile-padding'>All entried are locked in at the time they are submitted</div>" );
+						
+						
+						///  Ticket Entry Tables [ Desktop  / Mobile versions ]
+						
+						var ticket_entries = "<table class='tickets-entered mobile-padding'><thead><tr><th>Entry Number</th><th>Date</th></tr></thead><tbody>"
+						$.each(entries, function( index, value ) { // cycle through each drawing
+							ticket_entries = ticket_entries + "<tr><td>" + value.entry_number  + "</td><td>" + $.format.date(value.date, 'ddd, MMMM dd, yyyy') + "</td></tr>";
+						});	
+						ticket_entries = ticket_entries + "</tbody></table>";
+
+						var ticket_entries_mini = "<table border='0' class='tickets-entered-mini mobile-padding'><tbody>";
+						$.each(entries, function( index, value ) { // cycle through each drawing
+							ticket_entries_mini = ticket_entries_mini + "<tr><td class='th-head'>ENTRY NUMBER</td><td>" + value.entry_number  + "</td></tr><tr><td class='th-head'>DATE</td><td>" + $.format.date(value.date, 'ddd, MMMM dd, yyyy') + "</td></tr><tr><td colspan='2' class='last-row'></td></tr>";
+						});	
+						ticket_entries_mini = ticket_entries_mini + "</tbody></table>";
+						
+						$( ".details" ).append(ticket_entries); // Desktop Ticket Entry Table
+						$( ".details" ).append(ticket_entries_mini); // Mobile Ticket Entry Table
+
+						$( ".details" ).append( "<div class='spacer'></div>" );
+					}
+				});
+				
+			} else {
+			
+			//  ELSE show everything in the data stream
+
+				$.each(promotions, function( index, value ) { // cycle through each promotion
+					var promo_num = index + 1;
+					var promo_image_url = value.promo_image_url;
+					var promotion_name = value.promotion_name;
+					var summary = value.summary;
+					var drawings = value.drawings;
+					var entries = value.entries;
+					$( ".container" ).append( "<a href='index.html?promo=promo0" + promo_num + "'><img src='" + promo_image_url +"'></a>" );
+					$( ".container" ).append( "<div><a href='index.html?promo=promo0" + promo_num + "' class='promotion-link'>" + promotion_name + "</a></div>" );
+					$( ".container" ).append( "<div class='promotion-summary'>" + summary + "</div>" );
+					$( ".container" ).append( "<div class='promotion-summary'>Next Drawing Date: " + $.format.date(drawings[0].drawing_date, 'ddd, MMMM dd, yyyy') + "</div>" );
+					$( ".container" ).append( "<div class='spacer'></div>" );
+				});
+				$( ".container" ).append( "<style>body { background: none }</style>" ); // Remove background gradient
+			};
+		});
+	});
+	
+	function getUrlParameter(sParam) // Get passed URL Variable
+	{
+		var sPageURL = window.location.search.substring(1);
+		var sURLVariables = sPageURL.split('&');
+		for (var i = 0; i < sURLVariables.length; i++) 
+		{
+			var sParameterName = sURLVariables[i].split('=');
+			if (sParameterName[0] == sParam) 
+			{
+				return sParameterName[1];
+			}
+		}
+	}
+	
+</script>
+</html>
