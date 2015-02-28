@@ -1,0 +1,38 @@
+body {
+  color: #444444;
+}
+
+img {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.alert {
+  color: #b20000;
+}
+
+.lg {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.centered {
+  text-align: center;
+}
+
+.wide {
+  display: none;
+}
+
+.foureighty {
+  border-bottom: 1px solid ;
+}
+
+@media (min-width: 480px) {
+  .foureighty {
+    display: none;
+  }
+  .wide {
+    display: block;
+  }
+}

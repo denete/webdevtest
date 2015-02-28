@@ -60,6 +60,10 @@
       <div ng-hide="!query">
         <div class="row">
           <div class="twelve columns">
+            <div class="foureighty alert centered">
+              The Next Entry Deadline is <br/>
+              {{selectedPromo.nextDate}}!
+            </div>
             <img ng-src="{{selectedPromo.promo_image_url}}" alt="" />
             <br />
             <h4>{{selectedPromo.promotion_name}}</h4>
@@ -73,28 +77,43 @@
             <div class="centered">
               <h5>Drawing Schedule</h5>
             </div>
-            <table class="schedule wide">
-                <tr>
-                  <th>Prize</th>
-                  <th>Entry Deadline</th>
-                  <th>Drawing Date</th>
-                </tr>
-                <tr ng-repeat="draw in selectedPromo.drawings">
-                  <td>
-                    {{draw.prize}}
-                  </td>
-                  <td>
-                    {{draw.entry_deadline}}
-                  </td>
-                  <td>
-                    {{draw.drawing_date | date:"fullDate"}}
-                  </td>
-                </tr>
+            <table class="schedule wide u-full-width">
+                <thead>
+                  <tr>
+                    <th>Prize</th>
+                    <th>Entry Deadline</th>
+                    <th>Drawing Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="draw in selectedPromo.drawings">
+                    <td>
+                      {{draw.prize}}
+                    </td>
+                    <td>
+                      {{draw.entry_deadline | date:"fullDate"}}
+                    </td>
+                    <td>
+                      {{draw.drawing_date | date:"fullDate"}}
+                    </td>
+                  </tr>
+                </tbody>
             </table>
 
 
           </div>
         </div>
+
+        <div class="row foureighty" ng-repeat="draw in selectedPromo.drawings">
+            <div class="twelve columns">
+              <div><strong>Prize</strong><span>{{draw.prize}}</span></div>
+              <div><strong>Entry Deadline</strong><span>{{draw.entry_deadline | date:"fullDate"}}</span></div>
+              <div><strong>Drawing Date</strong><span>{{draw.drawing_date | date:"fullDate"}}</span></div>
+            </div>
+        </div>
+
+
+
         <div class="row">
           <div class="twelve columns">
             <p>
@@ -106,15 +125,18 @@
           <div class="twelve columns">
             <div class="centered">
               <h5>Your Total Tickets Entered: {{selectedPromo.entries.length}}</h5>
-              <p>
+              <p class="alert">
                 All entries are locked at the time they are submitted and cannot be deleted.
               </p>
             </div>
-            <table class="schedule wide">
+            <table class="schedule wide u-full-width">
+              <thead>
                 <tr>
                   <th>Entry Number</th>
                   <th>Date</th>
                 </tr>
+              </thead>
+              <tbody>
                 <tr ng-repeat="entry in selectedPromo.entries">
                   <td>
                     {{entry.entry_number}}
@@ -123,9 +145,19 @@
                     {{entry.date | date:"fullDate"}}
                   </td>
                 </tr>
+              </tbody>
             </table>
           </div>
         </div>
+
+
+        <div class="row foureighty" ng-repeat="entry in selectedPromo.entries">
+            <div class="twelve columns">
+              <div><strong>Entry Number</strong><span>{{entry.entry_number}}</span></div>
+              <div><strong>Date</strong><span>{{entry.date | date:"fullDate"}}</span></div>
+            </div>
+        </div>
+
       </div>
 
     </div><!-- / container -->
