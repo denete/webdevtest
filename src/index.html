@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Page Basics
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Mockups</title>
+    <meta name="description" content="webdevtest mockups">
+    <meta name="author" content="Jason Davis">
+
+    <!-- Mobile Meta
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <link rel="stylesheet" href="css/webdevtest.css">
+
+    <!-- IE HTML5 SHIM
+    ================================================== -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <base href="/">
+
+  </head>
+  <!-- define angular app -->
+  <body ng-app="mockApp">
+    <!-- define angular controller -->
+    <div class="container" ng-controller="listCtrl">
+
+
+
+      <!-- repeat over the promos in promotion objects if the querystring is empty
+        ========================================================================== -->
+      <div ng-hide="query" class="row" ng-repeat="promo in promoData.promotion_objects">
+        <div class="twelve columns">
+
+          <div class="promo-img">
+            <img ng-src="{{promo.promo_image_url}}" alt="" />
+          </div>
+
+          <div>
+
+            <div class="promo-link">
+              <a ng-href="/?promo=promo0{{$index+1}}" ng-click="setQuery($index)">{{promo.promotion_name}}</a>
+            </div>
+
+            <div class="promo-summary">
+              <p>
+                {{promo.summary}}
+              </p>
+              <p>
+                Next Drawing Date: {{nextDate(promo.drawings) | date:"fullDate"}}
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+      <!-- if there is a promo selected show the resulting promo
+           ==================================================== -->
+      <div ng-hide="!query">
+
+        <!-- special alert section for small breakpoint -->
+        <div class="row">
+          <div class="twelve columns">
+            <div class="foureighty alert centered">
+              The Next Entry Deadline is <br/>
+              {{nextDate(selectedPromo.drawings) | date:"fullDate"}}!
+            </div>
+          </div>
+        </div>
+
+
+        <!-- image section -->
+        <div class="row">
+          <div class="one column"></div>
+          <div class="ten columns">
+            <img ng-src="{{selectedPromo.promo_image_url}}" alt="" />
+          </div>
+          <div class="one column"></div>
+        </div>
+
+
+        <!-- promo name and summary -->
+        <div class="row">
+          <div class="twelve columns">
+            <br />
+            <h4>{{selectedPromo.promotion_name}}</h4>
+            <p>
+              {{selectedPromo.summary}}
+            </p>
+          </div>
+        </div>
+
+        <!-- drawing section -->
+        <div class="row">
+          <div class="twelve columns">
+            <div class="centered">
+              <h5>Drawing Schedule</h5>
+            </div>
+            <table class="wide u-full-width">
+                <thead>
+                  <tr>
+                    <th>Prize</th>
+                    <th>Entry Deadline</th>
+                    <th>Drawing Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="draw in selectedPromo.drawings | orderBy:'entry_deadline'">
+                    <td>
+                      {{draw.prize}}
+                    </td>
+                    <td>
+                      {{draw.entry_deadline | date:"fullDate"}}
+                    </td>
+                    <td>
+                      {{draw.drawing_date | date:"fullDate"}}
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+
+
+          </div>
+        </div>
+
+        <!-- small breakpoint table -->
+        <div class="row foureighty" ng-repeat="draw in selectedPromo.drawings | orderBy:'entry_deadline'">
+            <div class="twelve columns smallrow">
+              <div><strong>Prize</strong><span>{{draw.prize}}</span></div>
+              <div><strong>Entry Deadline</strong><span>{{draw.entry_deadline | date:"fullDate"}}</span></div>
+              <div><strong>Drawing Date</strong><span>{{draw.drawing_date | date:"fullDate"}}</span></div>
+            </div>
+        </div>
+
+
+        <!-- entry info -->
+        <div class="row">
+          <div class="twelve columns">
+            <p>
+              {{selectedPromo.entry_info}}
+            </p>
+          </div>
+        </div>
+
+        <!-- total ticket section -->
+        <div class="row">
+          <div class="twelve columns">
+            <div class="centered">
+              <h5>Your Total Tickets Entered: {{selectedPromo.entries.length}}</h5>
+              <p class="alert">
+                All entries are locked at the time they are submitted and cannot be deleted.
+              </p>
+            </div>
+            <table class="wide u-full-width">
+              <thead>
+                <tr>
+                  <th>Entry Number</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="entry in selectedPromo.entries | orderBy:'date'">
+                  <td>
+                    {{entry.entry_number}}
+                  </td>
+                  <td>
+                    {{entry.date | date:"fullDate"}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- small breakpoint table -->
+        <div class="row foureighty" ng-repeat="entry in selectedPromo.entries | orderBy:'date'">
+            <div class="twelve columns smallrow">
+              <div><strong>Entry Number</strong><span>{{entry.entry_number}}</span></div>
+              <div><strong>Date</strong><span>{{entry.date | date:"fullDate"}}</span></div>
+            </div>
+        </div>
+
+      </div>
+
+    </div><!-- / container -->
+
+    <!-- Script
+    ================================================== -->
+    <!-- with the current implementation jquery is not needed -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script> -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+    <script type="text/javascript">
+
+      var mock = angular.module('mockApp', []);
+
+      // set the location provider to true for our location searches
+      mock.config(function($locationProvider) {
+        $locationProvider.html5Mode(true);
+      });
+
+      // listController function
+      // uses angular $http $location and $scope modules to
+      // retrieve and display webdevtest-data.js data
+      var listController = function($http, $location, $scope) {
+
+        // use angular's xhr to fetch the data
+        var getData = $http.get('js/webdevtest-data.js');
+
+        getData.success(function(data) {
+
+          // pass our xhr data to the scope
+          $scope.promoData = data;
+
+          // return the next Date
+          $scope.nextDate = function (drawings) {
+            if (typeof drawings !== 'undefined') {
+              var nearest;
+              drawings.map(function(drawing) {
+                var current = new Date(drawing.entry_deadline);
+                if (typeof nearest === 'undefined') {
+                  nearest = current;
+                } else if (nearest.getTime() > current.getTime()) {
+                  nearest = current;
+                }
+              });
+              return nearest;
+            }
+            return 0;
+          }
+
+          // our querystring as an object
+          $scope.query = $location.search().promo;
+
+          // function to serve as click handler in list view
+          $scope.setQuery = function (id){
+            $scope.query = id + 1; // plus one to match expected querystring
+            // load the selected promo based on querystring
+            $scope.loadPromo();
+          }
+
+          $scope.loadPromo = function() {
+            // check if query is set
+            if (typeof $scope.query !== 'undefined') {
+              // if query is a string parse it
+              if (typeof $scope.query === 'string') {
+
+                // get rid of text in query string
+                var trimQuery = $scope.query.replace(/[^\d.]/g, '');
+                // parse as integer and subtract one for zero indexed list
+                trimQuery = parseInt(trimQuery,10) - 1;
+
+              } else {
+
+                var trimQuery = $scope.query - 1;
+              }
+
+              // select the promo by query from the promotion object list
+              $scope.selectedPromo = $scope.promoData.promotion_objects[trimQuery];
+
+              // hacky way to add gradient on promo load
+              document.body.className += " gradient";
+            }
+          }
+
+          // run loadPromo in case query string was initial url
+          $scope.loadPromo();
+
+        });
+
+        getData.error(function(err) {
+          console.warn(err);
+        });
+      }
+
+      // Pass listController function to angular module
+      mock.controller('listCtrl', ['$http', '$location', '$scope', listController]);
+
+    </script>
+  </body>
+</html>
