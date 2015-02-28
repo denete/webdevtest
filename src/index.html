@@ -25,26 +25,48 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <base href="/">
+
     <!-- No Favicons -->
 
   </head>
   <body ng-app="mockApp">
 
     <div class="container" ng-controller="listCtrl">
-      <!-- repeat over the promos in promotion objects -->
-      <div class="row" ng-repeat="promo in promoData.promotion_objects">
+      <!-- repeat over the promos in promotion objects if the querystring is empty -->
+      <div ng-hide="query" class="row" ng-repeat="promo in promoData.promotion_objects">
         <div class="twelve columns">
           <div class="promo-img">
             <img ng-src="{{promo.promo_image_url}}" alt="" />
           </div>
           <div class="promo-data">
             <div class="promo-link">
-              <a ng-href="{{$index}}">{{promo.promotion_name}}</a>
+              <a ng-href="/?promo=promo0{{$index+1}}" ng-click="setQuery($index)">{{promo.promotion_name}}</a>
             </div>
             <div class="promo-summary">
               {{promo.summary}}
             </div>
           </div>
+        </div>
+      </div>
+
+
+      <!-- if there is a querystring show the resulting promo -->
+      <div ng-hide="!query" class="row">
+        <div class="twelve columns">
+          <img ng-src="{{selectedPromo.promo_image_url}}" alt="" />
+
+            stuff goes here
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+
         </div>
       </div>
 
@@ -57,8 +79,13 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
     <script type="text/javascript">
-      //
+
       var mock = angular.module('mockApp', []);
+
+      // set the location provider to true for our location searches
+      mock.config(function($locationProvider) {
+        $locationProvider.html5Mode(true);
+      });
 
       // listController function
       // uses angular $http $location and $scope modules to
@@ -67,16 +94,42 @@
 
 
         var getData = $http.get('js/webdevtest-data.js');
+
         getData.success(function(data) {
+
           // our xhr data
           $scope.promoData = data;
 
           // our querystring as an object
-          var query = $location.search();
-          console.log(query);
+          $scope.query = $location.search().promo;
 
+          $scope.setQuery = function (id){
+            $scope.query = id + 1; // plus one to match desired querystring
+            $scope.loadPromo();
+          }
+
+          $scope.loadPromo = function() {
+            if (typeof $scope.query !== 'undefined') {
+              // get rid of text in query string
+              var trimQuery = $scope.query.replace(/[^\d.]/g, '')
+              // parse as integer and subtract one for zero indexed list
+              trimQuery = parseInt(trimQuery,10) - 1;
+
+              $scope.selectedPromo = $scope.promoData.promotion_objects[trimQuery];
+
+              console.log($scope.selectedPromo);
+
+            }
+          }
+
+          $scope.loadPromo();
 
         });
+
+        getData.error(function(err) {
+          console.warn(err);
+        });
+
       }
 
 
