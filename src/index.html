@@ -33,17 +33,23 @@
     <!-- define angular controller -->
     <div class="container" ng-controller="listCtrl">
 
+
+
       <!-- repeat over the promos in promotion objects if the querystring is empty
         ========================================================================== -->
       <div ng-hide="query" class="row" ng-repeat="promo in promoData.promotion_objects">
         <div class="twelve columns">
+
           <div class="promo-img">
             <img ng-src="{{promo.promo_image_url}}" alt="" />
           </div>
-          <div class="promo-data">
+
+          <div>
+
             <div class="promo-link">
               <a ng-href="/?promo=promo0{{$index+1}}" ng-click="setQuery($index)">{{promo.promotion_name}}</a>
             </div>
+
             <div class="promo-summary">
               <p>
                 {{promo.summary}}
@@ -52,14 +58,20 @@
                 Next Drawing Date: {{nextDate(promo.drawings) | date:"fullDate"}}
               </p>
             </div>
+            
           </div>
+
         </div>
       </div>
 
 
-      <!-- if there is a querystring show the resulting promo
+
+
+      <!-- if there is a promo selected show the resulting promo
            ==================================================== -->
       <div ng-hide="!query">
+
+        <!-- special alert section for small breakpoint -->
         <div class="row">
           <div class="twelve columns">
             <div class="foureighty alert centered">
@@ -68,6 +80,9 @@
             </div>
           </div>
         </div>
+
+
+        <!-- image section -->
         <div class="row">
           <div class="one column"></div>
           <div class="ten columns">
@@ -75,6 +90,9 @@
           </div>
           <div class="one column"></div>
         </div>
+
+
+        <!-- promo name and summary -->
         <div class="row">
           <div class="twelve columns">
             <br />
@@ -84,6 +102,8 @@
             </p>
           </div>
         </div>
+
+        <!-- drawing section -->
         <div class="row">
           <div class="twelve columns">
             <div class="centered">
@@ -116,6 +136,7 @@
           </div>
         </div>
 
+        <!-- small breakpoint table -->
         <div class="row foureighty" ng-repeat="draw in selectedPromo.drawings | orderBy:'entry_deadline'">
             <div class="twelve columns smallrow">
               <div><strong>Prize</strong><span>{{draw.prize}}</span></div>
@@ -125,7 +146,7 @@
         </div>
 
 
-
+        <!-- entry info -->
         <div class="row">
           <div class="twelve columns">
             <p>
@@ -133,6 +154,8 @@
             </p>
           </div>
         </div>
+
+        <!-- total ticket section -->
         <div class="row">
           <div class="twelve columns">
             <div class="centered">
@@ -162,7 +185,7 @@
           </div>
         </div>
 
-
+        <!-- small breakpoint table -->
         <div class="row foureighty" ng-repeat="entry in selectedPromo.entries | orderBy:'date'">
             <div class="twelve columns smallrow">
               <div><strong>Entry Number</strong><span>{{entry.entry_number}}</span></div>
@@ -176,6 +199,7 @@
 
     <!-- Script
     ================================================== -->
+    <!-- with the current implementation jquery is not needed -->
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script> -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
     <script type="text/javascript">
