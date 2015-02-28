@@ -58,7 +58,7 @@
                 Next Drawing Date: {{nextDate(promo.drawings) | date:"fullDate"}}
               </p>
             </div>
-            
+
           </div>
 
         </div>
@@ -212,9 +212,9 @@
       });
 
       // listController function
-      // uses angular $http $location $filter and $scope modules to
+      // uses angular $http $location and $scope modules to
       // retrieve and display webdevtest-data.js data
-      var listController = function($http, $location, $filter, $scope) {
+      var listController = function($http, $location, $scope) {
 
         // use angular's xhr to fetch the data
         var getData = $http.get('js/webdevtest-data.js');
@@ -277,6 +277,7 @@
 
           // run loadPromo in case query string was initial url
           $scope.loadPromo();
+
         });
 
         getData.error(function(err) {
@@ -285,7 +286,7 @@
       }
 
       // Pass listController function to angular module
-      mock.controller('listCtrl', ['$http', '$location', '$filter', '$scope', listController]);
+      mock.controller('listCtrl', ['$http', '$location', '$scope', listController]);
 
     </script>
   </body>
