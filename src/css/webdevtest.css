@@ -1,10 +1,68 @@
+* {
+  font-family: Arial;
+  line-height: 24px;
+  font-size: 14px;
+}
+
 body {
   color: #444444;
+  padding-top: 40px;
+}
+
+h4 {
+  font-size: 24px;
+  color: #000000;
+}
+
+th, td {
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 img {
-  max-width: 100%;
+  max-width: 105%;
+
+  margin-bottom: 24px;
   box-sizing: border-box;
+  -moz-box-shadow:    1px 2px 1px 2px #777777;
+  -webkit-box-shadow: 1px 2px 1px 2px #777777;
+  box-shadow:         1px 2px 1px 2px #777777;
+}
+
+.promo-link a {
+  color: #036dbe;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.wide {
+  border-spacing: 2px;
+  border: 1px solid #ffffff;
+  background-color: #dedede;
+}
+
+.wide th, .wide td {
+  text-align: center;
+  padding: 10px, 15px;
+}
+
+.wide thead {
+  background-color: #666666;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.wide tr {
+  border: 3px solid #ffffff;
+}
+
+.wide td + td, .wide th + th {
+  border-left: 3px solid #ffffff;
+}
+
+.wide td:first-child, .wide th:first-child {
+  padding-left: 15px;
 }
 
 .alert {
@@ -20,12 +78,39 @@ img {
   text-align: center;
 }
 
+.centered h5 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  margin-top: 15px;
+}
+
 .wide {
   display: none;
 }
 
 .foureighty {
-  border-bottom: 1px solid ;
+  border-bottom: 1px solid #444444;
+}
+
+.foureighty strong, .foureighty span {
+  display: inline-block;
+  width: 50%;
+}
+
+.foureighty strong {
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.smallrow {
+  background-color: #dedede;
+}
+
+.smallrow div {
+  height: 50px;
+  padding-left: 8px;
+  border-bottom: 1px solid #ccc;
 }
 
 @media (min-width: 480px) {
@@ -33,6 +118,18 @@ img {
     display: none;
   }
   .wide {
-    display: block;
+    display: table;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .gradient {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#cccccc));
+    background: -webkit-linear-gradient(top, #cccccc, #ffffff);
+    background: -moz-linear-gradient(top, #cccccc, #ffffff);
+    background: -ms-linear-gradient(top, #cccccc, #ffffff);
+    background: -o-linear-gradient(top, #cccccc, #ffffff);
   }
 }
