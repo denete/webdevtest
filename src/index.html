@@ -44,7 +44,12 @@
               <a ng-href="/?promo=promo0{{$index+1}}" ng-click="setQuery($index)">{{promo.promotion_name}}</a>
             </div>
             <div class="promo-summary">
-              {{promo.summary}}
+              <p>
+                {{promo.summary}}
+              </p>
+              <p>
+                Next Drawing Date: {{promo.nextDate}}
+              </p>
             </div>
           </div>
         </div>
@@ -52,25 +57,78 @@
 
 
       <!-- if there is a querystring show the resulting promo -->
-      <div ng-hide="!query" class="row">
-        <div class="twelve columns">
-          <img ng-src="{{selectedPromo.promo_image_url}}" alt="" />
+      <div ng-hide="!query">
+        <div class="row">
+          <div class="twelve columns">
+            <img ng-src="{{selectedPromo.promo_image_url}}" alt="" />
+            <br />
+            <h4>{{selectedPromo.promotion_name}}</h4>
+            <p>
+              <small>{{selectedPromo.summary}}</small>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <div class="centered">
+              <h5>Drawing Schedule</h5>
+            </div>
+            <table class="schedule wide">
+                <tr>
+                  <th>Prize</th>
+                  <th>Entry Deadline</th>
+                  <th>Drawing Date</th>
+                </tr>
+                <tr ng-repeat="draw in selectedPromo.drawings">
+                  <td>
+                    {{draw.prize}}
+                  </td>
+                  <td>
+                    {{draw.entry_deadline}}
+                  </td>
+                  <td>
+                    {{draw.drawing_date | date:"fullDate"}}
+                  </td>
+                </tr>
+            </table>
 
-            stuff goes here
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <p>
+              <small>{{selectedPromo.entry_info}}</small>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <div class="centered">
+              <h5>Your Total Tickets Entered: {{selectedPromo.entries.length}}</h5>
+              <p>
+                All entries are locked at the time they are submitted and cannot be deleted.
+              </p>
+            </div>
+            <table class="schedule wide">
+                <tr>
+                  <th>Entry Number</th>
+                  <th>Date</th>
+                </tr>
+                <tr ng-repeat="entry in selectedPromo.entries">
+                  <td>
+                    {{entry.entry_number}}
+                  </td>
+                  <td>
+                    {{entry.date | date:"fullDate"}}
+                  </td>
+                </tr>
+            </table>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="twelve columns">
 
-        </div>
-      </div>
-      <div class="row">
-        <div class="twelve columns">
-
-        </div>
-      </div>
-
-    </div>
+    </div><!-- / container -->
 
 
 
@@ -103,25 +161,30 @@
           // our querystring as an object
           $scope.query = $location.search().promo;
 
+          // function to serve as click handler in list view
           $scope.setQuery = function (id){
-            $scope.query = id + 1; // plus one to match desired querystring
+            $scope.query = id + 1; // plus one to match expected querystring
+            // load the selected promo based on querystring
             $scope.loadPromo();
           }
 
           $scope.loadPromo = function() {
+            // check if query is set
             if (typeof $scope.query !== 'undefined') {
+
               // get rid of text in query string
-              var trimQuery = $scope.query.replace(/[^\d.]/g, '')
+              var trimQuery = $scope.query.replace(/[^\d.]/g, '');
+
               // parse as integer and subtract one for zero indexed list
               trimQuery = parseInt(trimQuery,10) - 1;
 
+              // select the promo by query from the promotion object list
               $scope.selectedPromo = $scope.promoData.promotion_objects[trimQuery];
-
-              console.log($scope.selectedPromo);
 
             }
           }
 
+          // run loadPromo in case query string was initial url
           $scope.loadPromo();
 
         });
@@ -132,12 +195,8 @@
 
       }
 
-
-
-
-
       // Pass listController to angular module
-      mock.controller('listCtrl', ['$http', '$location', '$scope', listController])
+      mock.controller('listCtrl', ['$http', '$location', '$scope', listController]);
 
 
 
