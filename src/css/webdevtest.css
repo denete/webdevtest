@@ -1,0 +1,153 @@
+html, body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  line-height: 24px;
+}
+p {
+  margin: 0 0 5px;
+  padding: 0;
+}
+h2 {
+  margin: 13px 0;
+}
+.promotional-link, .promotional-link a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #036dbe;
+  text-decoration: none;
+}
+a.promotional-link:hover, .promotional-link a:hover {
+  color: #b20000;
+}
+.summary-text, .next-drawing-text {
+  font-size: 14px;
+  color: #444;
+}
+img {
+  max-width: 100%;
+}
+img.shadow {
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+}
+.text-center {
+  display: block;
+  text-align: center;
+}
+.container {
+  padding: 35px 10px 10px;
+  max-width: 740px;
+  margin: 0 auto;
+}
+.list .container > div {
+  margin-bottom: 60px;
+}
+.view {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #444;
+}
+.view .header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 28px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+.view table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.view table th {
+  background: #666;
+  color: #fff;
+  text-transform: uppercase;
+  border: 4px solid #fff;
+  padding: 6px;
+}
+.view table tr td {
+  background: #ccc;
+  border: 4px solid #fff;
+  padding: 6px;
+}
+
+@media all and (min-width: 481px) {
+  .view {
+    background: #cccccc; /* Old browsers */
+    background: -moz-linear-gradient(top,  #cccccc 0%, #ffffff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #cccccc 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #cccccc 0%,#ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #cccccc 0%,#ffffff 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #cccccc 0%,#ffffff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+  }
+  .view .giant-header {
+    font-size: 24px;
+    font-weight: bold;  
+    color: #000;
+    margin: 34px 0 8px;
+  }
+  .visible480 {
+    display: none;
+  }
+  .hidden480 {
+    display: block;
+  }
+  table.hidden480 {
+    display: table;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .view .giant-header {
+    display:none;
+  }
+  .view .deadline-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #b20000;
+    line-height: 29px;
+    margin-bottom: 25px;
+  }
+  .view .summary-text {
+    padding: 15px 10px 0;
+  }
+  .view section {
+    padding: 0 10px;
+  }
+  .visible480 {
+    display: block;
+  }
+  table.visible480 {
+    display: table;
+  }
+  .hidden480{
+    display: none;
+  }
+  .view table tr td {
+    background: #e1e1e1;
+    border: 0;
+    padding: 5px;
+    padding-bottom: 30px;
+    text-align: left;
+  }
+  .view table tbody {
+    border-bottom: 1px solid #cdcdcd;
+  }
+  .view table tbody:last-child {
+    border-bottom: none;
+  }
+  .view table  td:first-child {
+    font-weight: bold;
+    text-transform: uppercase
+  }
+  .red {
+  color: #b20000;
+  }
+}
