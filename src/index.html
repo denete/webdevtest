@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" ng-app="promoApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Michael Robbins">
+  <title>SGI Digital Content Studio Web Developer Test</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
+  <link rel="stylesheet" href="css/webdevtest.css"/>
+  <base href="/webdevtest/src/">
+</head>
+<body>
+
+  <script type='text/ng-template' id="list.tpl"> 
+    <div class="container">
+      <div ng-repeat="item in appData">
+        <a ui-sref="view({promo: 'promo'+pd($index+1)})">
+          <img ng-src="{{item.promo_image_url}}" alt="{{item.promotion_name}}" title="{{item.promotion_name}}" class="shadow"/>
+        </a>
+        <h2 class="promotional-link">
+          <a ui-sref="view({promo: 'promo'+pd($index+1)})" ng-bind="item.promotion_name" title="{{item.promotion_name}}"></a>
+        </h2>
+        <p ng-bind="item.summary" class="summary-text"></p>
+        <p ng-bind="'Next Drawing Date: ' + (item.drawings[0].drawing_date | customDate) " class="next-drawing-text"></p>
+      </div>
+    </div>
+  </script>
+
+  <script type='text/ng-template' id="view.tpl"> 
+    <div class="container">
+      <div class="text-center">
+        <div ng-bind="'The Next Entry Deadline is '+(itemData.drawings[0].entry_deadline | customDate)+'!'" class="visible480 deadline-text"></div>
+        <img ng-src="{{itemData.promo_image_url}}" alt="{{itemData.promotion_name}}" title="{{item.promotion_name}}" class="shadow" />
+      </div>
+      <h1 ng-bind="itemData.promotion_name" class="giant-header"></h1>
+      <p ng-bind="itemData.summary" class="summary-text"></p>
+      
+      <section>
+        <h2 class="header">Drawing Schedule</h2>
+        <table class="visible480">
+          <colgroup>
+            <col width="35"></col>
+            <col width="50"></col>
+          </colgroup>
+          <tbody ng-repeat="dr in itemData.drawings">
+            <tr>
+              <td>Prize </td>
+              <td ng-bind="dr.prize"></td>
+            </tr>
+            <tr>
+              <td>Entry deadline </td>
+              <td ng-bind="dr.entry_deadline | customDate "></td>
+            </tr>
+            <tr>
+              <td>Drawing date</td>
+              <td ng-bind="dr.drawing_date | customDate "></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="hidden480">
+          <colgroup>
+            <col width="38"></col>
+            <col width="50"></col>
+            <col width="50"></col>
+          </colgroup>
+          <thead>
+            <th>Prize </th>
+            <th>Entry deadline </th>
+            <th>Drawing date </th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="dr in itemData.drawings">
+             <td ng-bind="dr.prize"></td>
+             <td ng-bind="dr.entry_deadline | customDate"></td>
+             <td ng-bind="dr.drawing_date | customDate"></td>
+            </tr>
+          </tbody>
+        </table>
+        <p ng-bind="itemData.entry_info"></p>
+      </section>
+
+      <section>
+        <h2 ng-bind="'Your Total Tickets Entered: '+itemData.entries.length" class="header"></h2>
+        <p class="text-center red">All entries are locked in at the time they are submittedi and cannot be deleted.</p>
+        <table class="visible480">
+          <colgroup>
+            <col width="35"></col>
+            <col width="50"></col>
+          </colgroup>
+          <tbody ng-repeat="en in itemData.entries">
+            <tr>
+              <td>Entry number </td>
+              <td ng-bind="en.entry_number"></td>
+            </tr>
+            <tr>
+              <td>Date </td>
+              <td ng-bind="en.date | customDate"></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="hidden480">
+          <colgroup>
+            <col width="25"></col>
+            <col width="50"></col>
+          </colgroup>
+          <thead>
+            <th>Entry number</th>
+            <th>Date </th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="en in itemData.entries">
+             <td ng-bind="en.entry_number"></td>
+             <td ng-bind="en.date | customDate"></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </script> 
+  
+  <div ui-view class="{{stateName}}">
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.js"></script>
+    
+  <script>
+  var promoApp = angular.module('promoApp', [
+  'ui.router'
+  ]);
+ 
+  promoApp.constant('rootPrefix', '/index.html')
+
+  // $stateProvider doesn't see the difference between index.html and index.html with query parameter,
+  // let's check it manually
+  promoApp.run(function($rootScope, $location, $state, rootPrefix) {
+    $rootScope.$on('$stateChangeSuccess', function(){
+        if( !/promo=/.test($location.url()) ){
+        $state.go('list')
+        $location.url(rootPrefix) 
+        }
+    })
+  })
+
+  // Setting up routes
+  promoApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, rootPrefix) {
+    $urlRouterProvider.otherwise(rootPrefix) 
+
+  $stateProvider
+    .state('view', {
+      url: rootPrefix+"?promo=",
+      templateUrl: 'view.tpl',
+      controller: 'dynamicCtrl',
+  })
+    .state('list', {
+      url: rootPrefix,
+      templateUrl: 'list.tpl',
+      controller: 'dynamicCtrl'
+  })
+
+  // use the HTML5 History API (removes /#)
+  $locationProvider.html5Mode(true);
+
+  });
+
+ // Date formatting fun
+ promoApp.filter('customDate', function($filter) {    
+    var angularDateFilter = $filter('date');
+    return function(theDate) {
+      return angularDateFilter(theDate, 'EEEE, MMMM d, yyyy');
+    }
+  });      
+      
+  promoApp.controller("dynamicCtrl", function($scope, $http, $state) {
+
+  // Getting content
+  $http.get('/webdevtest/src/js/webdevtest-data.js').
+    then(function(response) {
+      $scope.appData = response.data.promotion_objects;
+      if ( $state.current.name == 'view' ) {
+        $scope.itemData = $scope.appData[$state.params.promo.replace('promo', '')*1-1]  
+      }
+    })
+
+  // Convert 1 to 01, 2 to 02 etc.
+  $scope.pd = function(d) {
+    return (d < 10) ? '0' + d.toString() : d.toString();
+  }
+  
+  $scope.stateName = $state.current.name;
+
+  })  
+  </script>
+    
+</body>
+</html>
