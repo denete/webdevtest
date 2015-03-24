@@ -48,8 +48,13 @@ body{
 	display: block;
 } 
 
+.content .promo-list{
+	max-width:677px;
+	margin: 0 auto;
+}
+
 .content .promo-list div {
-	max-width: 90%;
+	max-width: 100%;
 	margin: 0 auto;
 	display: block;
 } 
@@ -76,7 +81,8 @@ body{
 .content .sched-list .group-entries div#entry_number,
 .content .sched-list .group-entries div#date {
 	display: inline-block;
-	margin: 0 .3%;
+	margin: 2px .3689%;
+	padding:10px 0;
 	background:#ccc; 
 	width: 32.6%;
 	text-align: center;
@@ -85,13 +91,14 @@ body{
 
 .content .entries-list .group-entries div#entry_number, 
 .content .entries-list .group-entries div#date{
-	width:49.4%;
+	width:49.4%; 
+  	margin-right: 0;
 }
 
 .entries,
 .sched {
 	width: 90%;
-	margin: 0 auto;
+	margin: 10px auto;
 }
 
 .entries p,
@@ -114,7 +121,7 @@ body{
 	width: 49.99%;
 }
 
-/* Responsive */
+/********************** Responsive **********************/
 @media screen and (max-width : 480px){  
 	
 	/* Fit the main content within a mobile device */
