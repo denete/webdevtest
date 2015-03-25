@@ -1,0 +1,185 @@
+body{
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	margin:0;
+	padding:0;   
+	background: #f1f1f1;
+}    
+
+/* Main Content Area*/
+.content{        
+	width: 100%;
+	max-width: 800px;
+  	border: 1px solid #000;	
+	margin: 10px auto;
+	padding: 20px 0;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#fff));
+}     
+ 
+
+.content div#promotion_name{
+	color: #036dbe; 
+	font-size:24px;
+}
+
+.content div#summary,
+.content div#entry_info,
+.content .promo-list div#drawing_date {
+	font-size:14px; 
+	line-height:24px;
+	color:#444444;
+} 
+
+.content div#entry_info{
+	margin-bottom:20px;
+}
+
+.content img:first-of-type {
+	margin-top: 0;
+}
+
+.content img{    
+	width: 100%; 
+	max-width: 677px;  	
+	height: auto;
+	-webkit-box-shadow: 5px 5px 8px -3px #a1a1a1;	
+	-moz-box-shadow: 5px 5px 8px -3px #a1a1a1;	
+	box-shadow: 5px 5px 8px -3px #a1a1a1;
+	margin: 50px auto 10px;              
+	display: block;
+} 
+
+.content .promo-list{
+	max-width:677px;
+	margin: 0 auto;
+}
+
+.content .promo-list div {
+	max-width: 100%;
+	margin: 0 auto;
+	display: block;
+} 
+
+/* Next Drawing Date */
+.content .promo-list div#drawing_date:before {
+  content: 'Next Drawing Date: ';
+}
+.content .promo-list div#drawing_date {
+  display: block;
+}
+
+.content .entries-list .group-entries,
+.content .sched-list .group-drawings,
+.content .sched-list .group-entries{
+	background:#fff;
+}   
+
+.content .entries-list .group-entries div#entry_number,
+.content .entries-list .group-entries div#date,
+.content .sched-list .group-drawings div#prize, 
+.content .sched-list .group-drawings div#entry_deadline, 
+.content .sched-list .group-drawings div#drawing_date,
+.content .sched-list .group-entries div#entry_number,
+.content .sched-list .group-entries div#date {
+	display: inline-block;
+	margin: 2px .3689%;
+	padding:10px 0;
+	background:#ccc; 
+	width: 32.6%;
+	text-align: center;
+	font-size: 14px;
+} 
+
+.content .entries-list .group-entries div#entry_number, 
+.content .entries-list .group-entries div#date{
+	width:49.4%; 
+  	margin-right: 0;
+}
+
+.entries,
+.sched {
+	width: 90%;
+	margin: 10px auto;
+}
+
+.entries p,
+.sched p {             
+	width: 100%;	
+	text-align: center;
+}
+
+.entries .head,
+.sched .head {
+	width: 33.333%;
+	display: inline-block;
+	text-align: center; 
+	background: #666;
+	color: #fff;
+	line-height: 30px;
+}         
+
+.entries .head {
+	width: 49.99%;
+}
+
+/********************** Responsive **********************/
+@media screen and (max-width : 480px){  
+	
+	/* Fit the main content within a mobile device */
+	.content{width:95%}  
+	.content .promo-list img{max-width:95%}
+	
+	.content .sched-list .group-drawings,
+	.content .entries-list .group-entries{
+		background:none;
+	} 
+	
+	/* Do not display the headers in mobile - use CSS for that */ 
+	.entries .head,
+	.sched .head {
+		display:none;
+	} 
+	 
+	.content .sched-list .group-drawings div#prize, 
+	.content .sched-list .group-drawings div#entry_deadline, 
+	.content .sched-list .group-drawings div#drawing_date, 
+	.content .entries-list .group-entries div#entry_number, 
+	.content .entries-list .group-entries div#date {
+	    width: 100%;    
+		height:50px;
+		display: block; 
+	} 
+
+	.content .sched-list .group-drawings div#prize:before, 
+	.content .sched-list .group-drawings div#entry_deadline:before, 
+	.content .sched-list .group-drawings div#drawing_date:before,
+    .content .entries-list .group-entries div#entry_number:before,
+	.content .entries-list .group-entries div#date:before {
+		text-transform: uppercase;
+		display: inline-block;
+		text-align: left;
+		margin: 2% 0 0;
+	}                                                    
+	
+	.content .sched-list .group-drawings div#prize:before{
+		width: 58%;		
+	  	content: 'Prize ';
+	}
+	.content .sched-list .group-drawings div#entry_deadline:before{
+		width: 58%;		
+	  	content: 'Entry Deadline ';
+	} 
+	.content .sched-list .group-drawings div#drawing_date:before{
+		width: 58%;		
+	  	content: 'Drawing Date ';
+	}
+	
+	.content .entries-list .group-entries div#entry_number:before {
+		width: 58%;		
+	  	content: 'Entry Number ';	
+	} 
+	
+	.content .entries-list .group-entries div#date:before {
+		width: 47%;
+	  	content: 'Date ';
+	}
+}
