@@ -8,7 +8,7 @@ document.addEventListener("promoDataReceived", function(event) {
 		var promo = promoData.promotion_objects[promoIndex];
 		console.log(promo);
 
-		if (screen.width <= 480) {
+		if (window.innerWidth <= 480) {
 			createSmallView(promo);
 		} else {
 			createLargeView(promo);
@@ -18,7 +18,6 @@ document.addEventListener("promoDataReceived", function(event) {
 
 function createSmallView(promo)
 {
-	//create html for small view
 	var smallHTML = '';
 	
 	//get next deadline
@@ -72,9 +71,56 @@ function createSmallView(promo)
 	document.getElementById('promo-full__small').innerHTML = smallHTML;
 }
 
-function createLargeView(currentPromo)
+function createLargeView(promo)
 {
-	var largeHTML = 'ffjsdabfji';
+	var largeHTML = '';
+	
+	largeHTML += '<img src="'+ promo.promo_image_url +'" alt="'+ promo.promotion_name +'" />';
+	largeHTML += '<h1>'+ promo.promotion_name +'</h1>';
+	largeHTML += '<p class="promo-summary body-text">'+ promo.summary +'</p>';
+	
+	largeHTML += '<h2>Drawing Schedule</h2>';
+	largeHTML += '<table id="drawing-table__large">';
+		
+		largeHTML += '<tr>';
+			largeHTML += '<th>PRIZE</th>';
+			largeHTML += '<th>ENTRY DEADLINE</th>';
+			largeHTML += '<th>DRAWING DATE</th>';
+		largeHTML += '</tr>';
+			
+	for (var i = 0; i < promo.drawings.length; i++) {
+		var drawing = promo.drawings[i];
+		
+		largeHTML += '<tr>';
+			largeHTML += '<td>'+ drawing.prize.replace(' Cash Prize', '') +'</td>';
+			largeHTML += '<td>'+ beautifyDate(new Date(drawing.entry_deadline)) +'</td>';
+			largeHTML += '<td>'+ beautifyDate(new Date(drawing.drawing_date)) +'</td>';
+		largeHTML += '</tr>';
+	}
+	
+	largeHTML += '</table>';
+	
+	largeHTML += '<p class="body-text">'+ promo.entry_info +'</p>';
+	
+	largeHTML += '<h2>Your Total Tickets Entered: '+ promo.entries.length +'</h2>';
+	largeHTML += '<p class="entries-locked">All entries are locked in at the time they are submitted and cannot be deleted.</p>';
+	
+	largeHTML += '<table id="entry-table__large">';
+		
+		largeHTML += '<tr>';
+			largeHTML += '<th>ENTRY NUMBER</th>';
+			largeHTML += '<th>DATE</th>';
+		largeHTML += '</tr>';
+	for (var i = 0; i < promo.entries.length; i++) {
+		var entry = promo.entries[i];
+		
+		largeHTML += '<tr>';
+			largeHTML += '<td>'+ entry.entry_number +'</td>';
+			largeHTML += '<td>'+ beautifyDate(new Date(entry.date)) +'</td>';
+		largeHTML += '</tr>';
+	}
+	
+	largeHTML += '</table>';
 	
 	document.getElementById('promo-full__large').innerHTML = largeHTML;
 }
