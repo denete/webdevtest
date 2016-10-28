@@ -19,9 +19,9 @@ body {
 .promo-list__item img {
 	width: 100%;
 	margin-bottom: 15px;
-	-webkit-box-shadow: 6px 6px 20px 0px rgba(85,85,85,1);
-	-moz-box-shadow: 6px 6px 20px 0px rgba(85,85,85,1);
-	box-shadow: 6px 6px 20px 0px rgba(85,85,85,1);
+	-webkit-box-shadow: 6px 6px 6px 0px rgba(85,85,85,1);
+	-moz-box-shadow: 6px 6px 6px 0px rgba(85,85,85,1);
+	box-shadow: 6px 6px 6px 0px rgba(85,85,85,1);
 }
 .promo-list__item .promo-link a {
 	font-size: 24px;
@@ -48,6 +48,9 @@ body {
 	color: #444;
 }
 /*===== Promotion View Small (doing mobile first approach) =====*/
+#promo-full__small {
+	padding: 20px 15px;
+}
 #promo-full__small h1 {
 	font-size: 24px;
 	font-weight: 700;
@@ -61,9 +64,9 @@ body {
 }
 #promo-full__small img {
 	width: 100%;
-	-webkit-box-shadow: 6px 6px 20px 0px rgba(85,85,85,1);
-	-moz-box-shadow: 6px 6px 20px 0px rgba(85,85,85,1);
-	box-shadow: 6px 6px 20px 0px rgba(85,85,85,1);
+	-webkit-box-shadow: 6px 6px 6px 0px rgba(85,85,85,1);
+	-moz-box-shadow: 6px 6px 6px 0px rgba(85,85,85,1);
+	box-shadow: 6px 6px 6px 0px rgba(85,85,85,1);
 }
 #drawing-table__small,
 #entry-table__small {
@@ -110,9 +113,9 @@ body {
 	}
 	#promo-full__large img {
 		width: 100%;
-		-webkit-box-shadow: 6px 6px 20px 0px rgba(85,85,85,1);
-		-moz-box-shadow: 6px 6px 20px 0px rgba(85,85,85,1);
-		box-shadow: 6px 6px 20px 0px rgba(85,85,85,1);
+		-webkit-box-shadow: 6px 6px 6px 0px rgba(85,85,85,1);
+		-moz-box-shadow: 6px 6px 6px 0px rgba(85,85,85,1);
+		box-shadow: 6px 6px 6px 0px rgba(85,85,85,1);
 	}
 	#drawing-table__large,
 	#entry-table__large {
