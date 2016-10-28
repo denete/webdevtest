@@ -1,0 +1,55 @@
+body {
+	font-family: 'Arial', 'Helvetica', sans-serif;
+}
+.hidden {
+	display: none;
+}
+
+/*===== Promotion List =====*/
+/*===== Promotion View General =====*/
+#promo-full h2 {
+	font-size: 18px;
+	font-weight: 700;
+	color: #000;
+	text-align: center;
+	margin-top: 40px;
+}
+#promo-full .body-text {
+	font-size: 14px;
+	line-height: 24px;
+	color: #444;
+}
+/*===== Promotion View Small (doing mobile first approach) =====*/
+#promo-full__small h1 {
+	font-size: 24px;
+	font-weight: 700;
+	color: #b20000;
+	text-align: center;
+}
+#promo-full__small .entries-locked {
+	font-size: 14px;
+	color: #b20000;
+	text-align: center;
+}
+#promo-full__small img {
+	width: 100%;
+}
+#drawing-table__small,
+#entry-table__small {
+	background-color: #e2e2e2;
+	width: 100%;
+}
+#drawing-table__small tr.inset,
+#entry-table__small tr.inset {
+	box-shadow: inset 0px 0px 7px 0px #ccc;
+}
+#drawing-table__small tr td:first-child,
+#entry-table__small tr td:first-child {
+	font-weight: 700;
+}
+#drawing-table__small tr td,
+#entry-table__small tr td {
+	padding: 5px 0 40px 5px;
+	font-size: 14px;
+}
+/*===== Promotion View Large =====*/
