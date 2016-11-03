@@ -1,0 +1,300 @@
+@black: #000000;
+@greyish: #444444;
+@babyblue-ish: #036dbe;
+@white: #FFF;
+@medium-grey: #747474;
+
+@rosered: #b20000;
+@font-ArialSansSerif: 'Arial', 'sans-serif';
+
+/* all media query*/
+/* Force table to not be like tables anymore */
+/* Hide table headers (but not display: none;, for accessibility) */
+/** NOTE: this is tested w/ IPHONE 6+, blackberry Torch 9860/9850 , BB bold 9700 basically all blackberry Devices except the latest one BB Priv. 
+	This should work on other devices such as windows/android phone with corresponding viewports   **/
+body {
+	font-family: @font-ArialSansSerif;
+	background: #FFFFFFF;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	color: @black;
+}
+body.leGradient {
+	background: #cccccc;
+	background: -moz-linear-gradient(top, #cccccc 0%, #ffffff 50%, #ffffff 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, #cccccc), color-stop(50%, #ffffff), color-stop(100%, #ffffff));
+	background: -webkit-linear-gradient(top, #cccccc 0%, #ffffff 75%, #ffffff 100%);
+	background: -o-linear-gradient(top, #cccccc 0%, #ffffff 50%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #cccccc 0%, #ffffff 75%, #ffffff 100%);
+	background: linear-gradient(to bottom, #cccccc 0%, #ffffff 75%, #ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#ffffff', GradientType=0);
+	font-size: 14px;
+	line-height: 24px;
+	color: @greyish;
+	height:100%;
+}
+
+.page {
+	height: 1000px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+	.promo-banner {
+		width: 677px;
+		box-shadow: 5px 3px 1px #888888;
+		img.wide {
+			width: 625px;
+			height: 125px;
+		}
+	}
+	.promo-banner.wide {
+		width: 625px;
+		height: 125px;
+		position: relative;
+		left: 4%;
+		top: 2%;
+	}
+	.promo-links {
+		display:block;
+		padding-top: 8%;
+		padding-bottom: 4%;
+		font-size: 24px;
+		font-weight: bold;
+		a {
+			font-size: 24px;
+			color: @babyblue-ish;
+			font-weight: bold;
+		}
+	}
+	.promo-summary {
+		font-size: 14px;
+		color: @greyish;
+		padding-bottom: 50px;
+	}
+	.drawing-sched-header {
+		text-align: center;
+		font-size: 18px;
+		font-weight: bold;
+		padding-bottom: 15px;
+	}
+	.promo-nextdrawing {
+		font-size: 14px;
+		color: @greyish;
+		padding-bottom: 50px;
+	}
+	#wrap {
+		clear: both;
+		background: white;
+		width: 695px;
+		height: 148px;
+		z-index: -1;
+		margin-left: 4px;
+		margin-top: 45px;
+		position: absolute;
+		top: 335px;
+	}
+	#wrap-2 {
+		clear: both;
+		background: white;
+		width: 695px;
+		height: 200px;
+		z-index: -1;
+		margin-left: 4px;
+		margin-top: 70px;
+		position: absolute;
+		top: 335px;
+	}
+	table {
+		width: 100% !important;
+		border-spacing: 4;
+		border: 0;
+	}
+	.drawing-info {
+		width: 100%;
+		th {
+			text-align: center;
+			background-color: #666666;
+			padding: 15px;
+			font-size: 14px;
+			color: @white;
+			font-weight: 500;
+		}
+		td {
+			text-align: center;
+			background-color: #CCCCCC;
+			padding: 15px;
+			font-size: 14px;
+		}
+	}
+	.promo-entryintro {
+		padding-top: 7%;
+		padding-bottom: 7%;
+		.null {
+			padding-top: 7%;
+			padding-bottom: 7%;
+		}
+	}
+	.entry-info {
+		width: 100%;
+	
+		th {
+			text-align: center;
+			background-color: #666666;
+			padding: 15px;
+			font-size: 14px;
+			color: @white;
+			font-weight: 500;
+		}
+		td {
+			text-align: center;
+			background-color: #CCCCCC;
+			padding: 15px;
+			font-size: 14px;
+		}
+	}
+	.promo-entries-locked{
+		display:none;
+	}
+	.entries-locked-notice{
+		display:none;
+	}
+}
+@media only screen and (max-width: 480px) {
+	body.leGradient {
+		font-family: @font-ArialSansSerif;
+		background: white;
+		color: @black;
+		height:100%;
+	}
+	table {
+		border: 0;
+		border-collapse: collapse;
+		background-color: #E2E2E2 !important;
+		display: block !important;
+	}
+	thead {
+		display: block !important;
+		tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+	}
+	tbody {
+		display: block !important;
+	}
+	th {
+		display: block !important;
+	}
+	td {
+		display: block !important;
+		background: #E2E2E2 !important;
+		text-align: left !important;
+		border: none;
+		border-bottom: 1px solid #DDDDDD;
+		position: relative;
+		padding-left: 50%;
+		margin: 0;
+		color: @medium-grey;
+	}
+
+	tr {
+		display: block !important;
+	}
+	.drawing-info {
+		td {
+			&:nth-of-type(1) {
+				&:before {
+					content: "PRIZE";
+					padding-right: 36%;
+					font-weight: bold;
+					color: @black !important;
+				}
+			}
+			&:nth-of-type(2) {
+				&:before {
+					content: "ENTRY DEADLINE";
+					padding-right: 14%;
+					font-weight: bold;
+					color: @black !important;
+				}
+			}
+			&:nth-of-type(3) {
+				&:before {
+					content: "DRAWING DATE";
+					padding-right: 18%;
+					font-weight: bold;
+					color: @black !important;
+				}
+			}
+		}
+	}
+	.entry-info {
+		td {
+			&:nth-of-type(1) {
+				&:before {
+					content: "ENTRY NUMBER";
+					padding-right: 19%;
+					font-weight: bold;
+					color: @black !important;
+				}
+			}
+			&:nth-of-type(2) {
+				&:before {
+					content: "DATE";
+					padding-right: 40%;
+					font-weight: bold;
+					color: @black !important;
+				}
+			}
+		}
+	}
+	.page {
+		height: 1000px;
+		margin-top: 30px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 390px;
+		.promo-summary {
+			font-size: 14px;
+			color: @greyish;
+			margin-top: 50px;
+			padding: 15px;
+			width: 415px;
+		}
+		.promo-entries-locked {
+			display:block;
+			font-size: 24px;
+			font-weight: bold;
+			color: @rosered;
+			text-align: center;
+		}
+		.entries-locked-notice {
+			display:block;
+			text-align: center;
+			color: @rosered;
+			margin-bottom: 30px;
+		}
+		.promo-banner.wide {
+			width: 425px;
+			height: 90px;
+			position: relative;
+			left: -5%;
+			top: 2%;
+		}
+		.promo-banner {
+			img.wide {
+				width: 425px;
+				height: 90px;
+			}
+		}
+		.entry-info {
+			margin-bottom: 35px;
+		}
+		.promo-links{
+			display:none;
+		}
+	}
+}
