@@ -1,0 +1,139 @@
+/* ================
+		Utils
+   ================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+  	font-family: Arial, Helvetica, sans-serif;
+  	background: #fff;
+}
+
+p {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+img {
+	width: 100%;
+	max-width: 100%;
+	-webkit-box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
+	margin-bottom: 1rem;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+/* ================
+	Promotion List
+   ================ */
+
+.promo-content a {
+	font-size: 24px;
+	color: #036dbe;
+	text-decoration: none;
+}
+
+.promo-content p {
+	color: #444;
+}
+
+/* ================
+	Promotion View
+   ================ */
+
+.promo-drawings, .promo-entries {
+ 	text-align: center;
+}
+
+.promo-drawings, .promo-entries h4 {
+	color: #000;
+	font-size: 18px;
+}
+
+.med-4, .med-5, .med-7, .med-6 {
+	background: #ccc;
+	border: 2px solid #fff;
+}
+
+.promo-entries span {
+	color: #b20000;
+	margin-top: 1rem;
+}
+
+.table-head .col {
+	background: #8c8c8c;
+	border: 2px solid #fff;
+	border-collapse: collapse;
+	color: #fff;
+	text-align: center;
+}
+
+/* ================
+		Grid
+   ================ */
+
+.row {
+    max-width: 65rem;
+    margin: 0 auto;
+}
+
+.col {
+	float: left;
+	width: 100%;
+}
+
+.med-2 {width: 16.66%;}
+.med-4 {width: 33.33%;}
+.med-5 {width: 41.66%;}
+.med-6 {width: 49.99%;}
+.med-7 {width: 58.33%;}
+.med-8 {width: 66.66%;}
+.med-10 {width: 83.33%;}
+.med-12 {width: 100%;}
+
+/* ================
+	Media Queries
+   ================ */
+
+@media (max-width: 479.99px) {
+	.col {
+		padding-left: 0.625rem;
+    	padding-right: 0.625rem;
+	}
+	.next-deadline h3 {
+		color: #b20000;
+		text-align: center;
+	}
+	.drawings-table, .entries-table {
+	 	display: none;
+	}
+}
+
+@media (min-width: 480px) {
+    .next-deadline h3 {
+  		display: none;
+  	}
+  	.col {
+  		padding-left: 0.9375rem;
+    	padding-right: 0.9375rem;
+  	}
+  	.main-container {
+    	margin: 3rem 0;
+	}
+	.gradient {
+		background: #ffffff; /* For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(#cccccc, #ffffff); /* Safari */
+	    background: -o-linear-gradient(#cccccc, #ffffff); /* Opera */
+	    background: -moz-linear-gradient(#cccccc, #ffffff); /* Firefox */
+	    background: linear-gradient(#cccccc, #ffffff); 
+	}
+	.sm-promo-drawings, .sm-promo-entries {
+		display: none;
+	}
+}

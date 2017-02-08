@@ -1,6 +1,7 @@
 {
     "server_time": "2016-01-01T12:00:00",
-    "promotion_objects": [{
+    "promotion_objects": [
+    {
         "promotion_name": "$1,000,000 Fortune Second-Chance Promotion",
         "promo_image_url": "images/fortune.jpg",
         "summary": "Enter for the chance to win the Second-Chance prize of $1,000,000 in the $1,000,000 Fortune Promotion!",
