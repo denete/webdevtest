@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    	<title>SGI Code Assessment</title>
+
+      <!-- stylesheet -->
+      <link rel="stylesheet" href="css/webdevtest.css">
+
+      <!-- angular.js -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+      
+      <!-- angular.js, ngAnimate -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+  	</head>
+   
+   <body ng-app="sgi">
+      
+      <section class="main-container" ng-controller="PromoListCtrl">
+         <!-- Promo List -->
+         <div class="row" ng-hide="query">
+            <div class="med-12 col">
+               <article class="promo-item" ng-repeat="promo in promos">
+                  <img ng-src="{{ promo.promo_image_url }}" alt="promo banner">
+                  <div class="promo-content">
+                     <a ng-href="/?promo=promo0{{$index+1}}" ng-click="setPromo($index)">{{ promo.promotion_name }}</a>
+                     <p class="summary">{{ promo.summary }}</p>
+                     <p>Next Drawing Date: {{ nextPromo(promo.drawings) | date:"fullDate"}} </p>
+                  </div>
+               </article>
+            </div>
+         </div>
+         
+         <!-- Promo View -->
+         <div class="solo-promo" ng-hide="!query">
+            <!-- Next Entry Deadline, Small -->
+            <article class="row next-deadline">
+               <h3>The Next Entry Deadline is <br/>
+               {{ nextPromo(promoView.drawings) | date:"fullDate" }}</h3>
+
+               <img ng-src="{{ promoView.promo_image_url }}" alt="" />
+
+               <h4>{{ promoView.promotion_name }}</h4>
+               <p>{{ promoView.summary }}</p>
+            </article>
+
+            <!--Drawing Table -->
+            <section class="promo-drawings">
+               <h4>Drawing Schedule</h4>
+               <div class="drawings-table">
+                  <div class="row table-head">
+                     <div class="med-4 col">
+                        <h5>Prize</h5>
+                     </div>
+                     <div class="med-4 col">
+                        <h5>Entry Deadline</h5>
+                     </div>
+                     <div class="med-4 col">
+                        <h5>Drawing Date</h5>
+                     </div>
+                  </div>
+                  <div class="row promo-data" ng-repeat="drawing in promoView.drawings | orderBy:'entry_deadline'">
+                     <div class="med-4 col">
+                        <p>{{ drawing.prize }}</p>
+                     </div>
+                     <div class="med-4 col">
+                        <p>{{ drawing.entry_deadline | date:"fullDate" }}</p>
+                     </div>
+                     <div class="med-4 col">
+                        <p>{{ drawing.drawing_date | date:"fullDate" }}</p>
+                     </div>
+                  </div>
+               </div>
+               
+               <!-- Small Only -->
+               <div class="sm-promo-drawings" ng-repeat="drawing in promoView.drawings | orderBy:'entry_deadline'">
+                  <div class="row">
+                     <div class="med-6 col">
+                        <p class="text-bold">Prize</p>
+                     </div>
+                     <div class="med-6 col">
+                        <p>{{ drawing.prize }}</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="med-6 col">
+                        <p class="text-bold">Entry Deadline</p>
+                     </div>
+                     <div class="med-6 col">
+                        <p>{{ drawing.entry_deadline | date:"fullDate" }}</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="med-6 col">
+                        <p class="text-bold">Drawing Date</p>
+                     </div>
+                     <div class="med-6 col">
+                        <p>{{ drawing.drawing_date | date:"fullDate" }}</p>
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+            <!-- Entry Info -->
+            <div class="row entry-info">
+               <p>{{ promoView.entry_info }}</p>
+            </div>
+
+            <!-- Entries Table -->
+            <section class="promo-entries">
+               <h4>Your Total Tickets Entered: {{ promoView.entries.length }}</h4>
+               <p><span>All entries are locked at the time they are submitted and cannot be deleted.</span></p>
+               <div class="entries-table">
+                  <div class="row table-head">
+                     <div class="med-5 col">
+                        <h5>Entry Number</h5>
+                     </div>
+                     <div class="med-7 col">
+                        <h5>Date</h5>
+                     </div>
+                  </div>
+                  <div class="row promo-data" ng-repeat="entry in promoView.entries | orderBy:'date'">
+                     <div class="med-5 col">
+                        <p>{{ entry.entry_number }}</p>
+                     </div>
+                     <div class="med-7 col">
+                        <p>{{ entry.date | date:"fullDate" }}</p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Small Only -->
+               <div class="sm-promo-entries" ng-repeat="entry in promoView.entries | orderBy:'date'">
+                  <div class="row">
+                     <div class="med-6 col">
+                        <p class="text-bold">Entry Number</p>
+                     </div>
+                     <div class="med-6 col">
+                        <p>{{ entry.entry_number }}</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="med-6 col">
+                        <p class="text-bold">Entry Deadline</p>
+                     </div>
+                     <div class="med-6 col">
+                        <p>{{ entry.date | date:"fullDate" }}</p>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </div>
+      </section>
+
+      <!-- external javascript -->
+      <script src="js/app.js"></script>
+  	</body>
+</html>
