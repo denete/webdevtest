@@ -1,0 +1,247 @@
+.loader {
+  align-content: center;
+  vertical-align: middle;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: darkGray;
+  padding-top: 200px;
+}
+.loading {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 100px auto;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+.promotions_page div {
+  width: 90%;
+  margin: 5% auto;
+}
+.promotions_page .promo_line img {
+  box-shadow: 10px 10px 5px grey;
+}
+.promotions_page .promo_line a {
+  text-decoration: none;
+}
+.promotions_page .promo_line h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #036dbe;
+}
+.promotions_page .promo_line p {
+  font-size: 14px;
+  color: #444444;
+}
+.promotion_page {
+  padding: 50px;
+  background: #cccccc;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #cccccc 0%, #ffffff 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #cccccc 0%, #ffffff 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #cccccc 0%, #ffffff 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.promotion_page img {
+  box-shadow: 10px 10px 5px grey;
+  display: block;
+  margin: 0 auto;
+}
+.promotion_page .urgent {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #b20000;
+}
+.promotion_page .drawing_schedule_title,
+.promotion_page .total_entered {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+.promotion_page .summary,
+.promotion_page .entry_info {
+  font-size: 14px;
+  line-height: 24px;
+  color: #444444;
+}
+.promotion_page .drawing_sched_sm,
+.promotion_page .drawing_sched_lg,
+.promotion_page .ticket_entries_lg,
+.promotion_page .ticket_entries_sm {
+  width: 100%;
+  align-content: center;
+}
+.promotion_page .drawing_sched_sm table,
+.promotion_page .drawing_sched_lg table,
+.promotion_page .ticket_entries_lg table,
+.promotion_page .ticket_entries_sm table {
+  width: 100%;
+  background: white;
+}
+.promotion_page .drawing_sched_lg th,
+.promotion_page .drawing_sched_lg td {
+  align-content: center;
+  text-align: center;
+  padding: 10px 0;
+}
+.promotion_page .drawing_sched_lg th {
+  background: #666666;
+  color: white;
+}
+.promotion_page .drawing_sched_lg td {
+  background: #EAEAEA;
+}
+.promotion_page .ticket_entries_lg p {
+  text-align: center;
+}
+.promotion_page .ticket_entries_lg th,
+.promotion_page .ticket_entries_lg td {
+  align-content: center;
+  text-align: center;
+  padding: 10px 0;
+}
+.promotion_page .ticket_entries_lg th {
+  background: #666666;
+  color: white;
+}
+.promotion_page .ticket_entries_lg td {
+  background: #EAEAEA;
+}
+.promotion_page .drawing_sched_sm table {
+  border-collapse: collapse;
+}
+.promotion_page .drawing_sched_sm tr {
+  background: #E3E3E3;
+  border-bottom: 1px solid white;
+}
+.promotion_page .drawing_sched_sm tr:last-child {
+  border-bottom: 1px solid gray;
+}
+.promotion_page .drawing_sched_sm th {
+  align-content: left;
+  text-align: left;
+  padding: 10px 50px 30px 10px;
+  vertical-align: top;
+}
+.promotion_page .drawing_sched_sm td {
+  align-content: right;
+  text-align: right;
+  padding: 10px 50px 10px 10px;
+  vertical-align: top;
+}
+.promotion_page .ticket_entries_sm p {
+  color: #b20000;
+  text-align: center;
+}
+.promotion_page .ticket_entries_sm table {
+  border-collapse: collapse;
+}
+.promotion_page .ticket_entries_sm tr {
+  background: #E3E3E3;
+  border-bottom: 1px solid white;
+}
+.promotion_page .ticket_entries_sm tr:last-child {
+  border-bottom: 1px solid gray;
+}
+.promotion_page .ticket_entries_sm th {
+  align-content: left;
+  text-align: left;
+  padding: 10px 50px 30px 10px;
+  vertical-align: top;
+}
+.promotion_page .ticket_entries_sm td {
+  align-content: right;
+  text-align: right;
+  padding: 10px 50px 10px 10px;
+  vertical-align: top;
+}
+@media screen and (min-width: 480px) {
+  .promotion_page .ticket_entries_sm {
+    display: none;
+  }
+  .promotion_page .drawing_sched_sm {
+    display: none;
+  }
+  .promotion_page .urgent {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .promotion_page .ticket_entries_lg {
+    display: none;
+  }
+  .promotion_page .drawing_sched_lg {
+    display: none;
+  }
+}
+body {
+  font-family: arial;
+  margin: -21px 0 0 0 !important;
+  padding: 0;
+}

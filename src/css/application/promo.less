@@ -1,0 +1,154 @@
+.promotion_page {
+  padding: 50px;
+
+  background: #cccccc; /* Old browsers */
+  background: -moz-linear-gradient(top, #cccccc 0%, #ffffff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #cccccc 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #cccccc 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+  img {
+    box-shadow: 10px 10px 5px grey;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .urgent {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #b20000;
+  }
+
+  .drawing_schedule_title, .total_entered {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+  }
+
+
+
+  .summary, .entry_info {
+    font-size: 14px;
+    line-height: 24px;
+    color:#444444;
+  }
+
+  .drawing_sched_sm, .drawing_sched_lg, .ticket_entries_lg, .ticket_entries_sm{
+    width: 100%;
+    align-content: center;
+
+    table{
+      width:100%;
+      background: white;
+    }
+  }
+
+  .drawing_sched_lg {
+    th, td {
+      align-content: center;
+      text-align: center;
+      padding: 10px 0;
+    }
+    th{
+      background: #666666;
+      color: white;
+    }
+    td {
+      background: #EAEAEA;
+    }
+  }
+
+  .ticket_entries_lg {
+    p{
+      text-align: center;
+    }
+    th, td {
+      align-content: center;
+      text-align: center;
+      padding: 10px 0;
+    }
+    th{
+      background: #666666;
+      color: white;
+    }
+    td {
+      background: #EAEAEA;
+    }
+  }
+
+  .drawing_sched_sm {
+    table{
+      border-collapse: collapse;
+    }
+    tr {
+      background: #E3E3E3;
+      border-bottom: 1px solid white;
+    }
+    tr:last-child {
+      border-bottom: 1px solid gray;
+    }
+    th {
+      align-content: left;
+      text-align: left;
+      padding: 10px 50px 30px 10px;
+      vertical-align: top;
+    }
+    td {
+      align-content: right;
+      text-align: right;
+      padding: 10px 50px 10px 10px;
+      vertical-align: top;
+    }
+  }
+
+  .ticket_entries_sm {
+    p {
+      color: #b20000;
+      text-align: center;
+    }
+    table{
+      border-collapse: collapse;
+    }
+    tr {
+      background: #E3E3E3;
+      border-bottom: 1px solid white;
+    }
+    tr:last-child {
+      border-bottom: 1px solid gray;
+    }
+    th {
+      align-content: left;
+      text-align: left;
+      padding: 10px 50px 30px 10px;
+      vertical-align: top;
+    }
+    td {
+      align-content: right;
+      text-align: right;
+      padding: 10px 50px 10px 10px;
+      vertical-align: top;
+    }
+  }
+
+  @media screen and (min-width: 480px) {
+    .ticket_entries_sm {
+      display: none;
+    }
+    .drawing_sched_sm {
+      display: none;
+    }
+    .urgent {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .ticket_entries_lg {
+      display: none;
+    }
+    .drawing_sched_lg {
+      display: none;
+    }
+  }
+}
