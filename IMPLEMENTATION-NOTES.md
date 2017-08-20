@@ -24,10 +24,10 @@ The implementation is "modularized" into several files, and would be better serv
 
 If I were to implement this in another manner, I would pull in a few other libraries/utilities for this application to make my life easier:
 * node.js - Runtime for building/bundling/minifying code.
-** grunt-cli - Task runner, provides tasks for building/bundling/minifying code.
-*** grunt-webpack - Provides easy configuration of webpack for grunt tasks.
-** less - Allows for writing LESS instead of CSS for better maintainability.
-** webpack - Bundles javascript/templates/etc into a single source file for distribution.
-*** grunt-contrib-mustache - Provides webpack with the ability to include/compile mustache templates to render with on the client.
+  * grunt-cli - Task runner, provides tasks for building/bundling/minifying code.
+    * grunt-webpack - Provides easy configuration of webpack for grunt tasks.
+  * less - Allows for writing LESS instead of CSS for better maintainability.
+  * webpack - Bundles javascript/templates/etc into a single source file for distribution.
+    * grunt-contrib-mustache - Provides webpack with the ability to include/compile mustache templates to render with on the client.
 
 With the inclusion of Webpack, I would switch to a proper module system (preferably CommonJS).
