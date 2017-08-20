@@ -3,15 +3,21 @@ Promotions.Views = Promotions.Views || {};
 Promotions.Views.PromotionDetailView = (function() {
 	'use strict';
 
+	/**
+	 * Constructor.
+	 * @param {object} - The Promotion to render.
+	 */
 	var PromotionDetailView = function(promotion) {
 		this._promotion = promotion;
 		this._template = $('#promotion-detail-template').html();
 		this._drawingScheduleItemTemplate = $('#promotion-detail-drawing-schedule-row-template').html();
+		this._notFoundTemplate = $('#promotion-detail-promotion-not-found-template').html();
 		this._ticketsEnteredRowTemplate = $('#promotion-detail-tickets-entered-row-template').html();
 	};
 	
 	/**
 	 * Renders a row for the Drawing Schedule table.
+	 * @param {object} - The Drawing to render.
 	 * @returns {$} - A jQuery selector containing the rendered row.
 	 */
 	function renderDrawingScheduleRow(drawing) {
@@ -33,7 +39,8 @@ Promotions.Views.PromotionDetailView = (function() {
 	}
 	
 	/**
-	 * Renders a row for the Drawing Schedule table.
+	 * Renders a row for the Tickets Entered table.
+	 * @param {object} - The Entry to render.
 	 * @returns {$} - A jQuery selector containing the rendered row.
 	 */
 	function renderTicketsEnteredRow(drawing) {
@@ -55,6 +62,10 @@ Promotions.Views.PromotionDetailView = (function() {
 	 * @returns {$} - A jQuery selector containing the rendered PromotionView.
 	 */
 	PromotionDetailView.prototype.render = function() {
+		if (!this._promotion) {
+			return $(this._notFoundTemplate);
+		}
+		
 		var $promotion = $(this._template);
 
 		var $deadline = $promotion.find('.deadline');

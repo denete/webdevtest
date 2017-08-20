@@ -8,11 +8,32 @@
 		<script src="./js/Utils/QueryStringUtils.js" type="application/javascript"></script>
 		<script src="./js/Promotions/Clients/PromotionClient.js" type="application/javascript"></script>
 		<script src="./js/Promotions/Views/PromotionDetailView.js" type="application/javascript"></script>
+		<script src="./js/Promotions/Views/PromotionsView.js" type="application/javascript"></script>
 		<script src="./js/Promotions/Index.js" type="application/javascript"></script>
 	</head>
 	<body>
+		<script id="promotions-template" type="application/template">
+			<div class="promotions promotions-view">
+				<div class="container">
+				</div>
+			</div>
+		</script>
+		<script id="promotion-template" type="application/template">
+			<div class="promotion">
+				<div class="banner">
+					<img src=""/>
+				</div>
+				<a class="link promotion-name" href="">{{NAME}}</a>
+				<div class="summary">
+					{{SUMMARY}}
+				</div>
+				<div>
+					Next Drawing Date: <span class="next-drawing-date">{{NEXT_DRAWING_DATE}}</span>
+				</div>
+			</div>
+		</script>
 		<script id="promotion-detail-template" type="application/template">
-			<div class="promotion-page">
+			<div class="promotions promotion-detail-view">
 				<div class="container">
 					<div class="deadline">
 						The Next Entry Deadline is {{DEADLINE_DATE}}!
@@ -107,6 +128,11 @@
 						{{DATE}}
 					</span>
 				</div>
+			</div>
+		</script>
+		<script id="promotion-detail-promotion-not-found-template" type="application/template">
+			<div class="promotions promotion-detail-view">
+				<div class="header">Promotion Not Found</div>
 			</div>
 		</script>
 	</body>

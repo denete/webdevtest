@@ -19,31 +19,26 @@ body {
 	box-sizing: border-box;
 }
 
-.promotion-page {
+.promotions {
 	color: #444444;
 	font-size: 0.875rem;
 	height: 100%;
-	padding: 0.625rem;
+	padding: 1rem;
 	width: 100%;
 }
 
-.promotion-page .banner {
+.promotions .banner {
 	text-align: center;
 	width: 100%;
 }
 
-.promotion-page .banner img {
+.promotions .banner img {
 	box-shadow: 0.25rem 0.25rem 0.25rem #444444;
-	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
 	max-width: 100%;
 }
 
-.container {
-	margin: auto;
-	max-width: 800px;
-}
-
-.promotion-page .deadline {
+.promotions .deadline {
 	color: #b20000;
 	font-size: 1.5rem;
 	font-weight: bold;
@@ -51,7 +46,7 @@ body {
 	text-align: center;
 }
 
-.promotion-page .header {
+.promotions .header {
 	color: #000000;
 	font-size: 1.125rem;
 	font-weight: bold;
@@ -60,90 +55,114 @@ body {
 	text-align: center;
 }
 
-.promotion-page .link {
+.promotions .link {
 	color: #036dbe;
+	display: block;
 	font-size: 1.5rem;
 	font-weight: bold;
+	margin-bottom: 0.5rem;
 }
 
-.promotion-page .list-table {
+.promotions .list-table {
 	margin: 1rem;
 }
 
-.promotion-page .list-table .row.table-header {
+.promotions .list-table .row.table-header {
 	display: none;
 }
 
-.promotion-page .list-table .row:not(.table-header) + .row {
+.promotions .list-table .row:not(.table-header) + .row {
 	border-top: solid 0.0625rem #cccccc;
 }
 
-.promotion-page .list-table .row .column {
+.promotions .list-table .row .column {
 	background-color: #e2e2e2;
 	padding: 0.5rem 0.5rem 2rem 0.5rem;
 }
 
-.promotion-page .list-table .row .column .column-header {
+.promotions .list-table .row .column .column-header {
 	display: inline-block;
 	font-weight: bold;
 	width: calc(40% - 0.5rem * 2);
 }
 
-.promotion-page .list-table .row .column + .column {
+.promotions .list-table .row .column + .column {
 	border-top: solid 0.0625rem #ffffff;
 }
 
-.promotion-page .name {
+.promotions .promotion {
+	margin-bottom: 4rem;
+}
+
+.promotions .name {
 	color: #000000;
 	font-size: 1.5rem;
 }
 
-.promotion-page .table {
+.promotions .table {
 	display: none;
 }
 
-.promotion-page .warning {
+.promotions .warning {
 	color: #b20000;
 	line-height: 1.25rem;
 	text-align: center;
 }
 
 @media screen and (min-width: 481px) {
-	.promotion-page {
+	.promotions {
+		padding: 2rem;
+	}
+	
+	.promotions.promotion-detail-view {
 		background: linear-gradient(#cccccc, #ffffff);
 		padding: 2rem;
 	}
 	
-	.promotion-page .deadline {
+	.promotions.promotion-detail-view .banner img {
+		margin-bottom: 2rem;
+	}
+	
+	.promotions.promotion-detail-view .container {
+		margin: auto;
+		max-width: 1000px;
+	}
+	
+	.promotions.promotions-view .container {
+		margin: auto;
+		max-width: 677px;
+	}
+	
+	.promotions .deadline {
 		display: none;
 	}
 	
-	.promotion-page .list-table {
+	.promotions .list-table {
 		background: inherit;
 		box-shadow: 0.125rem 0.125rem 0.125rem #ffffff;
 		display: table;
 		width: calc(100% - 2rem);
 	}
 	
-	.promotion-page .list-table .row {
+	.promotions .list-table .row {
 		display: table-row;
 	}
 	
-	.promotion-page .list-table .row:not(.table-header) + .row {
+	.promotions .list-table .row:not(.table-header) + .row {
 		border: none;
 	}
 	
-	.promotion-page .list-table .row.table-header {
+	.promotions .list-table .row.table-header {
 		display: table-row;
 	}
 	
-	.promotion-page .list-table .row.table-header .column {
+	.promotions .list-table .row.table-header .column {
 		background-color: #666666;
 		color: #ffffff;
 		font-weight: bold;
 	}
 	
-	.promotion-page .list-table .row .column {
+	.promotions .list-table .row .column {
 		border: solid 0.125rem #ffffff;
 		display: table-cell;
 		height: 100%;
@@ -152,23 +171,23 @@ body {
 		width: calc(100% / 5);
 	}
 	
-	.promotion-page .list-table .row .column + .column {
+	.promotions .list-table .row .column + .column {
 		border-top: solid 0.125rem #ffffff;
 	}
 	
-	.promotion-page .list-table .row .column.double-wide {
+	.promotions .list-table .row .column.double-wide {
 		width: calc(2 * 100% / 5);
 	}
 	
-	.promotion-page .list-table .row .column.triple-wide {
+	.promotions .list-table .row .column.triple-wide {
 		width: calc(3 * 100% / 5);
 	}
 	
-	.promotion-page .list-table .row .column .column-header {
+	.promotions .list-table .row .column .column-header {
 		display: none;
 	}
 	
-	.promotion-page .warning {
+	.promotions .warning {
 		color: #444444;
 	}
 }

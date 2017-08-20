@@ -3,11 +3,16 @@ Utils.DateUtils = (function() {
 	'use strict';
 
 	return {
+		/**
+		 * Formats a ISO date string into a human readable date.
+		 * Uses toLocaleDateString if available, otherwise falls back to toString for older browsers.
+		 * @return {string} - A human readable date.
+		 */
 		formatHumanReadableDate: function(dateString) {
 			var date = new Date(dateString);
 
 			if (!Date.prototype.toLocaleDateString) {
-				return date.ToString();
+				return date.toString();
 			}
 
 			return date.toLocaleDateString('en-US', {
