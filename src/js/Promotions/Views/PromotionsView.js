@@ -1,60 +1,54 @@
-var Promotions = Promotions || {};
-Promotions.Views = Promotions.Views || {};
-Promotions.Views.PromotionsView = (function() {
-	'use strict';
+'use strict';
 
-	/**
-	 * Constructor.
-	 * @param {array} - An array of Promotions to render.
-	 */
-	var PromotionsView = function(promotions) {
-		this._promotions = promotions;
-		this._template = $('#promotions-template').html();
-		this._promotionTemplate = $('#promotion-template').html();
-	};
+var Backbone = require('backbone');
+var DateUtils = require('../../Utils/DateUtils');
+var PromotionsTemplate = require('./Templates/PromotionsView.mustache');
+
+/**
+ * Prepares view models for rendering Promotions.
+ * @param {Backbone.Collection} - A collection of Promotions to prepare view models for.
+ * @return {array} - A javascript array containing the Promotion view models.
+ */
+function preparePromotionViewModels(promotions) {
+	return promotions.map(function(promotion) {
+		return preparePromotionViewModel(promotion);
+	});
+}
+
+/**
+ * Prepares a view model for rendering a Promotion.
+ * @param {Promotion} - A Promotion to prepare a view model for.
+ * @return {object} - A javascript object representing a Promotion view model.
+ */
+function preparePromotionViewModel(promotion) {
+	var viewModel = promotion.toJSON();
 	
-	/**
-	 * Renders a single Promotion.
-	 * @param {object} - The Promotion to render.
-	 * @returns {$} - A jQuery selector containing the rendered view.
-	 */
-	function renderPromotion(promotion) {
-		var $promotion = $(this._promotionTemplate);
+	viewModel['formatted_next_drawing_date'] = DateUtils.formatHumanReadableDate(promotion.getNextDrawingDate());
+	viewModel['promotion_url'] = '?promo=' + encodeURIComponent(viewModel['promotion_name']);
 
-		$promotion
-			.find('.banner img')
-			.attr('src', promotion['promo_image_url']);
-			
-		$promotion
-			.find('.promotion-name')
-			.text(promotion['promotion_name'])
-			.attr('href', '?promo=' + encodeURIComponent(promotion['promotion_name']));
-			
-		$promotion
-			.find('.summary')
-			.text(promotion['summary']);
-			
-		$promotion
-			.find('.next-drawing-date')
-			.text(Utils.DateUtils.formatHumanReadableDate(promotion['drawings'][0]['drawing_date']));
-		
-		return $promotion;
+	return viewModel;
+}
+
+module.exports = Backbone.View.extend({
+	/**
+	 * The tag type to use for the base element of this view.
+	 */
+	tagName: 'div',
+
+	/**
+	 * The class name to apply to the base element of this view.
+	 */
+	className: 'promotions promotions-view',
+
+	/**
+	 * Renders this view.
+	 * @return {$} - A jQuery selector referencing this rendered view.
+	 */
+	render: function() {
+		this.$el.html(PromotionsTemplate.render({
+			promotions: preparePromotionViewModels(this.collection)
+		}));
+
+		return this.$el;
 	}
-
-	/**
-	 * Renders this PromotionView.
-	 * @returns {$) - A jQuery selector containing the rendered view.
-	 */
-	PromotionsView.prototype.render = function() {
-		var $promotions = $(this._template);
-		
-		var $container = $promotions.find('.container');
-		for (var i = 0; i < this._promotions.length; i++) {
-			$container.append(renderPromotion.apply(this, [this._promotions[i]]));
-		}
-		
-		return $promotions;
-	};
-	
-	return PromotionsView;
-}($));
+});

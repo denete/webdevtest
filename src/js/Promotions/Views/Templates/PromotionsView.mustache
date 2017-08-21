@@ -1,0 +1,16 @@
+<div class="container">
+	{{#promotions}}
+		<div class="promotion">
+			<div class="banner">
+				<img src="{{promo_image_url}}"/>
+			</div>
+			<a class="link promotion-name" href="{{{promotion_url}}}">{{promotion_name}}</a>
+			<div class="summary">
+				{{summary}}
+			</div>
+			<div>
+				Next Drawing Date: {{formatted_next_drawing_date}}
+			</div>
+		</div>
+	{{/promotions}}
+</div>

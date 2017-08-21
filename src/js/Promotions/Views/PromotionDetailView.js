@@ -1,104 +1,75 @@
-var Promotions = Promotions || {};
-Promotions.Views = Promotions.Views || {};
-Promotions.Views.PromotionDetailView = (function() {
-	'use strict';
+'use strict';
 
+var Backbone = require('backbone');
+var DateUtils = require('../../Utils/DateUtils');
+var PromotionDetailTemplate = require('./Templates/PromotionDetailView.mustache');
+
+/**
+ * Prepares a view model for rendering a Drawing.
+ * @param {Drawing} - A Drawing to prepare a view model for.
+ * @return {object} - A javascript object representing a Drawing view model.
+ */
+function prepareDrawingViewModel(drawing) {
+	var viewModel = drawing.toJSON();
+	
+	viewModel['formatted_drawing_date'] = DateUtils.formatHumanReadableDate(viewModel['drawing_date']);
+	viewModel['formatted_entry_deadline'] = DateUtils.formatHumanReadableDate(viewModel['entry_deadline']);
+	
+	return viewModel;
+}
+
+/**
+ * Prepares a view model for rendering an Entry.
+ * @param {Entry} - An Entry to prepare a view model for.
+ * @return {object} - A javascript object representing an Entry view model.
+ */
+function prepareEntryViewModel(entry) {
+	var viewModel = entry.toJSON();
+	
+	viewModel['formatted_date'] = DateUtils.formatHumanReadableDate(viewModel.date);
+	
+	return viewModel;
+}
+
+/**
+ * Prepares a view model for rendering details for a Promotion.
+ * @param {Promotion} - A Promotion to prepare a view model for.
+ * @return {object} - A javascript object representing a Promotion view model.
+ */
+function preparePromotionDetailViewModel(promotion) {
+	var viewModel = promotion.toJSON();
+	
+	viewModel.drawings = promotion.get('drawings').map(function(drawing) {
+		return prepareDrawingViewModel(drawing);
+	});
+	
+	viewModel.entries = promotion.get('entries').map(function(entry) {
+		return prepareEntryViewModel(entry);
+	});
+	
+	viewModel['formatted_next_entry_deadline'] = DateUtils.formatHumanReadableDate(promotion.getNextEntryDeadline());
+	
+	return viewModel;
+}
+
+module.exports = Backbone.View.extend({
 	/**
-	 * Constructor.
-	 * @param {object} - The Promotion to render.
+	 * The tag type to use for the base element of this view.
 	 */
-	var PromotionDetailView = function(promotion) {
-		this._promotion = promotion;
-		this._template = $('#promotion-detail-template').html();
-		this._drawingScheduleItemTemplate = $('#promotion-detail-drawing-schedule-row-template').html();
-		this._notFoundTemplate = $('#promotion-detail-promotion-not-found-template').html();
-		this._ticketsEnteredRowTemplate = $('#promotion-detail-tickets-entered-row-template').html();
-	};
+	tagName: 'div',
 	
 	/**
-	 * Renders a row for the Drawing Schedule table.
-	 * @param {object} - The Drawing to render.
-	 * @returns {$} - A jQuery selector containing the rendered row.
+	 * The class name to apply to the base element of this view.
 	 */
-	function renderDrawingScheduleRow(drawing) {
-		var $row = $(this._drawingScheduleItemTemplate);
-
-		$row
-			.find('.prize')
-			.text(drawing['prize']);
-			
-		$row
-			.find('.entry-deadline')
-			.text(Utils.DateUtils.formatHumanReadableDate(drawing['entry_deadline']));
-			
-		$row
-			.find('.drawing-date')
-			.text(Utils.DateUtils.formatHumanReadableDate(drawing['drawing_date']));
-			
-		return $row;
+	className: 'promotions promotion-detail-view',
+	
+	/**
+	 * Renders this view.
+	 * @return {$} - A jQuery selector referencing this rendered view.
+	 */
+	render: function() {
+		this.$el.html(PromotionDetailTemplate.render(preparePromotionDetailViewModel(this.model)));
+		
+		return this.$el;
 	}
-	
-	/**
-	 * Renders a row for the Tickets Entered table.
-	 * @param {object} - The Entry to render.
-	 * @returns {$} - A jQuery selector containing the rendered row.
-	 */
-	function renderTicketsEnteredRow(drawing) {
-		var $row = $(this._ticketsEnteredRowTemplate);
-
-		$row
-			.find('.entry-number')
-			.text(drawing['entry_number']);
-			
-		$row
-			.find('.date')
-			.text(Utils.DateUtils.formatHumanReadableDate(drawing['date']));
-			
-		return $row;
-	}
-	
-	/**
-	 * Renders the PromotionDetailView based on the supplied Promotion.
-	 * @returns {$} - A jQuery selector containing the rendered PromotionView.
-	 */
-	PromotionDetailView.prototype.render = function() {
-		if (!this._promotion) {
-			return $(this._notFoundTemplate);
-		}
-		
-		var $promotion = $(this._template);
-
-		var $deadline = $promotion.find('.deadline');
-		$deadline.text($deadline.text().replace('{{DEADLINE_DATE}}',
-			Utils.DateUtils.formatHumanReadableDate(this._promotion['drawings'][0]['entry_deadline'])));
-
-		$promotion
-			.find('.banner img')
-			.attr('src', this._promotion['promo_image_url']);
-
-		$promotion
-			.find('.summary')
-			.text(this._promotion['summary']);
-
-		$promotion
-			.find('.entry-info')
-			.text(this._promotion['entry_info']);
-
-		var $ticketsEnteredHeader = $promotion.find('.tickets-entered-header');
-		$ticketsEnteredHeader.text($ticketsEnteredHeader.text().replace('{{TOTAL_TICKETS_ENTERED}}', this._promotion['entries'].length));
-		
-		var $drawingScheduleTable = $promotion.find('.drawing-schedule-table');
-		for (var i = 0; i < this._promotion['drawings'].length; i++) {
-			$drawingScheduleTable.append(renderDrawingScheduleRow.apply(this, [this._promotion['drawings'][i]]));
-		}
-		
-		var $ticketsEnteredTable = $promotion.find('.tickets-entered-table');
-		for (var j = 0; j < this._promotion['entries'].length; j++) {
-			$ticketsEnteredTable.append(renderTicketsEnteredRow.apply(this, [this._promotion['entries'][j]]));
-		}
-
-		return $promotion;
-	};
-	
-	return PromotionDetailView;
-}($));
+});

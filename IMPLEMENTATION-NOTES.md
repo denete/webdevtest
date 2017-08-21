@@ -4,7 +4,7 @@ Implementation Notes
 Foreward
 --------
 
-Per my phone interview with Karmela, I was made to believe that the applications I would write at Scientific Games would more than likely include few dependencies/third-party libraries, and which ones included wouldn't necessarily be the most up-to-date versions.  Because of this, I've opted to implement this solution in a manner that would introduce as few dependencies as possible that are slightly older than their current version.
+This is my second pass at the programming quiz, implementing a solution utilizing third party libraries of my choice.
 
 Setup
 -----
@@ -14,20 +14,19 @@ It is recommended to serve this via a web server in some capacity (either IIS, a
 Dependencies
 ------------
 
-* jQuery 2.2.4 (served via CloudFlare CDN)
+Node.js is required to build.  Build dependencies are listed in the package.json file and include:
+* grunt and grunt-cli - For setting up and running build tasks.
+* less - For building CSS from LESS.
+* webpack - For bundling javascript and mustache templates.
 
+Additional dependencies are pulled from a Cloudflare CDN:
+* jQuery 3.2.1 - Dependency for Backbone
+* Underscore.js 1.8.3 - Dependency for Backbone
+* Backbone.js 1.3.3 - Provides Model/View framework, including utilities for fetching data from a server.
 
-Places for Improvement
-----------------------
+Setup
+-----
 
-The implementation is "modularized" into several files, and would be better served bundled and minified.
-
-If I were to implement this in another manner, I would pull in a few other libraries/utilities for this application to make my life easier:
-* node.js - Runtime for building/bundling/minifying code.
-  * grunt-cli - Task runner, provides tasks for building/bundling/minifying code.
-    * grunt-webpack - Provides easy configuration of webpack for grunt tasks.
-  * less - Allows for writing LESS instead of CSS for better maintainability.
-  * webpack - Bundles javascript/templates/etc into a single source file for distribution.
-    * grunt-contrib-mustache - Provides webpack with the ability to include/compile mustache templates to render with on the client.
-
-With the inclusion of Webpack, I would switch to a proper module system (preferably CommonJS).
+* Run npm init to pull down dependent node modules.
+* Once dependencies are installed, run 'grunt build' to build the CSS and JS bundles.
+  * You can run this locally with 'node .\node_modules\grunt-cli\bin\grunt' if you don't have grunt-cli installed locally.  Additionally, if you have the latest version of npm, you can use the npx utility.
