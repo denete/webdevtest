@@ -1,0 +1,94 @@
+<div class="container">
+	<div class="deadline">
+		The Next Entry Deadline is {{formatted_next_entry_deadline}}!
+	</div>
+	<div class="banner">
+		<img src="{{promo_image_url}}"/>
+	</div>
+	<div class="summary">
+		{{summary}}
+	</div>
+	<div class="header drawing-schedule-header">
+		Drawing Schedule
+	</div>
+	<div class="list-table drawing-schedule-table">
+		<div class="row table-header">
+			<div class="column">
+				PRIZE
+			</div>
+			<div class="double-wide column">
+				ENTRY DEADLINE
+			</div>
+			<div class="double-wide column">
+				DRAWING DATE
+			</div>
+		</div>
+		{{#drawings}}
+			<div class="row">
+				<div class="column">
+					<div class="column-header">
+						PRIZE
+					</div>
+					<span class="prize">
+						{{prize}}
+					</span>
+				</div>
+				<div class="double-wide column">
+					<div class="column-header">
+						ENTRY DEADLINE
+					</div>
+					<span class="entry-deadline">
+						{{formatted_entry_deadline}}
+					</span>
+				</div>
+				<div class="double-wide column">
+					<div class="column-header">
+						DRAWING DATE
+					</div>
+					<span class="drawing-date">
+						{{formatted_drawing_date}}
+					</span>
+				</div>
+			</div>
+		{{/drawings}}
+	</div>
+	<div class="entry-info">
+		{{entry_info}}
+	</div>
+	<div class="header tickets-entered-header">
+		Your Total Tickets Entered: {{entries_length}}
+	</div>
+	<div class="warning">
+		All entries are locked in at the time they are submitted and cannot be deleted.
+	</div>
+	<div class="list-table tickets-entered-table">
+		<div class="row table-header">
+			<div class="double-wide column">
+				ENTRY NUMBER
+			</div>
+			<div class="triple-wide column">
+				DATE
+			</div>
+		</div>
+		{{#entries}}
+			<div class="row">
+				<div class="double-wide column">
+					<div class="column-header">
+						ENTRY NUMBER
+					</div>
+					<span class="entry-number">
+						{{entry_number}}
+					</span>
+				</div>
+				<div class="triple-wide column">
+					<div class="column-header">
+						DATE
+					</div>
+					<span class="date">
+						{{formatted_date}}
+					</span>
+				</div>
+			</div>
+		{{/entries}}
+	</div>
+</div>
