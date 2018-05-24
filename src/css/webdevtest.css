@@ -7,7 +7,7 @@ body {
 }
 
 .hidden {
-    display:flex;
+    display: none;
 }
 
 .promotion-view {
