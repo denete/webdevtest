@@ -143,10 +143,15 @@ class ListView extends AbstractView {
     display() {
         this.data.promotion_objects.forEach((promotion, index) => {
             let item =  $('<div>');
+            item.addClass('column');
+
+            let imgDiv = $('<div>')
+            imgDiv.addClass('no-stretch');
+            imgDiv.appendTo(item);
 
             let itemImg = $('<img>');
             itemImg.attr('src', promotion.promo_image_url);
-            itemImg.appendTo(item);
+            itemImg.appendTo(imgDiv);
 
             let itemLink = $('<div>');
             itemLink.text(promotion.promotion_name);
@@ -198,26 +203,32 @@ class PromotionView extends AbstractView {
 
     displayHeaderSmall() {
         let itemNextEntry = $('<div>');
-        itemNextEntry.text("The Next Entry Deadline is "+this.getNextDrawing(this.promotion).entry_deadline);
+        itemNextEntry.text("The Next Entry Deadline is "+this.getFormattedDate(this.getNextDrawing(this.promotion).entry_deadline)+"!");
+        itemNextEntry.addClass('next-deadline')
         itemNextEntry.appendTo('.promotion-header');
+
+        let imgDiv = $('<div>')
+        imgDiv.addClass('no-stretch');
+        imgDiv.appendTo('.promotion-header');
 
         let itemImg = $('<img>');
         itemImg.attr('src', this.promotion.promo_image_url);
-        itemImg.appendTo('.promotion-header');
+        itemImg.appendTo(imgDiv);
 
         let itemSummary = $('<div>');
         itemSummary.text(this.promotion.summary);
+        itemSummary.addClass('column');
         itemSummary.appendTo('.promotion-header');
     }
 
     displayDrawingsSmall() {
         let drawingTable = $('<table>');
-        
         this.getValidDrawings(this.promotion).forEach(drawing => {
             let prizeRow = $('<tr>');
 
             let drawingPrizeTitle = $('<td>');
             drawingPrizeTitle.text('PRIZE');
+            drawingPrizeTitle.addClass('row-title');
             drawingPrizeTitle.appendTo(prizeRow);
 
             let drawingPrize = $('<td>');
@@ -230,6 +241,7 @@ class PromotionView extends AbstractView {
 
             let entryDeadLineTitle = $('<td>');
             entryDeadLineTitle.text('ENTRY DEADLINE');
+            entryDeadLineTitle.addClass('row-title');
             entryDeadLineTitle.appendTo(deadLineRow);
 
             let entryDeadLine = $('<td>');
@@ -242,6 +254,7 @@ class PromotionView extends AbstractView {
 
             let drawingDateTitle = $('<td>');
             drawingDateTitle.text('DRAWING DATE');
+            drawingDateTitle.addClass('row-title');
             drawingDateTitle.appendTo(drawingDateRow);
 
             let drawingDate = $('<td>');
@@ -262,6 +275,7 @@ class PromotionView extends AbstractView {
 
             let entryNumberTitle = $('<td>');
             entryNumberTitle.text('ENTRY NUMBER');
+            entryNumberTitle.addClass('row-title');
             entryNumberTitle.appendTo(entryRow);
 
             let entryNumber = $('<td>');
@@ -274,6 +288,7 @@ class PromotionView extends AbstractView {
 
             let dateTitle = $('<td>');
             dateTitle.text('DATE');
+            dateTitle.addClass('row-title');
             dateTitle.appendTo(dateRow);
 
             let date = $('<td>');
@@ -299,9 +314,13 @@ class PromotionView extends AbstractView {
     }
 
     displayHeaderWide() {
+        let imgDiv = $('<div>')
+        imgDiv.addClass('no-stretch');
+        imgDiv.appendTo('.promotion-header');
+
         let itemImg = $('<img>');
         itemImg.attr('src', this.promotion.promo_image_url);
-        itemImg.appendTo('.promotion-header');
+        itemImg.appendTo(imgDiv);
 
         let itemName = $('<div>');
         itemName.text(this.promotion.promotion_name);
@@ -356,6 +375,7 @@ class PromotionView extends AbstractView {
     displayDrawingsEntryInfo() {
         let entryInfo = $('<div>');
         entryInfo.text(this.promotion.entry_info);
+        entryInfo.addClass('column');
         entryInfo.appendTo('.drawing-schedule');
         $('.total-tickets').text("Your Total Tickets Entered: " + this.promotion.entries.length);
     }
