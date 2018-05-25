@@ -4,7 +4,7 @@ window.onload = () => {
         dataHandler = Object.assign({}, dataLoader(dataProviderXML(), dataParserJSON()));
 
         dataHandler.loadData('js/webdevtest-data.js', (data) => {
-            const promoId = getURLParameter("promo");
+            let promoId = parseInt(getURLParameter("promo").slice(5));
             let view = promoId ? new PromotionView(data, promoId) : new ListView(data);
             view.display();
         })
@@ -163,18 +163,45 @@ class ListView extends AbstractView {
 
             item.appendTo('.promotion-list');
         });
-        $('.promotion-list').show();
+        $('.promotion-list').removeClass('hidden');
+
     }
 }
 
 class PromotionView extends AbstractView {
     constructor(data, id) {
         super(data);
-        this.id = id;
+        this.promotion = this.data.promotion_objects[id - 1];
     }
 
     display() {
-        console.log("Promo view: "+this.id);
+        if (screen.width <= 480)
+            this.displaySmall();
+        else
+            this.displayWide();
+        $('.promotion-view').removeClass('hidden');
+    }
+
+    displaySmall() {
+
+    }
+
+    displayWide() {
+        let itemImg = $('<img>');
+        itemImg.attr('src', this.promotion.promo_image_url);
+        itemImg.appendTo('.promotion-view');
+
+        let itemName = $('<div>');
+        itemName.text(this.promotion.promotion_name);
+        itemName.appendTo('.promotion-view');
+        itemName.addClass('name');
+
+        let itemSummary = $('<div>');
+        itemSummary.text(this.promotion.summary);
+        itemSummary.appendTo('.promotion-view');
+  //      itemSummary.addClass('text');
+
+        $('body').addClass('gradientbg');
     }
 }
 

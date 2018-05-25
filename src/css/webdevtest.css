@@ -10,6 +10,11 @@ body {
 }
 
 .promotion-view {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 24px;
+    color: #444444;
 }
 
 .promotion-list {
@@ -31,10 +36,27 @@ body {
     cursor: pointer;
 }
 
-
+.promotion-view img,
 .promotion-list img {
     margin-top: 30px;
-    box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5)  ; 
-    -webkit-box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5)  ; 
-    -moz-box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5)  ; 
+    box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.promotion-view .name {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #000000;
+}
+
+
+.gradientbg {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#ffffff));
+    background-image: -webkit-linear-gradient(#cccccc, #ffffff);
+    background-image: -moz-linear-gradient(#cccccc, #ffffff);
+    background-image: -o-linear-gradient(#cccccc, #ffffff);
+    background-image: linear-gradient(#cccccc, #ffffff);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
