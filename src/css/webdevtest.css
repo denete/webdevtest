@@ -5,10 +5,6 @@ body {
     align-items: center;
 }
 
-.hidden {
-    display: none;
-}
-
 .promotion-view {
     display: flex;
     flex-direction: column;
@@ -82,4 +78,9 @@ body {
     background-image: linear-gradient(#cccccc, #ffffff);
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+
+.hidden {
+    display: none;
 }

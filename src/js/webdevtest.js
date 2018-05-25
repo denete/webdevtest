@@ -187,7 +187,103 @@ class PromotionView extends AbstractView {
     }
 
     displaySmall() {
+        this.displayHeaderSmall();
 
+        this.displayDrawingsSmall();
+        
+        this.displayDrawingsEntryInfo();
+
+        this.displayEntriesSmall();
+    }
+
+    displayHeaderSmall() {
+        let itemNextEntry = $('<div>');
+        itemNextEntry.text("The Next Entry Deadline is "+this.getNextDrawing(this.promotion).entry_deadline);
+        itemNextEntry.appendTo('.promotion-header');
+
+        let itemImg = $('<img>');
+        itemImg.attr('src', this.promotion.promo_image_url);
+        itemImg.appendTo('.promotion-header');
+
+        let itemSummary = $('<div>');
+        itemSummary.text(this.promotion.summary);
+        itemSummary.appendTo('.promotion-header');
+    }
+
+    displayDrawingsSmall() {
+        let drawingTable = $('<table>');
+        
+        this.getValidDrawings(this.promotion).forEach(drawing => {
+            let prizeRow = $('<tr>');
+
+            let drawingPrizeTitle = $('<td>');
+            drawingPrizeTitle.text('PRIZE');
+            drawingPrizeTitle.appendTo(prizeRow);
+
+            let drawingPrize = $('<td>');
+            drawingPrize.text(drawing.prize);
+            drawingPrize.appendTo(prizeRow);
+
+            prizeRow.appendTo(drawingTable);
+
+            let deadLineRow = $('<tr>');
+
+            let entryDeadLineTitle = $('<td>');
+            entryDeadLineTitle.text('ENTRY DEADLINE');
+            entryDeadLineTitle.appendTo(deadLineRow);
+
+            let entryDeadLine = $('<td>');
+            entryDeadLine.text(this.getFormattedDate(drawing.entry_deadline));
+            entryDeadLine.appendTo(deadLineRow);
+
+            deadLineRow.appendTo(drawingTable);
+
+            let drawingDateRow = $('<tr>');
+
+            let drawingDateTitle = $('<td>');
+            drawingDateTitle.text('DRAWING DATE');
+            drawingDateTitle.appendTo(drawingDateRow);
+
+            let drawingDate = $('<td>');
+            drawingDate.text(this.getFormattedDate(drawing.drawing_date));
+            drawingDate.appendTo(drawingDateRow);
+
+            drawingDateRow.appendTo(drawingTable);
+        });
+
+        drawingTable.appendTo('.drawing-schedule');
+    }
+
+    displayEntriesSmall() {
+        let entriesTable = $('<table>');
+        
+        this.promotion.entries.forEach(entry => {
+            let entryRow = $('<tr>');
+
+            let entryNumberTitle = $('<td>');
+            entryNumberTitle.text('ENTRY NUMBER');
+            entryNumberTitle.appendTo(entryRow);
+
+            let entryNumber = $('<td>');
+            entryNumber.text(entry.entry_number);
+            entryNumber.appendTo(entryRow);
+
+            entryRow.appendTo(entriesTable);
+
+            let dateRow = $('<tr>');
+
+            let dateTitle = $('<td>');
+            dateTitle.text('DATE');
+            dateTitle.appendTo(dateRow);
+
+            let date = $('<td>');
+            date.text(this.getFormattedDate(entry.date));
+            date.appendTo(dateRow);
+
+            dateRow.appendTo(entriesTable);
+        });
+
+        entriesTable.appendTo('.tickets');
     }
 
     displayWide() {
