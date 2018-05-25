@@ -1,0 +1,148 @@
+body {
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.promotion-view {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 24px;
+    color: #444444;
+    max-width: 800px;
+}
+
+.promotion-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.promotion-list .item {
+    font-size: 14px;
+    color: #444444;
+    margin-top: 10px;
+    justify-content: flex-start;
+}
+
+.promotion-list .link {
+    font-size: 24px;
+    font-weight: bold;
+    color: #036dbe;
+    margin-top: 10px;
+    cursor: pointer;
+    justify-content: flex-start;
+}
+
+
+.promotion-view img,
+.promotion-list img {
+    margin-top: 30px;
+    box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.promotion-view .name {
+    margin-top: 30px;
+    font-size: 24px;
+    color: #000000;
+}
+
+.promotion-view .text-big {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+.promotion-view table {
+    border-spacing: 0px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 20px;
+}
+
+.promotion-view th {
+    border: 3px solid white;
+    background-color: #666666;
+    color: white;
+}
+
+.promotion-view tr {
+    background-color: #cccccc;
+    color: black;
+}
+
+.promotion-view td {
+    text-align: center;
+    border: 3px solid white;
+}
+
+@media screen and (max-width:480px) {
+    .promotion-view,
+    .promotion-list {
+        width: 90%;
+    }
+    
+    .promotion-view img,
+    .promotion-list img {
+        width: 100%;
+    }
+
+    .promotion-view td {
+        text-align: left;
+        border: 0px;
+        height: 40px;
+        vertical-align: top;
+        padding: 10px;
+    }
+
+    .entries-locked {
+        color: #b20000;
+        text-align: center;
+    }
+
+    .next-deadline {
+        color: #b20000;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .row-title {
+        font-weight: bold;
+    }
+}
+
+.gradientbg {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#ffffff));
+    background-image: -webkit-linear-gradient(#cccccc, #ffffff);
+    background-image: -moz-linear-gradient(#cccccc, #ffffff);
+    background-image: -o-linear-gradient(#cccccc, #ffffff);
+    background-image: linear-gradient(#cccccc, #ffffff);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hidden {
+    display: none;
+}
+
+.column {
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.no-stretch {
+    align-items: center;
+}
