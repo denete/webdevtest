@@ -51,6 +51,29 @@ body {
 }
 
 
+.promotion-view table {
+    border-spacing: 0px;
+    width: 100%;
+    max-width:900px;
+}
+
+.promotion-view th {
+    border: 3px solid white;
+    background-color: #666666;
+    color: white;
+}
+
+.promotion-view tr {
+    background-color: #cccccc;
+    color: black;
+}
+
+.promotion-view td {
+    text-align: center;
+    border: 3px solid white;
+}
+
+
 .gradientbg {
     background-image: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#ffffff));
     background-image: -webkit-linear-gradient(#cccccc, #ffffff);

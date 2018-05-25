@@ -124,10 +124,14 @@ class AbstractView {
     getNextDrawingDateString(promotion) {
         let nextDrawing = this.getNextDrawing(promotion);
         if (nextDrawing) {
-            let date = new Date(nextDrawing.drawing_date);
-            return date.toLocaleDateString("en-US", this.dateOptions);
+            return this.getFormattedDate(nextDrawing.drawing_date);
         }
         return "";
+    }
+
+    getFormattedDate(dateStr) {
+        let date = new Date(dateStr);
+        return date.toLocaleDateString("en-US", this.dateOptions);        
     }
 }
 
@@ -187,21 +191,108 @@ class PromotionView extends AbstractView {
     }
 
     displayWide() {
+        this.displayHeaderWide();
+
+        this.displayDrawingsWide();
+
+        this.displayDrawingsEntryInfo();
+
+        this.displayEntriesWide();
+
+        $('body').addClass('gradientbg');
+    }
+
+    displayHeaderWide() {
         let itemImg = $('<img>');
         itemImg.attr('src', this.promotion.promo_image_url);
-        itemImg.appendTo('.promotion-view');
+        itemImg.appendTo('.promotion-header');
 
         let itemName = $('<div>');
         itemName.text(this.promotion.promotion_name);
-        itemName.appendTo('.promotion-view');
+        itemName.appendTo('.promotion-header');
         itemName.addClass('name');
 
         let itemSummary = $('<div>');
         itemSummary.text(this.promotion.summary);
-        itemSummary.appendTo('.promotion-view');
-  //      itemSummary.addClass('text');
+        itemSummary.appendTo('.promotion-header');
+    }
 
-        $('body').addClass('gradientbg');
+    displayDrawingsWide() {
+        let drawingTable = $('<table>');
+        
+        let drawingHeader = $('<tr>');
+        
+        let drawingPrizeHeader = $('<th>');
+        drawingPrizeHeader.text('PRIZE');
+        drawingPrizeHeader.appendTo(drawingHeader);
+
+        let drawingEntryHeader = $('<th>');
+        drawingEntryHeader.text('ENTRY DEADLINE');
+        drawingEntryHeader.appendTo(drawingHeader);
+
+        let drawingDateHeader = $('<th>');
+        drawingDateHeader.text('DRAWING DATE');
+        drawingDateHeader.appendTo(drawingHeader);
+
+        drawingHeader.appendTo(drawingTable);
+
+        this.getValidDrawings(this.promotion).forEach(drawing => {
+            let drawingRow = $('<tr>');
+            
+            let drawingPrize = $('<td>');
+            drawingPrize.text(drawing.prize);
+            drawingPrize.appendTo(drawingRow);
+
+            let drawingEntry = $('<td>');
+            drawingEntry.text(this.getFormattedDate(drawing.entry_deadline));
+            drawingEntry.appendTo(drawingRow);
+
+            let drawingDate = $('<td>');
+            drawingDate.text(this.getFormattedDate(drawing.drawing_date));
+            drawingDate.appendTo(drawingRow);
+
+            drawingRow.appendTo(drawingTable);
+        });
+
+        drawingTable.appendTo('.drawing-schedule');
+    }
+
+    displayDrawingsEntryInfo() {
+        let entryInfo = $('<div>');
+        entryInfo.text(this.promotion.entry_info);
+        entryInfo.appendTo('.drawing-schedule');
+        $('.total-tickets').text("Your Total Tickets Entered: " + this.promotion.entries.length);
+    }
+
+    displayEntriesWide() {
+        let entriesTable = $('<table>');
+        
+        let entriesHeader = $('<tr>');
+        
+        let entryNumberHeader = $('<th>');
+        entryNumberHeader.text('ENTRY NUMBER');
+        entryNumberHeader.appendTo(entriesHeader);
+
+        let entryDateHeader = $('<th>');
+        entryDateHeader.text('DATE');
+        entryDateHeader.appendTo(entriesHeader);
+
+        entriesHeader.appendTo(entriesTable);
+        entriesTable.appendTo('.tickets');
+
+        this.promotion.entries.forEach(entry => {
+            let entryRow = $('<tr>');
+
+            let entryNumber = $('<td>');
+            entryNumber.text(entry.entry_number);
+            entryNumber.appendTo(entryRow);
+
+            let entryDate = $('<td>');
+            entryDate.text(this.getFormattedDate(entry.date));
+            entryDate.appendTo(entryRow);
+
+            entryRow.appendTo(entriesTable);
+        });
     }
 }
 
