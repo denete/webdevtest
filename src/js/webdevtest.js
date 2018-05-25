@@ -41,6 +41,15 @@ function getURLParameter(paramaterName) {
     return "";
 }
 
+function toFormattedNumber(num, length) {
+    var formatted = "" + num;
+    while (formatted.length < length) {
+        formatted = "0" + formatted;
+    }
+    return formatted;
+}
+
+
 const dataProviderXML = () => ({
     preloadData: (path, callback) => {
         var request = new XMLHttpRequest();
@@ -128,25 +137,29 @@ class ListView extends AbstractView {
     }
 
     display() {
-        this.data.promotion_objects.forEach(promotion => {
+        this.data.promotion_objects.forEach((promotion, index) => {
             let item =  $('<div>');
 
             let itemImg = $('<img>');
             itemImg.attr('src', promotion.promo_image_url);
             itemImg.appendTo(item);
 
-            let itemName = $('<div>');
-            itemName.text(promotion.promotion_name);
-            itemName.appendTo(item);
+            let itemLink = $('<div>');
+            itemLink.text(promotion.promotion_name);
+            itemLink.appendTo(item);
+            itemLink.addClass('link');
+            itemLink.click(() => window.location.href = window.location.href.split('?')[0]+'?promo=promo'+toFormattedNumber(index+1,2));
 
             let itemSummary = $('<div>');
             itemSummary.text(promotion.summary);
             itemSummary.appendTo(item);
+            itemSummary.addClass('item');
             
             let itemDrawing = $('<div>');
 
             itemDrawing.text('Next Drawing Date: '+this.getNextDrawingDateString(promotion));
             itemDrawing.appendTo(item);
+            itemDrawing.addClass('item');
 
             item.appendTo('.promotion-list');
         });
