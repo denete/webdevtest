@@ -10,36 +10,36 @@
 
     <title>SG-Test</title>
 </head>
-<body>
-    <div class="container-fluid">
+<body class="promotion-background">
+    <div id="promotion-view-layout" class="container-fluid d-none">
         <div class="row deadline-alert">
             <div class="col d-block d-sm-none text-center"><h1>The Next Entry Deadline is Wednesday, October 22, 2015!</h1></div>
         </div>
         <div class="row justify-content-center banner">
-            <div class="col col-sm-10">
-                <img src="images/mmadness.jpg" class="d-block d-sm-none img-fluid"/>
-                <img src="images/mmadness.jpg" class="d-none d-sm-block mx-auto"/>
+            <div class="col col-sm-8">
+                <img src="images/mmadness.jpg" class="d-block d-sm-none img-fluid promotion-image"/>
+                <img src="images/mmadness.jpg" class="d-none d-sm-block mx-auto promotion-image"/>
             </div>
         </div>
         <div class="row justify-content-center promotion-name-row">
-            <div class="col col-sm-10 d-none d-sm-block">
-                <h1>{promotion_name}</h1>
+            <div class="col col-sm-8 d-none d-sm-block">
+                <h1><span id="promotion-name">{promotion_name}</span></h1>
             </div>
         </div>
         <div class="row justify-content-center promotion-summary">
-            <div class="col col-sm-10">
+            <div class="col col-sm-8">
                 <span id="summary">{summary}</span>
             </div>
         </div>
         <div class="row justify-content-center no-gutters drawing-schedule">
-            <div class="col col-sm-10">
+            <div class="col col-sm-8">
 
                 <div class="row no-gutters">
                     <div class="col text-center"><h2>Drawing Schedule</h2></div>
                 </div>
                 <div class="row no-gutters justify-content-center">
                     <div class="col d-none d-sm-block">
-                        <table>
+                        <table id="schedule">
                             <thead>
                                 <tr>
                                     <th class="prize-column">PRIZE</th>
@@ -48,11 +48,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -62,20 +57,20 @@
         </div>
 
         <div class="row justify-content-center d-block d-sm-none">
-            <div class="col small-drawing-schedule">
+            <div id="small-drawing-schedule" class="col small-table">
                 <div class="row entry-row">
                     <div class="col">
                         <div class="row">
                             <div class="col col-5">PRIZE</div>
-                            <div class="col col-7">$10,000</div>
+                            <div class="col col-7 schedule-prize"></div>
                         </div>
                         <div class="row">
                             <div class="col col-5">ENTRY DEADLINE</div>
-                            <div class="col col-7">Wednesday, October 22, 2015</div>
+                            <div class="col col-7 schedule-deadline">Wednesday, October 22, 2015</div>
                         </div>
                         <div class="row">
                             <div class="col col-5">DRAWING DATE</div>
-                            <div class="col col-7">Wednesday, October 22, 2015</div>
+                            <div class="col col-7 schedule-drawing-date">Wednesday, October 22, 2015</div>
                         </div>
                     </div>
                 </div>
@@ -83,13 +78,13 @@
         </div>
 
         <div class="row justify-content-center entry-info-row">
-            <div class="col col-sm-10">
+            <div class="col col-sm-8">
                 <span id="entry-info">{entry_info}</span>
             </div>
         </div>
 
         <div class="row justify-content-center no-gutters tickets-entered">
-            <div class="col col-sm-10">
+            <div class="col col-sm-8">
                 <div class="row no-gutters">
                     <div class="col text-center"><h2>Your Total Tickets Entered: <span id="entries-count">2</span></h2></div>
                 </div>
@@ -98,7 +93,7 @@
                 </div>
                 <div class="row no-gutters justify-content-center">
                     <div class="col d-none d-sm-block">
-                        <table>
+                        <table id="ticket">
                             <thead>
                             <tr>
                                 <th class="entry-number-column">ENTRY NUMBER</th>
@@ -106,10 +101,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -117,30 +108,46 @@
             </div>
         </div>
 
-        <div class="row justify-content-center d-block d-sm-none small-drawing-schedule-row">
-            <div class="col small-drawing-schedule">
+        <div class="row justify-content-center d-block d-sm-none">
+            <div id="small-ticket-table" class="col small-table">
                 <div class="row entry-row">
                     <div class="col">
                         <div class="row">
                             <div class="col col-5">ENTRY NUMBER</div>
-                            <div class="col col-7">027840217109</div>
+                            <div class="col col-7 entry-number"></div>
                         </div>
                         <div class="row">
                             <div class="col col-5">DATE</div>
-                            <div class="col col-7">Wednesday, October 22, 2015</div>
+                            <div class="col col-7 entry-date"></div>
                         </div>
                     </div>
                 </div>
-                <div class="row entry-row">
+            </div>
+        </div>
+    </div>
+
+    <div id="promotion-list-view" class="container-fluid d-none">
+        <div class="row justify-content-center banner">
+            <div class="col col-sm-3">
+                <div class="row">
                     <div class="col">
-                        <div class="row">
-                            <div class="col col-5">ENTRY NUMBER</div>
-                            <div class="col col-7">027840217109</div>
-                        </div>
-                        <div class="row">
-                            <div class="col col-5">DATE</div>
-                            <div class="col col-7">Wednesday, October 22, 2015</div>
-                        </div>
+                        <img src="images/mmadness.jpg" class="d-block d-sm-none img-fluid promotion-image"/>
+                        <img src="images/mmadness.jpg" class="d-none d-sm-block mx-auto promotion-image"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a class="promotion-link"></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col promotion-summary">
+                        summary
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Next Drawing date: <span class="promotion-next-drawing-date"></span>
                     </div>
                 </div>
             </div>
@@ -148,14 +155,14 @@
 
     </div>
 
-    <footer>
-
-    </footer>
+    <footer></footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"></script>
-    <script src="js/popper.1.14.3.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"></script>
-    <script src="js/bootstrap.4.1.1.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-dateformat.min.js"></script>
+    <script src="js/popper.1.14.3.min.js"></script>
+    <script src="js/bootstrap.4.1.1.min.js"></script>
+    <script src="js/webdevtest.js"></script>
 </body>
 </html>

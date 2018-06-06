@@ -42,29 +42,29 @@ th.entry-number-column {
     width: 30%;
 }
 
-.small-drawing-schedule {
+.small-table {
     padding: 0 50px;
 }
 
-.small-drawing-schedule .row {
+.small-table .row {
     min-height: 50px;
     background-color: #E2E2E2;
     border-bottom: 1px solid #4e555b;
 }
 
-.small-drawing-schedule .row:last-child {
+.small-table .row:last-child {
     border-bottom: 0px;
 }
 
-.small-drawing-schedule .entry-row {
+.small-table .entry-row {
     border-bottom: 2px solid #4e555b;
 }
 
-.small-drawing-schedule .entry-row:last-child {
+.small-table .entry-row:last-child {
     border-bottom: 0px solid #4e555b;
 }
 
-.small-drawing-schedule .col {
+small-table .col {
 }
 
 .entry-info-row {
@@ -101,7 +101,7 @@ footer {
 
 /* wide */
 @media (min-width: 481px) {
-    body {
+    .promotion-background {
         background: linear-gradient(#ccc, #fff);
         background-repeat: no-repeat;
         background-attachment: fixed;
