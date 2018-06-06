@@ -1,0 +1,142 @@
+html {
+    height: 100%;
+}
+body {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    height: 100%;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    border-spacing: 5px;
+    border-collapse: separate;
+}
+
+th {
+    color: #fbfbfb;
+    background-color: #666;
+}
+
+td {
+    color: #363636;
+    background-color: #ccc;
+}
+
+td, th {
+    padding: 8px;
+}
+
+th.prize-column {
+    width: 20%;
+}
+
+th.entry-deadline-column {
+    width: 40%;
+}
+
+th.entry-number-column {
+    width: 30%;
+}
+
+.small-drawing-schedule {
+    padding: 0 50px;
+}
+
+.small-drawing-schedule .row {
+    min-height: 50px;
+    background-color: #E2E2E2;
+    border-bottom: 1px solid #4e555b;
+}
+
+.small-drawing-schedule .row:last-child {
+    border-bottom: 0px;
+}
+
+.small-drawing-schedule .entry-row {
+    border-bottom: 2px solid #4e555b;
+}
+
+.small-drawing-schedule .entry-row:last-child {
+    border-bottom: 0px solid #4e555b;
+}
+
+.small-drawing-schedule .col {
+}
+
+.entry-info-row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.summary, .entry-info {
+    font-size: 14px;
+    line-height: 24px;
+    color: #444;
+}
+
+.deadline-alert {
+    margin-top: 20px;
+}
+
+.banner {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.banner img {
+    box-shadow: 5px 5px 5px grey;
+}
+
+.promotion-summary {
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+/* wide */
+@media (min-width: 481px) {
+    body {
+        background: linear-gradient(#ccc, #fff);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    h1 {
+        font-size: 24px;
+        color: #000;
+    }
+
+    .locked {
+        font-size: 14px;
+        line-height: 24px;
+        color: #000;
+    }
+}
+
+/* small */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #b20000;
+    }
+
+    .locked {
+        font-size: 14px;
+        line-height: 24px;
+        color: #b20000;
+    }
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+}
+
