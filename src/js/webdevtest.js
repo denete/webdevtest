@@ -91,8 +91,8 @@ function loadPromotionListView(data) {
 
         let newRow = bannerRow.clone();
         newRow.find("img").attr("src", promotion["promo_image_url"]);
-        newRow.find(".promotion-link").text(promotion["promotion_name"]);
-        newRow.find(".promotion-link").attr("href", "index.html?promo=promo0" + (indexOrder[i] + 1).toString())
+        newRow.find(".promotion-link > a").text(promotion["promotion_name"]);
+        newRow.find(".promotion-link > a").attr("href", "index.html?promo=promo0" + (indexOrder[i] + 1).toString())
         newRow.find(".promotion-summary").text(promotion["summary"]);
 
         if (earliestDrawing != null)
