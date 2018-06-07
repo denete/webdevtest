@@ -142,9 +142,14 @@ h2 {
 
 .promotion-link {
     margin-top: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #036dbe;
 }
 
 .promotion-summary {
     margin-top: 10px;
+    font-size: 14px;
+    color: #444;
 }
 

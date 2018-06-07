@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     $.getJSON('js/webdevtest-data.js', function(data) {
         if (site > 0)
-            lodaPromotionView(data["promotion_objects"][site-1]);
+            lodaPromotionView(data["promotion_objects"][site - 1]);
         else
             loadPromotionListView(data["promotion_objects"]);
     });
