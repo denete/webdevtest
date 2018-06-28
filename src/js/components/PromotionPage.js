@@ -19,13 +19,12 @@ class PromotionPage extends React.Component {
         const params = new URLSearchParams(search);
         const promoID = params.get('promo');
         const promoIdRet = promoID.replace(/promo/g,'');
-        const promoIndex = parseInt(promoIdRet, 0);
+        const promoIndex = parseInt(promoIdRet, 0) - 1;
         return promoIndex;
     }
 
     renderPromoList (data) {
-        const promotionsData = data.promotion_objects;
-        return <PromotionList promotionsData={promotionsData} />;
+        return <PromotionList data={data} />;
     }
 
     renderPromoItem (data, promoIndex) {
@@ -37,7 +36,7 @@ class PromotionPage extends React.Component {
         const { data } = this.props;
 
         if (data === undefined) {
-            return "Loading";
+            return <div>Loading</div>;
         }
 
         if (this.shouldRenderPromoList() === true) {

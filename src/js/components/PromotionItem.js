@@ -1,24 +1,28 @@
 import React from "react";
+import moment from "moment";
 
 class PromotionItem extends React.Component {
     render () {
         const { promotionData } = this.props;
         
         const drawings = promotionData.drawings.map(drawingData => {
+            const deadlineDate = moment(drawingData.entry_deadline).format("dddd, MMMM DD, YYYY");
+            const drawingDate = moment(drawingData.drawing_date).format("dddd, MMMM DD, YYYY");
             return (
                 <div>
                     <div>{drawingData.prize}</div>
-                    <div>{drawingData.entry_deadline}</div>
-                    <div>{drawingData.drawing_date}</div>
+                    <div>{deadlineDate}</div>
+                    <div>{drawingDate}</div>
                 </div>
             );
         });
 
         const entries = promotionData.entries.map(entryData => {
+            const entryDate = moment(entryData.date).format("dddd, MMMM DD, YYYY");
             return (
                 <div>
                     <div>{entryData.entry_number}</div>
-                    <div>{entryData.date}</div>
+                    <div>{entryDate}</div>
                 </div>
             );
         });
