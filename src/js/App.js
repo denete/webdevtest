@@ -1,10 +1,12 @@
 import React from "react";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { connect } from "react-redux";
 
 import PromotionPage from "./components/PromotionPage";
+
+import NotFoundPage from "./components/NotFoundPage";
 
 import { fetchData } from "./actions/fetchData";
 
@@ -16,7 +18,10 @@ class App extends React.Component {
 	render() {
 		return (
             <BrowserRouter>
-                <Route path="/index.html" component={PromotionPage} exact />
+                <Switch>
+                    <Route path="/index.html" component={PromotionPage} exact />
+                    <Route component={NotFoundPage} />
+                </Switch>
             </BrowserRouter>
 		);
 	}
