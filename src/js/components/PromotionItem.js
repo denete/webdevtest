@@ -5,11 +5,12 @@ class PromotionItem extends React.Component {
     render () {
         const { promotionData } = this.props;
         
-        const drawings = promotionData.drawings.map(drawingData => {
+        const drawings = promotionData.drawings.map((drawingData, index) => {
+            const key = `drawings${index}`;
             const deadlineDate = moment(drawingData.entry_deadline).format("dddd, MMMM DD, YYYY");
             const drawingDate = moment(drawingData.drawing_date).format("dddd, MMMM DD, YYYY");
             return (
-                <div>
+                <div key={key}>
                     <div>{drawingData.prize}</div>
                     <div>{deadlineDate}</div>
                     <div>{drawingDate}</div>
@@ -17,10 +18,11 @@ class PromotionItem extends React.Component {
             );
         });
 
-        const entries = promotionData.entries.map(entryData => {
+        const entries = promotionData.entries.map((entryData, index) => {
+            const key = `entries${index}`;
             const entryDate = moment(entryData.date).format("dddd, MMMM DD, YYYY");
             return (
-                <div>
+                <div key={key}>
                     <div>{entryData.entry_number}</div>
                     <div>{entryDate}</div>
                 </div>
