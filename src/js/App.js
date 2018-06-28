@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import { connect } from "react-redux";
 
-import PromotionView from "./components/PromotionView";
+import PromotionPage from "./components/PromotionPage";
 
 import { fetchData } from "./actions/fetchData";
 
@@ -16,7 +16,7 @@ class App extends React.Component {
 	render() {
 		return (
             <BrowserRouter>
-                <Route path="/index.html" component={PromotionView} exact />
+                <Route path="/index.html" component={PromotionPage} exact />
             </BrowserRouter>
 		);
 	}
