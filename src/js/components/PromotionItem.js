@@ -1,44 +1,97 @@
 import React from "react";
+
 import moment from "moment";
 
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
+
+const drawingHeaders = ["Prize", "Entry deadline", "drawing date"];
+
+const entryHeaders = ["Entry number", "date"];
+
 class PromotionItem extends React.Component {
-    render () {
-        const { promotionData } = this.props;
-        
-        const drawings = promotionData.drawings.map((drawingData, index) => {
+    renderDrawingSchedule (promotionData) {
+        const drawingsTHeadContent = drawingHeaders.map((drawingHeader, index) => {
+            const headerKey = `header${index}`;
+            return <Th key={ headerKey }>{ drawingHeader }</Th>;
+        });
+
+        const drawingsTBodyContent = promotionData.drawings.map((drawingData, index) => {
             const key = `drawings${index}`;
             const deadlineDate = moment(drawingData.entry_deadline).format("dddd, MMMM DD, YYYY");
             const drawingDate = moment(drawingData.drawing_date).format("dddd, MMMM DD, YYYY");
             return (
-                <div key={key}>
-                    <div>{drawingData.prize}</div>
-                    <div>{deadlineDate}</div>
-                    <div>{drawingDate}</div>
-                </div>
-            );
-        });
-
-        const entries = promotionData.entries.map((entryData, index) => {
-            const key = `entries${index}`;
-            const entryDate = moment(entryData.date).format("dddd, MMMM DD, YYYY");
-            return (
-                <div key={key}>
-                    <div>{entryData.entry_number}</div>
-                    <div>{entryDate}</div>
-                </div>
+                <Tr key={key}>
+                    <Td>{drawingData.prize}</Td>
+                    <Td>{deadlineDate}</Td>
+                    <Td>{drawingDate}</Td>
+                </Tr>
             );
         });
 
         return (
             <div>
-                <div>{promotionData.promo_image_url}</div>
-                <div>{promotionData.promotion_name}</div>
                 <p>Drawings schedule</p>
-                <div>{drawings}</div>
-                <p>{promotionData.entry_info}</p>
+                <Table className="tableResults">
+                    <Thead>
+                        <Tr>{ drawingsTHeadContent }</Tr>
+                    </Thead>
+
+                    <Tbody>
+                        { drawingsTBodyContent }
+                    </Tbody>
+                </Table>
+            </div>
+        );
+    }
+
+    renderEntries (promotionData) {
+        const entriesTHeadContent = entryHeaders.map((entryHeader, index) => {
+            const headerKey = `header${index}`;
+            return <Th key={ headerKey }>{ entryHeader }</Th>;
+        });
+
+        const entriesTBodyContent = promotionData.entries.map((entryData, index) => {
+            const key = `entries${index}`;
+            const entryDate = moment(entryData.date).format("dddd, MMMM DD, YYYY");
+            return (
+                <Tr key={key}>
+                    <Td>{entryData.entry_number}</Td>
+                    <Td>{entryDate}</Td>
+                </Tr>
+            );
+        });
+
+        return (
+            <div>
                 <p>Your total tickets entered {promotionData.entries.length}</p>
                 <p>All entries are locked in at the time they are submitted and cannot be deleted.</p>
-                <div>{entries}</div>
+                <Table className="tableResults">
+                    <Thead>
+                        <Tr>
+                            { entriesTHeadContent }
+                        </Tr>
+                    </Thead>
+
+                    <Tbody>
+                        { entriesTBodyContent }
+                    </Tbody>
+                </Table>
+            </div>
+        );
+    }
+
+    render () {
+        const { promotionData } = this.props;
+
+        return (
+            <div>
+                <div>{promotionData.promo_image_url}</div>
+                <div>{promotionData.promotion_name}</div>
+                { this.renderDrawingSchedule(promotionData) }
+                <p>{promotionData.entry_info}</p>
+                { this.renderEntries(promotionData) }
             </div>
         );
     }
