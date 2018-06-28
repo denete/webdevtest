@@ -1,6 +1,8 @@
 import React from "react";
 
 import { connect } from "react-redux";
+import PromotionItem from "./PromotionItem";
+import PromotionList from "./PromotionList";
 
 class PromotionPage extends React.Component {
     shouldRenderPromoList () {
@@ -18,17 +20,17 @@ class PromotionPage extends React.Component {
         const promoID = params.get('promo');
         const promoIdRet = promoID.replace(/promo/g,'');
         const promoIndex = parseInt(promoIdRet, 0);
-        console.log(promoIndex);
         return promoIndex;
     }
 
     renderPromoList (data) {
-        return <div>Promo List</div>;
+        const promotionsData = data.promotion_objects;
+        return <PromotionList promotionsData={promotionsData} />;
     }
 
     renderPromoItem (data, promoIndex) {
-        console.log(data.promotion_objects[promoIndex]);
-        return <div>Promo Item</div>;
+        const promotionData = data.promotion_objects[promoIndex];
+        return <PromotionItem promotionData={promotionData} />;
     }
 
     render () {
