@@ -35,9 +35,8 @@ class PromotionPage extends React.Component {
         return <PromotionList data={data} />;
     }
 
-    renderPromoItem (data, promoIndex) {
-        const promotionData = data.promotion_objects[promoIndex];
-        return <PromotionItem promotionData={promotionData} />;
+    renderPromoItem (data, promotionIndex) {
+        return <PromotionItem data={data} promotionIndex={promotionIndex} />;
     }
 
     render () {

@@ -8,6 +8,8 @@ import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 
 import "./../../css/SuperResponsiveTableStyle.css";
 
+import { nextEventInTime } from "./../utils/nextEventInTime";
+
 const messages = defineMessages({
 	drawing_schedule: {
 		id: "DRAWING_SCHEDULE",
@@ -20,7 +22,11 @@ const messages = defineMessages({
 	entry_description: {
 		id: "ENTRY_DESCRIPTION",
 		defaultMessage: "All entries are locked in at the time they are submitted and cannot be deleted."
-	}
+    },
+    next_entry_deadline: {
+        id: "NEXT_ENTRY_DEADLINE",
+        defaultMessage: "The Next Entry Deadline is"
+    }
 });
 
 const drawingHeaders = ["Prize", "Entry deadline", "drawing date"];
@@ -107,11 +113,21 @@ class PromotionItem extends React.Component {
     }
 
     render () {
-        const { promotionData } = this.props;
+        const { data, promotionIndex, intl } = this.props;
+        const promotionData = data.promotion_objects[promotionIndex];
+        const serverTimeData = data.server_time;
+
+        const nextEntryDeadlineText = intl.formatMessage(messages.next_entry_deadline);
+        const nextEntryData = nextEventInTime(promotionData.entries, "date", serverTimeData);
+        const nextEntryDate = moment(nextEntryData.date).format("dddd, MMMM DD, YYYY");
 
         return (
             <div className="promotionView">
                 <div className="promotionItem">
+                    <div className="nextEntryContainer">
+                        <p>{ nextEntryDeadlineText }</p>
+                        <p>{ nextEntryDate }</p>
+                    </div>
                     <img src={promotionData.promo_image_url}></img>
                     <h1>{promotionData.promotion_name}</h1>
                     { this.renderDrawingSchedule(promotionData) }

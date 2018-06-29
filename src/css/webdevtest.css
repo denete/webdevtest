@@ -4,6 +4,11 @@ body {
     padding: 0;
 }
 
+p {
+    margin: 0;
+    padding: 0;
+}
+
 .promotionList {
     text-decoration: none;
     font-size: 14px;
@@ -20,9 +25,35 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
+.promotionItem h2 {
+    font-size: 18px;
+    color: #000000;
+}
+
+.promotionItem p,
+table {
+    font-size: 14px;
+    line-height: 24px;
+    color: #444444;
+}
+
+.nextEntryContainer {
+    display: none;
+}
+
 @media (max-width: 480px) {
     .promotionItem .lockedEntry {
         color: #b20000; 
+    }
+
+    .nextEntryContainer {
+        display: block;
+    }
+
+    .nextEntryContainer p {
+        font-size: 24px;
+        font-weight: bold;
+        color: #b20000;
     }
 }
 
@@ -35,16 +66,4 @@ body {
         font-size: 24px;
         color: #000000;
     }
-}
-
-.promotionItem h2 {
-    font-size: 18px;
-    color: #000000;
-}
-
-.promotionItem p,
-table {
-    font-size: 14px;
-    line-height: 24px;
-    color: #444444;
 }
