@@ -24,15 +24,8 @@
 		border-bottom: 2px solid #333;
 	}
 
-	.responsiveTable tbody tr {
-		border: 1px solid #000;
-		padding: .25em;
-	}
-
 	.responsiveTable td.pivoted {
         /* Behave like a "row" */
-		border: none !important;
-		border-bottom: 1px solid #000;
 		position: relative;
 		padding-left: 50% !important;
 		text-align: left !important;
@@ -43,7 +36,7 @@
 		position: absolute;
 		display: block;
         /* Top/left values mimic padding */
-		left: 1rem;
+		left: 10px;
 		width: 45%;
 		padding-right: 10px;
 		white-space: nowrap;

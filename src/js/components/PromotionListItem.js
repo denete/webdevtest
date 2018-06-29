@@ -17,13 +17,13 @@ class PromotionListItem extends React.Component {
         const { intl } = this.props;
         const nextDrawingDate = moment(nextDrawingData.drawing_date).format("dddd, MMMM DD, YYYY");
         const nextDrawingDateText = intl.formatMessage(messages.next_drawing_date);
-        return <div>{nextDrawingDateText} {nextDrawingDate}</div>
+        return <div className="nextDrawingDate">{nextDrawingDateText} {nextDrawingDate}</div>
     }
 
     render () {
         const { url, promotionData, serverTimeData } = this.props;
         return (
-            <div>
+            <div className="promotionListItem">
                 <img src={promotionData.promo_image_url}></img>
                 <h1><Link to={url}>{promotionData.promotion_name}</Link></h1>
                 <div>{promotionData.summary}</div>

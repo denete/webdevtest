@@ -57,7 +57,7 @@ class PromotionItem extends React.Component {
 
         const drawingScheduleText = intl.formatMessage(messages.drawing_schedule);
         return (
-            <div>
+            <div className="drawingScheduleTable">
                 <h2>{ drawingScheduleText }</h2>
                 <Table className="tableResults">
                     <Thead>
@@ -94,7 +94,7 @@ class PromotionItem extends React.Component {
         const totalTicketsEnteredText = intl.formatMessage(messages.total_tickets_entered);
         const entryDescriptionText = intl.formatMessage(messages.entry_description);
         return (
-            <div>
+            <div className="entriesTable">
                 <h2>{ totalTicketsEnteredText } { promotionData.entries.length }</h2>
                 <p className="lockedEntry">{ entryDescriptionText }</p>
                 <Table className="tableResults">
@@ -123,13 +123,16 @@ class PromotionItem extends React.Component {
 
         return (
             <div className="promotionView">
-                <div className="promotionItem">
+                <div className="promotionItem container">
                     <div className="nextEntryContainer">
                         <p>{ nextEntryDeadlineText }</p>
                         <p>{ nextEntryDate }</p>
                     </div>
-                    <img src={promotionData.promo_image_url}></img>
+                    <div className="promotionItemImg">
+                        <img src={promotionData.promo_image_url}></img>
+                    </div>
                     <h1>{promotionData.promotion_name}</h1>
+                    <p>{promotionData.summary}</p>
                     { this.renderDrawingSchedule(promotionData) }
                     <p>{promotionData.entry_info}</p>
                     { this.renderEntries(promotionData) }
