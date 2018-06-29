@@ -111,7 +111,7 @@ class PromotionItem extends React.Component {
 
         return (
             <div>
-                <div>{promotionData.promo_image_url}</div>
+                <img src={promotionData.promo_image_url}></img>
                 <div>{promotionData.promotion_name}</div>
                 { this.renderDrawingSchedule(promotionData) }
                 <p>{promotionData.entry_info}</p>

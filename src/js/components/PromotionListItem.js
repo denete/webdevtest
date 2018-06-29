@@ -31,7 +31,7 @@ class PromotionListItem extends React.Component {
         const { url, promotionData, serverTimeData } = this.props;
         return (
             <div>
-                <div>{promotionData.promo_image_url}</div>
+                <img src={promotionData.promo_image_url}></img>
                 <Link to={url}>{promotionData.promotion_name}</Link>
                 <div>{promotionData.summary}</div>
                 { this.getNextDrawing(promotionData.drawings, serverTimeData) }
