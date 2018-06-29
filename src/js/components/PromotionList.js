@@ -17,7 +17,13 @@ class PromotionList extends React.Component {
                 />
             );
         });
-        return <div>{ promotionListItems }</div>
+        return (
+            <div className="promotionListView">
+                <div className="promotionList">
+                    { promotionListItems }
+                </div>
+            </div>
+        )
     }
 }
 

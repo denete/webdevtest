@@ -6,7 +6,10 @@ import reduxThunk from "redux-thunk";
 import { addLocaleData, IntlProvider } from "react-intl";
 
 import App from "./App";
+
 import dataReducer from "./reducers/dataReducer";
+
+import "./../css/webdevtest.css";
 
 const appLocale = window.appLocale;
 addLocaleData(appLocale.data);

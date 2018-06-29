@@ -6,7 +6,7 @@ import { injectIntl, defineMessages } from "react-intl";
 
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 
-import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
+import "./../../css/SuperResponsiveTableStyle.css";
 
 const messages = defineMessages({
 	drawing_schedule: {
@@ -52,7 +52,7 @@ class PromotionItem extends React.Component {
         const drawingScheduleText = intl.formatMessage(messages.drawing_schedule);
         return (
             <div>
-                <p>{ drawingScheduleText }</p>
+                <h2>{ drawingScheduleText }</h2>
                 <Table className="tableResults">
                     <Thead>
                         <Tr>{ drawingsTHeadContent }</Tr>
@@ -89,8 +89,8 @@ class PromotionItem extends React.Component {
         const entryDescriptionText = intl.formatMessage(messages.entry_description);
         return (
             <div>
-                <p>{ totalTicketsEnteredText } { promotionData.entries.length }</p>
-                <p>{ entryDescriptionText }</p>
+                <h2>{ totalTicketsEnteredText } { promotionData.entries.length }</h2>
+                <p className="lockedEntry">{ entryDescriptionText }</p>
                 <Table className="tableResults">
                     <Thead>
                         <Tr>
@@ -110,12 +110,14 @@ class PromotionItem extends React.Component {
         const { promotionData } = this.props;
 
         return (
-            <div>
-                <img src={promotionData.promo_image_url}></img>
-                <div>{promotionData.promotion_name}</div>
-                { this.renderDrawingSchedule(promotionData) }
-                <p>{promotionData.entry_info}</p>
-                { this.renderEntries(promotionData) }
+            <div className="promotionView">
+                <div className="promotionItem">
+                    <img src={promotionData.promo_image_url}></img>
+                    <h1>{promotionData.promotion_name}</h1>
+                    { this.renderDrawingSchedule(promotionData) }
+                    <p>{promotionData.entry_info}</p>
+                    { this.renderEntries(promotionData) }
+                </div>
             </div>
         );
     }

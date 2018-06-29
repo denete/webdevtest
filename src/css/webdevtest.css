@@ -1,0 +1,50 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+.promotionList {
+    text-decoration: none;
+    font-size: 14px;
+    color: #444444;
+}
+
+.promotionList a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #036dbe;
+}
+
+.promotionList img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 480px) {
+    .promotionItem .lockedEntry {
+        color: #b20000; 
+    }
+}
+
+@media (min-width: 481px) {
+    .promotionView {
+        background: linear-gradient(#cccccc , #ffffff);
+    }
+
+    .promotionItem h1 {
+        font-size: 24px;
+        color: #000000;
+    }
+}
+
+.promotionItem h2 {
+    font-size: 18px;
+    color: #000000;
+}
+
+.promotionItem p,
+table {
+    font-size: 14px;
+    line-height: 24px;
+    color: #444444;
+}
