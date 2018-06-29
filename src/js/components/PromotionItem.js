@@ -2,9 +2,26 @@ import React from "react";
 
 import moment from "moment";
 
+import { injectIntl, defineMessages } from "react-intl";
+
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
+
+const messages = defineMessages({
+	drawing_schedule: {
+		id: "DRAWING_SCHEDULE",
+		defaultMessage: "Drawings schedule"
+	},
+	total_tickets_entered: {
+		id: "TOTAL_TICKETS_ENTERED",
+		defaultMessage: "Your total tickets entered"
+	},
+	entry_description: {
+		id: "ENTRY_DESCRIPTION",
+		defaultMessage: "All entries are locked in at the time they are submitted and cannot be deleted."
+	}
+});
 
 const drawingHeaders = ["Prize", "Entry deadline", "drawing date"];
 
@@ -12,6 +29,8 @@ const entryHeaders = ["Entry number", "date"];
 
 class PromotionItem extends React.Component {
     renderDrawingSchedule (promotionData) {
+        const { intl } = this.props;
+
         const drawingsTHeadContent = drawingHeaders.map((drawingHeader, index) => {
             const headerKey = `header${index}`;
             return <Th key={ headerKey }>{ drawingHeader }</Th>;
@@ -30,9 +49,10 @@ class PromotionItem extends React.Component {
             );
         });
 
+        const drawingScheduleText = intl.formatMessage(messages.drawing_schedule);
         return (
             <div>
-                <p>Drawings schedule</p>
+                <p>{ drawingScheduleText }</p>
                 <Table className="tableResults">
                     <Thead>
                         <Tr>{ drawingsTHeadContent }</Tr>
@@ -47,6 +67,8 @@ class PromotionItem extends React.Component {
     }
 
     renderEntries (promotionData) {
+        const { intl } = this.props;
+
         const entriesTHeadContent = entryHeaders.map((entryHeader, index) => {
             const headerKey = `header${index}`;
             return <Th key={ headerKey }>{ entryHeader }</Th>;
@@ -63,10 +85,12 @@ class PromotionItem extends React.Component {
             );
         });
 
+        const totalTicketsEnteredText = intl.formatMessage(messages.total_tickets_entered);
+        const entryDescriptionText = intl.formatMessage(messages.entry_description);
         return (
             <div>
-                <p>Your total tickets entered {promotionData.entries.length}</p>
-                <p>All entries are locked in at the time they are submitted and cannot be deleted.</p>
+                <p>{ totalTicketsEnteredText } { promotionData.entries.length }</p>
+                <p>{ entryDescriptionText }</p>
                 <Table className="tableResults">
                     <Thead>
                         <Tr>
@@ -97,4 +121,4 @@ class PromotionItem extends React.Component {
     }
 }
 
-export default PromotionItem;
+export default injectIntl(PromotionItem);

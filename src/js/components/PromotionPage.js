@@ -1,8 +1,16 @@
 import React from "react";
+import { injectIntl, defineMessages } from "react-intl";
 
 import { connect } from "react-redux";
 import PromotionItem from "./PromotionItem";
 import PromotionList from "./PromotionList";
+
+const messages = defineMessages({
+	loading: {
+		id: "LOADING",
+		defaultMessage: "Loading"
+	}
+});
 
 class PromotionPage extends React.Component {
     shouldRenderPromoList () {
@@ -36,7 +44,8 @@ class PromotionPage extends React.Component {
         const { data } = this.props;
 
         if (data === undefined) {
-            return <div>Loading</div>;
+            const loadingText = this.props.intl.formatMessage(messages.loading);
+            return <div>{ loadingText }</div>;
         }
 
         if (this.shouldRenderPromoList() === true) {
@@ -53,4 +62,4 @@ function mapStateToProps({ data }) {
 	};
 }
 
-export default connect(mapStateToProps)(PromotionPage);
+export default connect(mapStateToProps)(injectIntl(PromotionPage));

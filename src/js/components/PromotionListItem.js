@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import { injectIntl, defineMessages } from "react-intl";
+
+const messages = defineMessages({
+	next_drawing_date: {
+		id: "NEXT_DRAWING_DATE",
+		defaultMessage: "Next Drawing Date:"
+	}
+});
 
 class PromotionListItem extends React.Component {
     getNextDrawing (drawingsData, serverTimeData) {
@@ -13,8 +21,10 @@ class PromotionListItem extends React.Component {
                 nextDrawingData = drawingData;
             }
         });
+        const { intl } = this.props;
         const nextDrawingDate = moment(nextDrawingData.drawing_date).format("dddd, MMMM DD, YYYY");
-        return <div>Next Drawing Date: {nextDrawingDate}</div>
+        const nextDrawingDateText = intl.formatMessage(messages.next_drawing_date);
+        return <div>{nextDrawingDateText} {nextDrawingDate}</div>
     }
 
     render () {
@@ -30,4 +40,4 @@ class PromotionListItem extends React.Component {
     }
 }
 
-export default PromotionListItem;
+export default injectIntl(PromotionListItem);
