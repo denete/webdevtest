@@ -57,7 +57,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js && sass build/styles/webdevtest.scss build/css/webdevtest.css && rm -rf build/reactjs",
+    "build": "node scripts/build.js && sass build/styles/webdevtest.scss build/css/webdevtest.css && rm -rf build/reactjs  && rm -rf build/styles",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
