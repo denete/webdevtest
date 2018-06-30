@@ -31,3 +31,18 @@ table {
     width: 100%;
     height: auto;
 }
+
+.loader,
+.error {
+    width: 100%;
+    height: 100%;
+    display: table;
+    min-height: 5em;
+    text-align: center;
+}
+
+.loaderInner,
+.errorInner {
+  display: table-cell;
+  vertical-align: middle;
+}

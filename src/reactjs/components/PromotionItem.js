@@ -8,6 +8,8 @@ import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 
 import { nextEventInTime } from "./../utils/nextEventInTime";
 
+import ErrorComponent from "./ErrorComponent";
+
 const messages = defineMessages({
 	drawing_schedule: {
 		id: "DRAWING_SCHEDULE",
@@ -24,10 +26,6 @@ const messages = defineMessages({
     next_entry_deadline: {
         id: "NEXT_ENTRY_DEADLINE",
         defaultMessage: "The Next Entry Deadline is"
-    },
-    error: {
-        id: "ERROR",
-        defaultMessage: "error"
     }
 });
 
@@ -118,8 +116,7 @@ class PromotionItem extends React.Component {
         const { data, promotionIndex, intl } = this.props;
         const promotionData = data.promotion_objects[promotionIndex];
         if (promotionData === undefined) {
-            const errorText = intl.formatMessage(messages.error);
-            return <div>{ errorText }</div>;
+            return <ErrorComponent />;
         }
         const serverTimeData = data.server_time;
 
