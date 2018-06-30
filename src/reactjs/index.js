@@ -9,7 +9,7 @@ import App from "./App";
 
 import dataReducer from "./reducers/dataReducer";
 
-import "./../css/webdevtest.css";
+import "./../styles/webdevtest.scss";
 
 const appLocale = window.appLocale;
 addLocaleData(appLocale.data);

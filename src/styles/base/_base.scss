@@ -1,0 +1,33 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+table {
+    border-spacing: 0px;
+    background: white;
+    font-size: 14px;
+    line-height: 24px;
+    color: #444444;
+}
+
+.container {
+    max-width: 677px;
+    margin: 0 auto;
+    padding: 0 40px 0 40px;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}

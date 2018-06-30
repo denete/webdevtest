@@ -46,6 +46,8 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
+const CSSExtract = new ExtractTextPlugin('styles.css');
+
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -227,6 +229,25 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          {
+            test: /\.s?css$/,
+            use: CSSExtract.extract({
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: {
+                    sourceMap: true
+                  }
+                },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    sourceMap: true
+                  }
+                }
+              ]
+            })
+          }
           // ** STOP ** Are you adding a new loader?
           // Make sure to add the new loader(s) before the "file" loader.
         ],
@@ -234,6 +255,7 @@ module.exports = {
     ],
   },
   plugins: [
+    CSSExtract,
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

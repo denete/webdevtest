@@ -6,8 +6,6 @@ import { injectIntl, defineMessages } from "react-intl";
 
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 
-import "./../../css/SuperResponsiveTableStyle.css";
-
 import { nextEventInTime } from "./../utils/nextEventInTime";
 
 const messages = defineMessages({
