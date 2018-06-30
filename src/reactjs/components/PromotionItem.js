@@ -26,20 +26,42 @@ const messages = defineMessages({
     next_entry_deadline: {
         id: "NEXT_ENTRY_DEADLINE",
         defaultMessage: "The Next Entry Deadline is"
+    },
+    prize: {
+        id: "PRIZE",
+        defaultMessage: "Prize"
+    },
+    entry_deadline: {
+        id: "ENTRY_DEADLINE",
+        defaultMessage: "Entry deadline"
+
+    },
+    drawing_date: {
+        id: "DRAWING_DATE",
+        defaultMessage: "Drawing date"
+    },
+    entry_number: {
+        id: "ENTRY_NUMBER",
+        defaultMessage: "Entry number"
+    },
+    date: {
+        id: "DATE",
+        defaultMessage: "Date"
     }
 });
 
-const drawingHeaders = ["Prize", "Entry deadline", "drawing date"];
+const drawingHeaders = ["prize", "entry_deadline", "drawing_date"];
 
-const entryHeaders = ["Entry number", "date"];
+const entryHeaders = ["entry_number", "date"];
 
 class PromotionItem extends React.Component {
     renderDrawingSchedule (promotionData) {
         const { intl } = this.props;
 
-        const drawingsTHeadContent = drawingHeaders.map((drawingHeader, index) => {
+        const drawingsTHeadContent = drawingHeaders.map((drawingHeaderKey, index) => {
             const headerKey = `header${index}`;
-            return <Th key={ headerKey }>{ drawingHeader }</Th>;
+            const headerText = intl.formatMessage(messages[drawingHeaderKey]);
+            return <Th key={ headerKey }>{ headerText }</Th>;
         });
 
         const drawingsTBodyContent = promotionData.drawings.map((drawingData, index) => {
@@ -75,9 +97,10 @@ class PromotionItem extends React.Component {
     renderEntries (promotionData) {
         const { intl } = this.props;
 
-        const entriesTHeadContent = entryHeaders.map((entryHeader, index) => {
+        const entriesTHeadContent = entryHeaders.map((entryHeaderKey, index) => {
             const headerKey = `header${index}`;
-            return <Th key={ headerKey }>{ entryHeader }</Th>;
+            const headerText = intl.formatMessage(messages[entryHeaderKey]);
+            return <Th key={ headerKey }>{ headerText }</Th>;
         });
 
         const entriesTBodyContent = promotionData.entries.map((entryData, index) => {
