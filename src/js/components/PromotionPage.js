@@ -1,7 +1,8 @@
 import React from "react";
 import { injectIntl, defineMessages } from "react-intl";
-
 import { connect } from "react-redux";
+
+import getSortedPromotions from "./../selectors/promotions";
 import PromotionItem from "./PromotionItem";
 import PromotionList from "./PromotionList";
 
@@ -57,7 +58,7 @@ class PromotionPage extends React.Component {
 
 function mapStateToProps({ data }) {
 	return {
-		data
+		data: getSortedPromotions(data)
 	};
 }
 
