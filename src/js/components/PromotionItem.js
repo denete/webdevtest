@@ -26,6 +26,10 @@ const messages = defineMessages({
     next_entry_deadline: {
         id: "NEXT_ENTRY_DEADLINE",
         defaultMessage: "The Next Entry Deadline is"
+    },
+    error: {
+        id: "ERROR",
+        defaultMessage: "error"
     }
 });
 
@@ -115,6 +119,10 @@ class PromotionItem extends React.Component {
     render () {
         const { data, promotionIndex, intl } = this.props;
         const promotionData = data.promotion_objects[promotionIndex];
+        if (promotionData === undefined) {
+            const errorText = intl.formatMessage(messages.error);
+            return <div>{ errorText }</div>;
+        }
         const serverTimeData = data.server_time;
 
         const nextEntryDeadlineText = intl.formatMessage(messages.next_entry_deadline);

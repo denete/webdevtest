@@ -1,6 +1,7 @@
 window.appLocale = {
   messages: {
     LOADING: "Loading",
+    ERROR: "Error",
     NEXT_DRAWING_DATE: "Next Drawing Date:",
     DRAWING_SCHEDULE: "Drawing Schedule",
     TOTAL_TICKETS_ENTERED: "Your Total Tickets Entered:",
