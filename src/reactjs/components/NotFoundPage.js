@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => (
-  <div>
-    404 - <Link to="/index.html">Go home</Link>
+  <div className="modal">
+    <div className="modalInner">
+      404 - <Link to="/index.html">Go home</Link>
+    </div>
   </div>
 );
 

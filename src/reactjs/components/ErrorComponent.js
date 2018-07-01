@@ -13,8 +13,8 @@ class ErrorComponent extends React.Component {
     render () {
         const loadingText = this.props.intl.formatMessage(messages.error);
         return (
-            <div className="error">
-              <div className="errorInner">
+            <div className="modal">
+              <div className="modalInner">
                 { loadingText }
               </div>
             </div>

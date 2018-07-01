@@ -13,8 +13,8 @@ class LoaderComponent extends React.Component {
     render () {
         const loadingText = this.props.intl.formatMessage(messages.loading);
         return (
-            <div className="loader">
-              <div className="loaderInner">
+            <div className="modal">
+              <div className="modalInner">
                 { loadingText }
               </div>
             </div>
