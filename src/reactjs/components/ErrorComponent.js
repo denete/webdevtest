@@ -9,7 +9,7 @@ const messages = defineMessages({
 	}
 });
 
-class ErrorComponent extends React.Component {
+export class ErrorComponent extends React.Component {
     render () {
         const loadingText = this.props.intl.formatMessage(messages.error);
         return (

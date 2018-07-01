@@ -11,7 +11,7 @@ const messages = defineMessages({
 	}
 });
 
-class PromotionListItem extends React.Component {
+export class PromotionListItem extends React.Component {
     getNextDrawing (drawingsData, serverTimeData) {
         const nextDrawingData = nextEventInTime(drawingsData, "drawing_date", serverTimeData);
         const { intl } = this.props;

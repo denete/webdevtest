@@ -9,7 +9,7 @@ const messages = defineMessages({
 	}
 });
 
-class LoaderComponent extends React.Component {
+export class LoaderComponent extends React.Component {
     render () {
         const loadingText = this.props.intl.formatMessage(messages.loading);
         return (

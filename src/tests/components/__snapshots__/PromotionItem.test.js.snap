@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render PromotionItem correctly 1`] = `
+<div
+  className="promotionView"
+>
+  <div
+    className="promotionItem container"
+  >
+    <div
+      className="nextEntryContainer"
+    >
+      <p>
+        The Next Entry Deadline is
+      </p>
+      <p>
+        Tuesday, June 07, 2016
+      </p>
+    </div>
+    <div
+      className="promotionItemImg"
+    >
+      <img
+        src="images/fortune.jpg"
+      />
+    </div>
+    <h1>
+      $1,000,000 Fortune Second-Chance Promotion
+    </h1>
+    <p>
+      Enter for the chance to win the Second-Chance prize of $1,000,000 in the $1,000,000 Fortune Promotion!
+    </p>
+    <div
+      className="drawingScheduleTable"
+    >
+      <h2>
+        Drawing Schedule
+      </h2>
+      <Table
+        className="tableResults"
+      >
+        <Thead>
+          <WithContext(TrInner)>
+            <Th
+              key="header0"
+            >
+              Prize
+            </Th>
+            <Th
+              key="header1"
+            >
+              Entry Deadline
+            </Th>
+            <Th
+              key="header2"
+            >
+              Drawing Date
+            </Th>
+          </WithContext(TrInner)>
+        </Thead>
+        <Tbody>
+          <WithContext(TrInner)
+            key="drawings0"
+          >
+            <WithContext(TdInner)>
+              $10,000 Cash Prize
+            </WithContext(TdInner)>
+            <WithContext(TdInner)>
+              Tuesday, June 07, 2016
+            </WithContext(TdInner)>
+            <WithContext(TdInner)>
+              Monday, June 13, 2016
+            </WithContext(TdInner)>
+          </WithContext(TrInner)>
+          <WithContext(TrInner)
+            key="drawings1"
+          >
+            <WithContext(TdInner)>
+              $1,000,000 Cash Prize
+            </WithContext(TdInner)>
+            <WithContext(TdInner)>
+              Monday, June 20, 2016
+            </WithContext(TdInner)>
+            <WithContext(TdInner)>
+              Sunday, June 26, 2016
+            </WithContext(TdInner)>
+          </WithContext(TrInner)>
+        </Tbody>
+      </Table>
+    </div>
+    <p>
+      Any non-winning $5 ticket is eligible for entry. Each ticket submitted will result in one (1) entry into the drawing. An unlimited number of qualifying tickets can be entered, but each ticket can only be entered once. You do not need to keep original tickets to claim a second-chance prize. However, once Official Entry Codes have been submitted online, please check the regular drawing results before discarding tickets.
+    </p>
+    <div
+      className="entriesTable"
+    >
+      <h2>
+        Your Total Tickets Entered:
+         
+        3
+      </h2>
+      <p
+        className="lockedEntry"
+      >
+        All entries are locked in at the time they are submitted and cannot be deleted.
+      </p>
+      <Table
+        className="tableResults"
+      >
+        <Thead>
+          <WithContext(TrInner)>
+            <Th
+              key="header0"
+            >
+              Entry number
+            </Th>
+            <Th
+              key="header1"
+            >
+              Date
+            </Th>
+          </WithContext(TrInner)>
+        </Thead>
+        <Tbody>
+          <WithContext(TrInner)
+            key="entries0"
+          >
+            <WithContext(TdInner)>
+              027840217109
+            </WithContext(TdInner)>
+            <WithContext(TdInner)>
+              Tuesday, June 07, 2016
+            </WithContext(TdInner)>
+          </WithContext(TrInner)>
+          <WithContext(TrInner)
+            key="entries1"
+          >
+            <WithContext(TdInner)>
+              187554635107
+            </WithContext(TdInner)>
+            <WithContext(TdInner)>
+              Wednesday, June 08, 2016
+            </WithContext(TdInner)>
+          </WithContext(TrInner)>
+          <WithContext(TrInner)
+            key="entries2"
+          >
+            <WithContext(TdInner)>
+              314725611824
+            </WithContext(TdInner)>
+            <WithContext(TdInner)>
+              Thursday, June 09, 2016
+            </WithContext(TdInner)>
+          </WithContext(TrInner)>
+        </Tbody>
+      </Table>
+    </div>
+  </div>
+</div>
+`;

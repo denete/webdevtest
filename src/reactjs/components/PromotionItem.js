@@ -54,7 +54,7 @@ const drawingHeaders = ["prize", "entry_deadline", "drawing_date"];
 
 const entryHeaders = ["entry_number", "date"];
 
-class PromotionItem extends React.Component {
+export class PromotionItem extends React.Component {
     renderDrawingSchedule (promotionData) {
         const { intl } = this.props;
 
