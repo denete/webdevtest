@@ -63,7 +63,7 @@ exports[`should render PromotionItem correctly 1`] = `
             key="drawings0"
           >
             <WithContext(TdInner)>
-              $10,000 Cash Prize
+              $10,000
             </WithContext(TdInner)>
             <WithContext(TdInner)>
               Tuesday, June 07, 2016
@@ -76,7 +76,7 @@ exports[`should render PromotionItem correctly 1`] = `
             key="drawings1"
           >
             <WithContext(TdInner)>
-              $1,000,000 Cash Prize
+              $1,000,000
             </WithContext(TdInner)>
             <WithContext(TdInner)>
               Monday, June 20, 2016

@@ -8,6 +8,8 @@ import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 
 import { nextEventInTime } from "./../utils/nextEventInTime";
 
+import { getNumberPrize } from "./../utils/getNumberPrize";
+
 import ErrorComponent from "./ErrorComponent";
 
 const messages = defineMessages({
@@ -69,10 +71,10 @@ export class PromotionItem extends React.Component {
             const deadlineDate = moment(drawingData.entry_deadline).format("dddd, MMMM DD, YYYY");
             const drawingDate = moment(drawingData.drawing_date).format("dddd, MMMM DD, YYYY");
             return (
-                <Tr key={key}>
-                    <Td>{drawingData.prize}</Td>
-                    <Td>{deadlineDate}</Td>
-                    <Td>{drawingDate}</Td>
+                <Tr key={ key }>
+                    <Td>{ getNumberPrize(drawingData.prize) }</Td>
+                    <Td>{ deadlineDate }</Td>
+                    <Td>{ drawingDate }</Td>
                 </Tr>
             );
         });
@@ -107,9 +109,9 @@ export class PromotionItem extends React.Component {
             const key = `entries${index}`;
             const entryDate = moment(entryData.date).format("dddd, MMMM DD, YYYY");
             return (
-                <Tr key={key}>
-                    <Td>{entryData.entry_number}</Td>
-                    <Td>{entryDate}</Td>
+                <Tr key={ key }>
+                    <Td>{ entryData.entry_number }</Td>
+                    <Td>{ entryDate }</Td>
                 </Tr>
             );
         });
@@ -155,12 +157,12 @@ export class PromotionItem extends React.Component {
                         <p>{ nextEntryDate }</p>
                     </div>
                     <div className="promotionItemImg">
-                        <img src={promotionData.promo_image_url}></img>
+                        <img src={ promotionData.promo_image_url }></img>
                     </div>
-                    <h1>{promotionData.promotion_name}</h1>
-                    <p>{promotionData.summary}</p>
+                    <h1>{ promotionData.promotion_name }</h1>
+                    <p>{ promotionData.summary }</p>
                     { this.renderDrawingSchedule(promotionData) }
-                    <p>{promotionData.entry_info}</p>
+                    <p>{ promotionData.entry_info }</p>
                     { this.renderEntries(promotionData) }
                 </div>
             </div>
