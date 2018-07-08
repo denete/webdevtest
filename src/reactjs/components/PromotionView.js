@@ -10,8 +10,15 @@ import LoaderComponent from "./LoaderComponent";
 
 class PromotionView extends React.Component {
 
+    getRequestedPromoIndex (promoID) {
+        const promoIdRet = promoID.replace(/promo/g,'');
+        const promoIndex = parseInt(promoIdRet, 0) - 1;
+        return promoIndex;
+    }
+        
     render () {
-        const { data, promotionIndex } = this.props;
+        const { data, match: { params } } = this.props;
+        const promotionIndex = this.getRequestedPromoIndex(params.id);
 
         if (data === undefined) {
             return <LoaderComponent />;

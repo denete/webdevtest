@@ -9,17 +9,15 @@ const messages = defineMessages({
 	}
 });
 
-export class LoaderComponent extends React.Component {
-    render () {
-        const loadingText = this.props.intl.formatMessage(messages.loading);
-        return (
-            <div className="modal">
-              <div className="modalInner">
-                { loadingText }
-              </div>
+export const LoaderComponent = ({ intl }) => {
+    const loadingText = intl.formatMessage(messages.loading);
+    return (
+        <div className="modal">
+            <div className="modalInner">
+            { loadingText }
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default injectIntl(LoaderComponent);
