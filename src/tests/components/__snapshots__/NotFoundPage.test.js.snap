@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render NotFoundPage correctly 1`] = `
+<div
+  className="modal"
+>
+  <div
+    className="modalInner"
+  >
+    404 - 
+    <Link
+      replace={false}
+      to="/index.html"
+    >
+      Go home
+    </Link>
+  </div>
+</div>
+`;

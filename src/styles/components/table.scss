@@ -1,0 +1,53 @@
+.promotionView {
+    .promotionItem {
+        .drawingScheduleTable,
+        .entriesTable {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .tdBefore {
+            text-transform: uppercase;
+        }
+
+        .tableResults {
+            thead {
+                text-transform: uppercase;
+
+                tr th {
+                    background: #666666;
+                    color: #eeeeee;
+                }
+            }
+
+            tbody {
+                tr td {
+                    background: #cccccc;
+                }
+            }
+
+            th, td {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-width: 2px 2px 2px 2px;
+                border-color: white;
+                border-style: solid;
+            }
+
+            @media (max-width: 480px) {
+                th, td {
+                    border-width: 0 0 1px 0;
+                    padding-bottom: 30px;
+                    border-color: rgba(255, 255, 255, 0.5);
+                }
+    
+                tr:not(:last-child) {
+                    border-width: 0 0 1px 0;
+                    border-color: #888888;
+                    border-style: solid;
+                }
+            }
+        }
+    }
+}

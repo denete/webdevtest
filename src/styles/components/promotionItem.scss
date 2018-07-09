@@ -1,0 +1,75 @@
+.promotionView {
+
+    @media (min-width: 481px) {
+        background: linear-gradient(#cccccc , #ffffff);
+    }
+
+    .promotionItem {
+        padding-top: 20px;
+
+        @media (max-width: 480px) {
+            h1 {
+                display: none;
+            }
+        }
+
+        @media (min-width: 481px) {
+            h1 {
+                display: block;
+                font-size: 24px;
+                color: #000000;
+            }
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #000000;
+        }
+        
+        p {
+            font-size: 14px;
+            line-height: 24px;
+            color: #444444;
+        }
+
+        .promotionItemImg {
+            padding: 30px;
+        }
+
+        @media (max-width: 480px) {
+            .promotionItemImg {
+                padding: 0;
+                margin-left: -30px;
+                margin-right: -30px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
+        
+        .lockedEntry {
+            margin-bottom: 15px;
+        }
+
+        .nextEntryContainer {
+            display: none;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .lockedEntry {
+                color: #b20000; 
+            }
+        
+            .nextEntryContainer {
+                display: block;
+
+                p {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #b20000;
+                }
+            }
+        }
+    }
+
+}

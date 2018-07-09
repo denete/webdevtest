@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render PromotionItem correctly 1`] = `
+<div
+  className="promotionListItem"
+>
+  <img
+    src="images/fortune.jpg"
+  />
+  <h1>
+    <Link
+      replace={false}
+      to="url"
+    >
+      $1,000,000 Fortune Second-Chance Promotion
+    </Link>
+  </h1>
+  <div>
+    Enter for the chance to win the Second-Chance prize of $1,000,000 in the $1,000,000 Fortune Promotion!
+  </div>
+  <div
+    className="nextDrawingDate"
+  >
+    Next Drawing Date:
+     
+    Monday, June 13, 2016
+  </div>
+</div>
+`;

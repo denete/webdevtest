@@ -1,0 +1,39 @@
+.responsiveTable {
+	width: 100%;
+}
+
+.responsiveTable td .tdBefore {
+	display: none;
+}
+
+@media (max-width: 480px) {
+	.responsiveTable {
+	  }
+
+	.responsiveTable table, .responsiveTable thead, .responsiveTable tbody, .responsiveTable th, .responsiveTable td, .responsiveTable tr {
+		display: block;
+	}
+
+	.responsiveTable thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+		border-bottom: 2px solid #333;
+	}
+
+	.responsiveTable td.pivoted {
+		position: relative;
+		padding-left: 50% !important;
+		text-align: left !important;
+	}
+
+	.responsiveTable td .tdBefore {
+		position: absolute;
+		display: block;
+		left: 10px;
+		width: 45%;
+		padding-right: 10px;
+		text-align: left !important;
+		font-weight: 600;
+	}
+}
