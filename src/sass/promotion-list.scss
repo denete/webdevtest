@@ -1,0 +1,45 @@
+@import "colors";
+
+.promotion-list {
+    margin: 30px auto;
+    width: 95%;
+    max-width: 677px;
+
+    .item {
+        margin: 70px 0 0 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        h1 {
+            color: $list-heading-color;
+            font: {
+                size: 24px;
+                weight: bold;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+
+            &:hover {
+                color: $list-a-hover-color;
+            }
+        }
+
+        header {
+            img {
+                box-shadow: 3px 3px 8px $list-shadow-color;
+                width: 100%;
+                max-width: 677px;
+            }
+        }
+
+        p {
+            color: $list-p-color;
+            font-size: 14px;
+        }
+    }
+}
