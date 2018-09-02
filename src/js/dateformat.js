@@ -318,11 +318,8 @@ const dateFormat = function(format, timestamp){
     return _date(format, timestamp);
 };
 
-/*
+
 // for unit testing
-module.exports = {
-    dateFormat
-};
-*/
+// module.exports = {dateFormat};
 
 export default dateFormat;

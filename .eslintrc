@@ -779,10 +779,7 @@
     // require let or const instead of var
     "no-var": "warn",
     // require or disallow method and property shorthand syntax for object literals
-    "object-shorthand": [
-      "warn",
-      "consistent"
-    ],
+    "object-shorthand": "off",
     // require using arrow functions for callbacks
     "prefer-arrow-callback": "off",
     // require const declarations for variables that are never reassigned after declared
