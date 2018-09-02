@@ -1,0 +1,9 @@
+@import "colors";
+
+@media screen and (min-width: $breakpoint + 1) {
+    body {
+        background-attachment: fixed;
+        background-image: linear-gradient($item-gradient-color1, $item-gradient-color2);
+        background-repeat: no-repeat;
+    }
+}
