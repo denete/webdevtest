@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+        <meta name="theme-color" content="#000000" />
+
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/layout.min.css" />
+        <link rel="stylesheet" href="css/promotion-list.min.css" />
+        <link rel="stylesheet" href="css/promotion-item.min.css" />
+
+        <script type="module">
+            import init from './js/webdevtest.js';
+            init();
+        </script>
+
+        <title>Scientific Games</title>
+    </head>
+    <body>
+        <noscript>
+            You need to enable JavaScript to run this app.
+        </noscript>
+
+        <section id="promotion-list"></section>
+        <section id="promotion-item"></section>
+
+        <template id="promotion-list-item">
+            <div class="item">
+                <header>
+                    <img data-image alt="" src="images/mmadness.jpg" />
+                    <h1>
+                        <a data-name href=""></a>
+                    </h1>
+                </header>
+                <p data-summary></p>
+                <p>
+                    Next Drawing Date: <time data-drawing-date datetime=""></time>
+                </p>
+            </div>
+        </template>
+
+        <template id="promotion">
+            <header>
+                <div class="align-center">
+                    <div class="warning thin-highlight">
+                        The Next Entry Deadline is<br />
+                        <time data-deadline-date datetime=""></time>!
+                    </div>
+                    <img data-image alt="" src="images/mmadness.jpg" />
+                </div>
+                <h1 data-name></h1>
+                <p data-summary></p>
+            </header>
+
+            <main>
+                <h2 class="align-center">Drawing Schedule</h2>
+
+                <table data-drawings-wide class="wide">
+                    <tr>
+                        <th>Prize</th>
+                        <th>Entry deadline</th>
+                        <th>Drawing date</th>
+                    </tr>
+                </table>
+
+                <table data-drawings-thin class="thin"></table>
+
+                <p data-entry-info>entry info</p>
+                <h2 class="align-center">Your Total Tickets Entered: <span data-tickets-num></span></h2>
+                <p class="align-center thin-highlight">All entries are locked in at the time they are submitted and cannot be deleted.</p>
+
+                <table data-entries-wide class="wide">
+                    <tr>
+                        <th>Entry number</th>
+                        <th>Date</th>
+                    </tr>
+                </table>
+
+                <table data-entries-thin class="thin"></table>
+            </main>
+        </template>
+
+        <template id="drawings-wide">
+            <tr>
+                <td data-prize>$10,000</td>
+                <td><time data-deadline-date datetime=""></time></td>
+                <td><time data-drawing-date datetime=""></time></td>
+            </tr>
+        </template>
+
+        <template id="drawings-thin">
+            <tr class="next">
+                <td>Prize</td>
+                <td data-prize></td>
+            </tr>
+            <tr>
+                <td>Entry deadline</td>
+                <td><time data-deadline-date datetime=""></time></td>
+            </tr>
+            <tr>
+                <td>Drawing date</td>
+                <td><time data-drawing-date datetime=""></time></td>
+            </tr>
+        </template>
+
+        <template id="entries-wide">
+            <tr>
+                <td data-number></td>
+                <td><time data-date datetime=""></time></td>
+            </tr>
+        </template>
+
+        <template id="entries-thin">
+            <tr class="next">
+                <td>Entry number</td>
+                <td data-number></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><time data-date datetime=""></time></td>
+            </tr>
+        </template>
+
+    </body>
+</html>

@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "layout-item.min.css",
+	"sources": [
+		"../sass/layout-item.scss",
+		"../sass/_colors.scss"
+	],
+	"names": [],
+	"mappings": "AAEA,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK,EAC/B,AAAA,IAAI,AAAC,CACD,qBAAqB,CAAE,KAAK,CAC5B,gBAAgB,CAAE,2BAA6D,CAC/E,iBAAiB,CAAE,SAAS,CAC/B"
+}

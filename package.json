@@ -1,0 +1,12 @@
+{
+  "name": "WebDevTest",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha ./src/js/test/*.js"
+  }
+}
