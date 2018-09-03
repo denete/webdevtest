@@ -1,0 +1,8 @@
+<div class="promotion-body-wrapper">
+    <div class="promotion-list-element" ng-repeat="item in main.data.promotion_objects">
+        <img class="promotion-list-image" ng-src="{{item.promo_image_url}}" alt="Promo Image">
+        <p class="promotion-name" ng-click="main.goToDetails($index)">{{ item.promotion_name }}</p>
+        <p class="promotion-text">{{ item.summary }}</p>
+        <p class="promotion-text">Next drawing date: {{ item.drawings[0].drawing_date | date }}</p>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="promotion-details-body">
+    <img class="promotion-details-image" ng-src="{{promo.data.promo_image_url}}" alt="Promo Image">
+    <div class="promotion-details-wrapper">
+        <p class="promotion-details-name">{{promo.data.promotion_name}}</p>
+        <p class="promotion-details-summary">{{promo.data.summary}}</p>
+
+        <div class="promotion-details-drawing-wrapper">
+            <p class="drawing-title">Drawing Schedule</p>
+            <table class="drawing-table">
+                <thead>
+                    <tr>
+                        <th>PRIZE</th>
+                        <th>ENTRY DEADLINE</th>
+                        <th>DRAWING DATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="draw in promo.data.drawings">
+                        <td>{{ draw.prize }}</td>
+                        <td>{{ draw.entry_deadline | date }}</td>
+                        <td>{{ draw.drawing_date | date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="promotion-details-entries-wrapper">
+            <p class="entries-title">Your Total Tickets Entered: {{promo.data.entries.length}}</p>
+            <p class="entries-subtitle">All entries are locked in at the time they are submitted and cannot be deleted.</p>
+            <table class="entries-table">
+                <thead>
+                    <tr>
+                        <th>ENTRY NUMBER</th>
+                        <th>DATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="entry in promo.data.entries">
+                        <td>{{ entry.entry_number }}</td>
+                        <td>{{ entry.date | date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+</div>

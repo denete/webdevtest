@@ -1,0 +1,126 @@
+body {
+    margin: auto;
+    
+}
+
+.promotion-list-element {
+    margin: 35px 48px 65px 48px;
+    max-width: 784px;
+
+}
+
+.promotion-list-element .promotion-list-image {
+    max-width: auto;
+    max-height: 130px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.promotion-list-element .promotion-name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #036dbe;
+    margin-top: 28px;
+}
+
+.promotion-list-element .promotion-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #444444;
+    margin-top: 28px;
+}
+
+
+.promotion-details-body {
+    background-image: linear-gradient(to bottom, #cccccc, #ffffff);
+    min-width: 100%;
+    padding-top: 35px;
+}
+
+.promotion-details-body .promotion-details-image {
+    max-width: auto;
+    max-height: 130px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    display:block;
+    margin:auto;
+}
+
+.promotion-details-wrapper {
+    max-width: 784px;
+    margin: auto;
+}
+
+.promotion-details-body .promotion-details-wrapper .promotion-details-name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 28px;
+}
+
+.promotion-details-body .promotion-details-wrapper .promotion-details-summary {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: #444444;
+    margin-top: 28px;
+}
+
+.promotion-details-body .promotion-details-drawing-wrapper .drawing-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 28px;
+    text-align: center;
+}
+
+.promotion-details-body .promotion-details-drawing-wrapper .drawing-table {
+    
+}
+
+.drawing-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.drawing-table thead {
+    color: white;
+    background-color: #000000;
+}
+
+.drawing-table tbody {
+    color: black;
+    background-color: #BEBEBE;
+}
+
+.promotion-details-body .promotion-details-entries-wrapper {
+
+}
+
+.promotion-details-body .promotion-details-entries-wrapper .entries-title {
+    text-align: center;
+}
+
+.promotion-details-body .promotion-details-entries-wrapper .entries-subtitle {
+    text-align: center;
+}
+
+.promotion-details-body .promotion-details-entries-wrapper .entries-table {
+    
+}
+
+.entries-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entries-table thead {
+    color: white;
+    background-color: #000000;
+}
+
+.entries-table tbody {
+    color: black;
+    background-color: #BEBEBE;
+}
