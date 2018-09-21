@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PromotionService } from './service/promotion.service';
 
 @Component({
   selector: 'app',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'webdevtest';
+    title = 'webdevtest';
+    promotions = [];
+
+    constructor(private promotionService: PromotionService) { }
+
+    getPromotions(): void {
+        this.promotions = this.promotionService.getPromotions();
+    }
+
+    ngOnInit() {
+        this.getPromotions();
+    }
 }
