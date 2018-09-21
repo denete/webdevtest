@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+
+    app:
+        image: busybox:latest
+        working_dir: /app
+        links: 
+            - node
+        volumes:
+            - ./src:/app
+            
+    node:
+        build: ./docker
+        restart: always
+        command: "ng serve --host 0.0.0.0"
+        working_dir: /app
+        restart: 'no'
+        volumes:
+            - ./src:/app
+        ports:
+            - "4200:4200" 
+            - "49153:49153"
+        expose:
+            - "4200" 
+            - "49153"
