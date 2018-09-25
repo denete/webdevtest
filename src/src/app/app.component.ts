@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { PromotionService } from './service/promotion.service';
+
+import { PromotionCollection } from './model/promotion-collection';
 
 @Component({
   selector: 'app',
@@ -8,15 +9,4 @@ import { PromotionService } from './service/promotion.service';
 })
 export class AppComponent {
     title = 'webdevtest';
-    promotions = [];
-
-    constructor(private promotionService: PromotionService) { }
-
-    getPromotions(): void {
-        this.promotions = this.promotionService.getPromotions();
-    }
-
-    ngOnInit() {
-        this.getPromotions();
-    }
 }

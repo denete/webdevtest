@@ -1,0 +1,14 @@
+<ul id="promotion-list">
+    <li *ngFor="let promotion of promotions; let i = index">
+        <img src="assets/{{ promotion.promo_image_url }}" />
+        <a routerLink="/promo/{{ i }}">
+            <h1 class="promo-item-name">{{ promotion.promotion_name }}</h1>
+        </a>
+        <p class="promo-item-summary">
+            {{ promotion.summary }}
+        </p>
+        <p class="promo-item-drawing-date">
+            Next Drawing Date: {{ promotionService.getNextDrawDate(i) | date:'medium' }}
+        </p>
+    </li>
+</ul>

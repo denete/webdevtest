@@ -1,4 +1,4 @@
-export interface Entry {
+export class Entry {
     entryNumber: string;
     date: date;
 }

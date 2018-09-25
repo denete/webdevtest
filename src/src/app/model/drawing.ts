@@ -1,5 +1,5 @@
-export interface Drawing {
-    entryDeadline: date;
-    drawingDate: date;
+export class Drawing {
+    entryDeadline: Date;
+    drawingDate: Date;
     prize: string;
 }

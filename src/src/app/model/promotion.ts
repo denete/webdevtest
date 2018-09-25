@@ -1,10 +1,16 @@
 import { Drawing } from 'model/drawing';
 import { Entry } from 'model/entry';
 
-export interface Promotion {
+export class Promotion {
     name: string;
     image_url: string;
     summary: string;
-    drawings: Array<Drawing>;
-    entries: Array<Entry>;
+    drawings: Drawing[];
+    entries: Entry[];
+    
+    constructor(obj: any) {
+        console.log (obj);
+        this.name = obj.promotion_name;
+        this.image = obj.promo_image_url;
+    }
 }

@@ -1,0 +1,47 @@
+<main class="promo-detail">
+    <h1 class="promo-entry-deadline">
+        The Next Entry Deadline is<br />
+        {{ promotionService.getNextEntryDeadlineDate(id) | date: dateFormat }}
+    </h1>
+    <img src="assets/{{ promotion.promo_image_url }}" />
+    <h2 class="promo-name">{{ promotion.promotion_name }}</h2>
+    <p class="promo-summary">{{ promotion.summary }}</p>
+    <section class="promo-drawing-schedule">
+        <h2>Drawing Schedule</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Prize</th>
+                    <th>Entry Deadline</th>
+                    <th>Drawing Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let drawing of promotion.drawings">
+                    <td>{{ drawing.prize }}</td>
+                    <td>{{ drawing.entry_deadline | date: dateFormat }}</td>
+                    <td>{{ drawing.drawing_date | date: dateFormat }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <p class="promo-entry-info">{{ promotion.entry_info }}</p>
+    <section class="promo-entries">
+        <h2>Your Total Tickets Entered: {{ promotion.entries.length }}</h2>
+        <p>All entries are locked in at the time they are submitted and cannot be deleted</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Entry Number</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let entry of promotion.entries">
+                    <td>{{ entry.entry_number }}</td>
+                    <td>{{ entry.date | date: dateFormat }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
