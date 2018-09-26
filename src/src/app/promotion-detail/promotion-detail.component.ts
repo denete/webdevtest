@@ -8,12 +8,14 @@ import { PromotionService } from '../service/promotion.service';
 @Component({
   selector: 'app-promotion-detail',
   templateUrl: './promotion-detail.component.html',
-  styleUrls: ['./promotion-detail.component.css']
+  styleUrls: ['./promotion-detail.component.css'],
+  encapsulation: 3
 })
 export class PromotionDetailComponent implements OnInit {
 
   @Input() promotion: Promotion;
   private id: number;
+  // TODO move to global var
   private dateFormat = 'EEEE, MMMM d, yyyy';
 
   constructor(

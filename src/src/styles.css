@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+main {
+    height: 100vh;
+}
+
+#content-wrapper {
+    margin-top: 40px;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+a :hover {
+    text-decoration: none;
+}
+.image-wrapper {
+    width: 100%;
+}
+.image-responsive {
+    width: 100%;
+    height: auto;
+}
+
+.image-shadow {
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+}

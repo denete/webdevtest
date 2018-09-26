@@ -1,0 +1,121 @@
+body {
+    background: #fff;
+    background: linear-gradient(0deg, #ccc 0%, #fff 35%);
+}
+
+#promo-detail-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.promo-entry-deadline {
+    display: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #b20000;
+}
+
+.promo-name {
+    font-size: 24px;
+    color: #000000;
+}
+
+.image-wrapper {
+    margin-bottom: 20px;
+}
+
+
+
+/* RWD */
+
+.rtable {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.rtable,
+.rtable--flip tbody {
+  -webkit-overflow-scrolling: touch;
+}
+
+.rtable td:first-child,
+.rtable--flip tbody tr:first-child {
+  background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 20px 100%;
+}
+
+.rtable td:last-child,
+.rtable--flip tbody tr:last-child {
+  background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 20px 100%;
+}
+
+.rtable th {
+  font-size: 11px;
+  text-align: left;
+  text-transform: uppercase;
+  background: #f2f0e6;
+}
+
+.rtable th,
+.rtable td {
+  padding: 6px 12px;
+  border: 1px solid #d9d7ce;
+}
+
+.rtable--flip tbody {
+  display: flex;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.rtable--flip tr {
+  display: flex;
+  flex-direction: column;
+  min-width: min-content;
+  flex-shrink: 0;
+}
+
+.rtable--flip td,
+.rtable--flip th {
+  display: block;
+}
+
+.rtable--flip td {
+  background-image: none !important;
+  border-left: 0;
+}
+
+.rtable--flip th:not(:last-child),
+.rtable--flip td:not(:last-child) {
+  border-bottom: 0;
+}
+
+@media only screen and (max-width: 480px) {
+    .promo-entry-deadline {
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+    .rtable- {
+       display: flex;
+       overflow: hidden;
+       background: none;
+    }
+
+    .rtable thead {
+        display: flex;
+        flex-shrink: 0;
+        min-width: min-content;
+    }
+
+}

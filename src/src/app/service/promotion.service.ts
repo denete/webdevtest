@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable, map, toArray, from, of } from 'rxjs';
 
 import * as moment from 'moment';
 
@@ -27,28 +26,21 @@ export class PromotionService {
     }
 
     public getPromotions(): Promotion[] {
-        if (!this.promtionsLoaded) {
+        if (!this.promotionsLoaded) {
             this.getPromotionsFromServer();
         }
         return this.promotions;
     }
 
     public getPromotionById(id: number) {
-        if (!this.promtionsLoaded) {
+        if (!this.promotionsLoaded) {
             this.getPromotionsFromServer();
         }
         return this.promotions[id];
     }
 
-    public getPromotionsServerTime(): Date {
-        if (!this.promtionsLoaded) {
-            this.getPromotionsFromServer();
-        }
-        return this.serverTime;
-    }
-
     public getNextDrawDate(id): Date {
-        if (!this.promtionsLoaded) {
+        if (!this.promotionsLoaded) {
             this.getPromotionsFromServer();
         }
 
@@ -71,7 +63,7 @@ export class PromotionService {
 
     // TODO code duplication from line 50-70
     public getNextEntryDeadlineDate(id): Date {
-        if (!this.promtionsLoaded) {
+        if (!this.promotionsLoaded) {
             this.getPromotionsFromServer();
         }
 

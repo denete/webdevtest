@@ -1,0 +1,26 @@
+#promo-list {
+    margin: 0 auto;
+    font-family: Arial;
+    height: 100vh;
+}
+.promo-item-container  {
+    max-width: 677px;
+    margin: 0 0 40px;
+}
+.promo-item-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #036dbe;
+    text-decoration: none;
+    margin: 20px auto;
+}
+.promo-item-additional {
+    font-size: 14px;
+    color: #444444;
+}
+
+@media only screen and (max-width: 480px) {
+    .promo-item-container  {
+        max-width: 480px;
+    }
+}

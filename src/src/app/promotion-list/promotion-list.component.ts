@@ -10,6 +10,7 @@ import { PromotionService } from '../service/promotion.service';
 export class PromotionListComponent implements OnInit {
 
     private promotions: Promotion[];
+    private dateFormat = 'EEEE, MMMM d, yyyy';
 
     constructor(private promotionService: PromotionService) { }
 

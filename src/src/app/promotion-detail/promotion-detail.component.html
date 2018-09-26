@@ -1,12 +1,14 @@
-<main class="promo-detail">
+<section class="promo-detail">
     <h1 class="promo-entry-deadline">
         The Next Entry Deadline is<br />
         {{ promotionService.getNextEntryDeadlineDate(id) | date: dateFormat }}
     </h1>
-    <img src="assets/{{ promotion.promo_image_url }}" />
+    <div class="image-wrapper">
+        <img class="image-shadow image-responsive" src="assets/{{ promotion.promo_image_url }}" />              
+    </div>
     <h2 class="promo-name">{{ promotion.promotion_name }}</h2>
     <p class="promo-summary">{{ promotion.summary }}</p>
-    <section class="promo-drawing-schedule">
+    <section class="promo-drawing-schedule rtable">
         <h2>Drawing Schedule</h2>
         <table>
             <thead>
@@ -44,4 +46,4 @@
             </tbody>
         </table>
     </section>
-</main>
+</section>
