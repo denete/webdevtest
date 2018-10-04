@@ -4,7 +4,7 @@ import * as moment from 'moment';
 
 import * as data from 'data/webdevtest-data.json';
 
-import { Promotion } from 'model/promotion';
+import { Promotion } from './../model/promotion';
 
 @Injectable({
     providedIn: 'root'

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { PromotionService } from '../service/promotion.service';
+import { Promotion } from './../model/promotion';
 
 @Component({
   selector: 'app-promotion-list',

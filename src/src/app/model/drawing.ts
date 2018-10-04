@@ -1,5 +1,5 @@
 export class Drawing {
-    entryDeadline: Date;
-    drawingDate: Date;
+    entry_deadline: Date;
+    drawing_date: Date;
     prize: string;
 }

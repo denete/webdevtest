@@ -8,9 +8,9 @@
     </div>
     <h2 class="promo-name">{{ promotion.promotion_name }}</h2>
     <p class="promo-summary">{{ promotion.summary }}</p>
-    <section class="promo-drawing-schedule rtable">
+    <section class="promo-drawing-schedule">
         <h2>Drawing Schedule</h2>
-        <table>
+        <table class="rtable">
             <thead>
                 <tr>
                     <th>Prize</th>
@@ -31,7 +31,7 @@
     <section class="promo-entries">
         <h2>Your Total Tickets Entered: {{ promotion.entries.length }}</h2>
         <p>All entries are locked in at the time they are submitted and cannot be deleted</p>
-        <table>
+        <table class="rtable">
             <thead>
                 <tr>
                     <th>Entry Number</th>
