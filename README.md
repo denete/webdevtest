@@ -1,4 +1,4 @@
-SGI Digital Content Studio Web Developer test
+SGI Web Developer test
 =============================================
 
 What is this?
