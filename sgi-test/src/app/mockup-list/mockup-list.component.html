@@ -1,0 +1,97 @@
+<div *ngIf="show_list" class="page-div">
+  <div class="main-container">
+    <div *ngFor="let promo of promotions" class="main-list-div">
+      <div class="img-div">
+        <img src="{{ promo.promo_image_url }}" class="img-list" />
+      </div>
+
+      <div class="promotion-div">
+        <label class="promotion-link" (click)="showPromoDetail(promo.promo_id)">
+          {{ promo.promotion_name }}
+        </label>
+      </div>
+
+      <p class="promo-drawing-text">{{ promo.summary }}</p>
+      <p class="promo-drawing-text">
+        Next Drawing Date: {{ promo.next_draw_date | date: "fullDate" }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="show_details_481 && !show_list && !show_details_480"
+  class="page-div"
+>
+  <!--BEGIN MAIN CONTAINER-->
+  <div class="main-container-details">
+    <div class="img-div-detail">
+      <img src="{{ selected_promo.promo_image_url }}" class="img-detail" />
+    </div>
+
+    <label class="promo-name">{{ selected_promo.promotion_name }}</label>
+    <p class="promo-summary-detail-text">{{ selected_promo.summary }}</p>
+
+    <div class="drawing-schedule-div">Drawing Schedule</div>
+
+    <!--BEGIN DRAWING SCHEDULE-->
+    <div style="display: flex; flex-direction: column">
+      <div class="detail-header-div">
+        <div class="detail-header-col1">PRIZE</div>
+        <div class="detail-header-col2">ENTRY DEADLINE</div>
+        <div class="detail-header-col2">DRAWING DATE</div>
+      </div>
+
+      <div *ngFor="let drawing of selected_promo.drawings">
+        <div class="detail-row-div">
+          <div class="detail-row1">
+            {{ drawing.prize }}
+          </div>
+          <div class="detail-row2">
+            {{ drawing.entry_deadline | date: "fullDate" }}
+          </div>
+          <div class="detail-row2">
+            {{ drawing.drawing_date | date: "fullDate" }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-text">{{ selected_promo.entry_info }}</div>
+
+    <div class="drawing-schedule-div">
+      Your Total Tickets Entered: {{ selected_promo.num_entries }}
+    </div>
+    <div class="body-text-locked-notice">
+      All entries are locked in at the time they are submitted and cannot be
+      deleted.
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+      <div class="detail-header-div">
+        <div class="detail-header-col1">ENTRY NUMBER</div>
+        <div class="detail-header-col2">DATE</div>
+      </div>
+
+      <div *ngFor="let entry of selected_promo.entries">
+        <div class="detail-row-div">
+          <div class="detail-row1">
+            {{ entry.entry_number }}
+          </div>
+          <div class="detail-row2">
+            {{ entry.date | date: "fullDate" }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="show_details_480 && !show_list && !show_details_481"
+  class="page-div"
+>
+  <div class="entry-deadline-text">
+    The Next Entry Deadline is
+    {{ selected_promo.entry_deadline | date: "fullDate" }}
+  </div>
+</div>
