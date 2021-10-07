@@ -49,7 +49,21 @@ body {
   color: #444444;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 681px) {
+  #main_container_details_lg {
+    display: block;
+  }
+  #main_container_details_sm {
+    display: none;
+  }
+
+  .table-div {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-self: center;
+  }
+
   .main-container-details {
     width: 90%;
     margin-top: 2%;
@@ -58,10 +72,19 @@ body {
     margin-right: auto;
     align-content: center;
     background-image: linear-gradient(#cccccc, #ffffff);
+    display: flex;
+  }
+
+  .details-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid red; */
   }
 
   .promo-name {
-    margin-left: 8%;
+    margin-left: 10%;
     font-size: 24px;
     color: rgba(0, 0, 0, 0.8);
   }
@@ -74,7 +97,7 @@ body {
   }
 
   .img-detail {
-    width: 80%;
+    width: 75%;
     display: block;
     margin-top: 20px;
     margin-left: auto;
@@ -83,7 +106,7 @@ body {
 
   .promo-summary-detail-text {
     margin-top: 15px;
-    margin-left: 8%;
+    margin-left: 10%;
     font-size: 14px;
     color: #444444;
     line-height: 24px;
@@ -118,6 +141,7 @@ body {
     width: 35%;
     border: 3px solid white;
   }
+
   .detail-header-col2 {
     height: 30px;
     text-align: center;
@@ -130,12 +154,19 @@ body {
     border: 3px solid white;
   }
 
+  .detail-rows-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   .detail-row-div {
     display: flex;
     flex-direction: row;
     /* align-items: center; */
     width: 100%;
   }
+
   .detail-row1 {
     height: 30px;
     text-align: center;
@@ -165,6 +196,8 @@ body {
     font-size: 14px;
     color: #444444;
     line-height: 24px;
+    width: 80%;
+    /* border: 1px solid green; */
   }
 
   .body-text-locked-notice {
@@ -175,18 +208,35 @@ body {
     color: #444444;
     line-height: 24px;
   }
+}
 
-  @media screen and (max-width: 480px) {
-    .entry-deadline-text {
-      width: 100%;
-      font-size: 24px;
-      color: #b20000;
-      font-weight: bold;
-      text-align: center;
-    }
+@media screen and (max-width: 680px) {
+  #main_container_details_lg {
+    display: none;
+  }
 
-    .entry-locked-notice {
-      color: #b20000;
-    }
+  #main_container_details_sm {
+    display: block;
+  }
+
+  .main-container-details {
+    width: 90%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+  }
+
+  .entry-deadline-text {
+    width: 100%;
+    font-size: 24px;
+    color: #b20000;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .entry-locked-notice {
+    color: #b20000;
   }
 }
