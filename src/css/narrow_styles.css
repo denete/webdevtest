@@ -1,0 +1,160 @@
+@media screen and (max-width: 680px) {
+  #main_container_details_lg {
+    display: none;
+  }
+
+  #main_container_details_sm {
+    display: block;
+  }
+
+  .main-container-details {
+    width: 90%;
+    margin-top: 2%;
+    padding-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    display: flex;
+  }
+
+  .entry-deadline-text {
+    width: 100%;
+    font-size: 24px;
+    color: #b20000;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .entry-locked-notice {
+    color: #b20000;
+  }
+
+  .img-div-detail {
+    align-content: center;
+    margin-bottom: 20px;
+    filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.8));
+  }
+
+  .img-detail {
+    width: 75%;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .promo-summary-detail-text {
+    margin-top: 15px;
+    margin-left: 13%;
+    margin-right: 13%;
+    font-size: 14px;
+    color: #444444;
+    line-height: 24px;
+  }
+
+  .drawing-schedule-div {
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .details-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .table-div {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-self: center;
+  }
+
+  .detail-rows-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .detail-row-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .detail-header-col1 {
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 60px;
+    text-align: flex-start;
+    vertical-align: text-top;
+    display: flex;
+    background-color: rgb(197, 197, 197);
+    color: black;
+    width: 50%;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(219, 219, 219);
+  }
+
+  .detail-header-col2 {
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 60px;
+    text-align: flex-start;
+    vertical-align: text-top;
+    display: flex;
+    background-color: rgb(197, 197, 197);
+    color: black;
+    width: 50%;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(145, 145, 145);
+  }
+
+  .detail-row1 {
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 60px;
+    text-align: flex-start;
+    vertical-align: text-top;
+    display: flex;
+    background-color: rgb(197, 197, 197);
+    color: black;
+    width: 50%;
+    border-bottom: 1px solid rgb(219, 219, 219);
+  }
+
+  .detail-row2 {
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 60px;
+    text-align: flex-start;
+    vertical-align: text-top;
+    display: flex;
+    background-color: rgb(197, 197, 197);
+    color: black;
+    width: 50%;
+    border-bottom: 1px solid rgb(145, 145, 145);
+  }
+
+  .body-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #444444;
+    line-height: 24px;
+  }
+
+  .body-text-locked-notice {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #b20000;
+  }
+}
