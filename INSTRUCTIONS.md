@@ -4,7 +4,7 @@ Instructions
 Your Task
 ---------
 
-Using the provided feed data, construct a page that is formatted to match the included mockups. You will only be using one HTML document for this test. Your document will render either a promotion view or a promotion list view.
+Using the provided feed data, construct a page that is formatted to match the included mockups. You will only be using one HTML document for this test. Your document will render both a promotion view and a promotion list view determined by the URL / query string.
 
 The promotion view layout should be responsive and render as shown in the wide mockup (webdevtest/mockup-wide.jpg) for viewports greater than 480 pixels and as shown in the 480px mockup (webdevtest/mockup-480.jpg) below that breakpoint.
 
