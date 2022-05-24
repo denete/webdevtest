@@ -8,7 +8,7 @@ Using the provided feed data, construct a page that is formatted to match the in
 
 The promotion view layout should be responsive and render as shown in the wide mockup (webdevtest/mockup-wide.jpg) for viewports greater than 480 pixels and as shown in the 480px mockup (webdevtest/mockup-480.jpg) below that breakpoint.
 
-Place your HTML in webdevtest/src/index.html. All other resources should be saved where appropriate in the webdevtest/src hierarchy.
+Place your code under in webdevtest/src/. 
 
 Feed Data
 ---------
